@@ -1,24 +1,39 @@
 var express = require('express');
 var places = express.Router();
+var path = require('path');
+var pool = require('../modules/pool.js');
 require('dotenv').config();
 var request = require('request');
 
 
 
 
-
+let newPlace = '';
 API_KEY = process.env.API_KEY;
 
-router.get('/places', function (req, res) {
-    console.log('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY);
-    request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY), function (error, response, body) {
 
-    console.log(error);
-    console.log(response);
-    console.log(body);
-    
-    
-    
-};
+places.get('/', function (req, res) {
+    console.log(req.query);
+    req.query.key = API_KEY;
+    request('https://maps.googleapis.com/maps/api/place/textsearch/json?',{qs: req.query}, function (error, response, body) {
+   
+    console.log('body:', body); // Print the HTML for the Google homepage.
+    res.send(body);
 });
+
+});
+// places.get('/', function (req, res) {
+//     console.log('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY);
+//     request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY), function (error, response, body) {
+//     let info = JSON.parse(body);
+//         console.log(error);
+//         console.log(response);
+//         console.log(body);
+//         console.log(info);
+        
+//     res.sendStatus(418);
+
+
+//     };
+// });
 module.exports = places;

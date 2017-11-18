@@ -1,5 +1,12 @@
 <div class="container">
     <h1 class="lead">Get Places</h1>
     <h1 >{{7===7}}</h1>
-    <h2>This is where the places will go</h2>
-    </div>
+    <h2>Oh, the places you will go</h2>
+
+
+    <label>
+        Locations:
+        <input type="text" name="places" ng-model="place.search" required>
+    </label>
+    <button ng-click="place.getPlaces()">Get Places</button>
+</div>
