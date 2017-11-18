@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+
 var passport = require('./strategies/sql.localstrategy');
 var sessionConfig = require('./modules/session.config');
 
@@ -33,7 +34,11 @@ app.use('/user', userRouter);
 // Catch all bucket, must be last!
 app.use('/', indexRouter);
 
+//apiRequest
+
 // Listen //
 app.listen(port, function(){
    console.log('Thx for listening on station:', port);
+
+    
 });

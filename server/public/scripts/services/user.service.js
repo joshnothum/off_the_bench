@@ -27,5 +27,14 @@ myApp.service('UserService', function($http, $location){
       console.log('UserService -- logout -- logged out');
       $location.path("/home");
     });
-  }
+  };
+  self.getPlace = function () {
+    console.log('getplace -- logout');
+    $http.get('/user/places').then(function (response) {
+      console.log('made it here');
+      
+      console.log(response);
+     
+    });
+  };
 });
