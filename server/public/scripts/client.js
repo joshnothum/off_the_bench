@@ -31,9 +31,9 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
-    .when('/locations', {
-      templateUrl: '/views/templates/locations.html',
-      controller: 'LocationsController',
+    .when('/places', {
+      templateUrl: '/views/templates/places.html',
+      controller: 'PlacesController',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

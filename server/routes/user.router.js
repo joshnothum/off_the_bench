@@ -23,21 +23,6 @@ router.get('/', function(req, res) {
   }
 });
 
-API_KEY = process.env.API_KEY;
-
-router.get('/places', function (req, res) {
-  console.log('api key'+ API_KEY);
-  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key='+ API_KEY), function (error, response, body) {
-    if (response && response.statusCode == 200) {
-      console.log(response.results);
-      
-      res.sendStatus(200);
-    } else {
-      res.sendStatus(500);
-    }
-  };
-  });
-
 
 // clear all server session information about this user
 router.get('/logout', function(req, res) {
