@@ -2,29 +2,32 @@
     <h1 class="lead">Get Places</h1>
     <h1 >{{7===7}}</h1>
     <h2>Oh, the places you will go</h2>
-
-
-    <label>
-        Locations:
-        <input type="text" name="places" ng-model="place.search" required>
-    </label>
-    <button ng-click="place.getPlaces()">Get Places</button>
+<form>
+    <md-input-container>
+    <label>Search:</label>
+        <input type="text" md-no-asterisk="true" name="places" ng-model="place.search">
+    </md-input-container>
+    <md-button ng-click="place.getPlaces()">Search</md-button>
+    </form>
     <div ng-cloak="" class="carddemoBasicUsage" ng-repeat='place in place.data'>
         <md-content class="md-padding" layout-xs="column" layout="row">
             <div flex-xs="" flex-gt-xs="50" layout="column">
-                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="">
+                <md-card md-theme="{{'dark-purple'}}" md-theme-watch="">
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">{{place.name}}</span>
-                            <span class="md-subhead">{{place.icon.width}}</span>
+                            <span class="md-subhead">{{place.formatted_address}}</span>
+                            <span class="md-subhead">Some other information will go here</span>
                         </md-card-title-text>
                         <md-card-title-media>
-                            <div class="md-media-lg card-media"></div>
+                            <div class="md-media-lg card-media">
+                                 <img ng-src="{{place.icon}}" class="md-card-image"alt="Static google Map">
+                            </div>
                         </md-card-title-media>
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button>Action 1</md-button>
-                        <md-button>Action 2</md-button>
+                        <md-button>Create</md-button>
+                        <md-button>More Info</md-button>
                     </md-card-actions>
                 </md-card>
 </div>

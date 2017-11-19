@@ -2,8 +2,12 @@ var myApp = angular.module('myApp', ['ngRoute','ngMaterial','ngMessages']);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+
+  $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+
+
   $locationProvider.hashPrefix('');
-  console.log('myApp -- config')
+  console.log('myApp -- config');
   $routeProvider
     .when('/home', {
       templateUrl: '/views/templates/home.html',

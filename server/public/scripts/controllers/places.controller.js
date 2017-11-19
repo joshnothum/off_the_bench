@@ -6,6 +6,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
     
 
     place.getPlaces = function () {
+
             let apiSearch = {
                 params:{
                 query: place.search,
@@ -22,6 +23,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
             }).catch(function (response) {
                 console.log('my places failed: ', response);
             });
+            place.search = null;
         };
+    
 
 });
