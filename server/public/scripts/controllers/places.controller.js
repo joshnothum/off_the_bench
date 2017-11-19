@@ -3,6 +3,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
     let place = this;
     place.search = '';
     place.data =[];
+    place.info = [];
     
 
     place.getPlaces = function () {
@@ -25,22 +26,22 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
             });
           place.search =null; 
         };
-    // place.getInfo = function () {
-    //     console.log('Info be working');
-    //     let infoSearch = {
-    //         params: {
-    //             placeid: place_id,
-    //         }
-    //     };
+    place.getInfo = function (place_id) {
+        console.log('Info be working');
+        let infoSearch = {
+            params: {
+                placeid: place_id,
+            }
+        };
+        console.log(place_id);
+        
+        $http.get('/places/info', infoSearch).then(function (response) {
+            console.log(response.data.result);
+            place.info = response.data.result;
 
-    //     console.log('Info be working');
-    //     $http.get('/places/info', infoSearch).then(function (response) {
-    //         console.log(response.data.results);
-    //         place.data = response.data.results;
-
-    //     }).catch(function (response) {
-    //         console.log('my info failed: ', response);
-    //     });
-    // };
+        }).catch(function (response) {
+            console.log('my info failed: ', response);
+        });
+    };
 
 });
