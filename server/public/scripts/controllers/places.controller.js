@@ -3,7 +3,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     let place = this;
     place.search = '';
     place.data = GameService.result;
-    place.info = [];
+    place.info = GameService.info;
 
     place.getPlaces = function(){
 
@@ -41,22 +41,17 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     //         });
     //       place.search =null; 
     //     };
-    // place.getInfo = function (place_id) {
-    //     console.log('Info be working');
-    //     let infoSearch = {
-    //         params: {
-    //             placeid: place_id,
-    //         }
-    //     };
-    //     console.log(place_id);
+    place.getInfo = function (place_id) {
         
-    //     $http.get('/places/info', infoSearch).then(function (response) {
-    //         console.log(response.data.result);
-    //         place.info = response.data.result;
-
-    //     }).catch(function (response) {
-    //         console.log('my info failed: ', response);
-    //     });
-    // };
+        let infoSearch = {
+            params: {
+                placeid: place_id,
+            }
+        };
+        
+        GameService.getInfo(infoSearch);
+        console.log(place.info);
+        
+    };
 
 });
