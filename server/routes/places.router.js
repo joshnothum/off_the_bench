@@ -16,12 +16,26 @@ places.get('/', function (req, res) {
     console.log(req.query);
     req.query.key = API_KEY;
     request('https://maps.googleapis.com/maps/api/place/textsearch/json?',{qs: req.query}, function (error, response, body) {
-   
-    console.log('body:', body); // Print the HTML for the Google homepage.
+     // Print the HTML for the Google homepage.
+        console.log(error);
+        console.log(body);
+        
     res.send(body);
+   
+    
 });
 
 });
+
+
+// places.get('/info', function (req, res) {
+//     console.log(req.query);
+//     req.query.key = API_KEY;
+//     request('https://maps.googleapis.com/maps/api/place/details/json?', { qs: req.query }, function (error, response, body) {
+//         // Print the HTML for the Google homepage.
+//         res.send(body);
+//     });
+// });
 // places.get('/', function (req, res) {
 //     console.log('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY);
 //     request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY), function (error, response, body) {

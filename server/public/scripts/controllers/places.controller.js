@@ -23,8 +23,24 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
             }).catch(function (response) {
                 console.log('my places failed: ', response);
             });
-            place.search = null;
+          place.search =null; 
         };
-    
+    // place.getInfo = function () {
+    //     console.log('Info be working');
+    //     let infoSearch = {
+    //         params: {
+    //             placeid: place_id,
+    //         }
+    //     };
+
+    //     console.log('Info be working');
+    //     $http.get('/places/info', infoSearch).then(function (response) {
+    //         console.log(response.data.results);
+    //         place.data = response.data.results;
+
+    //     }).catch(function (response) {
+    //         console.log('my info failed: ', response);
+    //     });
+    // };
 
 });
