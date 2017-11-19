@@ -1,18 +1,24 @@
-
-    <h1 class="lead">Get Places</h1>
+<div layout="row" layout-align="space-between none">
+    <div>
+    <h1 class="lead">Let's get started</h1>
     <h1>{{7===7}}</h1>
     <h2>Oh, the places you will go</h2>
+    <p>Use the search bar to find places to play</p>
+    <p>If you find one you like, select 'Create'</p>
+    <p>Need more information? Select 'More Info'</p>
+</div>
     <form>
         <md-input-container>
             <label>Search:</label>
             <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
         </md-input-container>
         <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
-        
+
     </form>
+</div>
     <div ng-cloak="" class="creatGameCard">
-        <!-- <md-content class="md-padding" layout-xs="column" layout="row"> -->
-        <div flex-xs="" flex-gt-xs="50" layout="column">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs="" flex-gt-xs="50" layout="row">
             <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data'>
                 <md-card-content>
                     <md-card-title>
@@ -31,12 +37,11 @@
                     <div>
                     <md-card-actions layout="row" layout-align="end center">
                         <md-button class="md-raised">Create</md-button>
-                        <!-- <md-button ng-click="place.getInfo(places.place_id)" class="md-raised">More Info</md-button> -->
+                        <md-button ng-click="place.getInfo(places.place_id)" class="md-raised">More Info</md-button>
                     </md-card-actions>
                     </div>
                 </md-card-content>
             </md-card>
         </div>
-        <!-- </md-content> -->
-        {{7===7}}
+        </md-content>
     </div>
