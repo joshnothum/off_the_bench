@@ -2,10 +2,10 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
     console.log('PlacesController created');
     let place = this;
     place.search = '';
+    place.data =[];
     
 
-    place.getPlaces = function (search) {
-        console.log(search);
+    place.getPlaces = function () {
             let apiSearch = {
                 params:{
                 query: place.search,
@@ -17,6 +17,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService) {
         console.log('Places be working');
             $http.get('/places', apiSearch).then(function (response) {
                     console.log(response.data.results);
+                    place.data = response.data.results;
                    
             }).catch(function (response) {
                 console.log('my places failed: ', response);
