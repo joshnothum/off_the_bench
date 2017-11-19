@@ -1,47 +1,62 @@
-myApp.controller('PlacesController', function ($http, $location, UserService) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService) {
     console.log('PlacesController created');
     let place = this;
     place.search = '';
-    place.data =[];
+    place.data = GameService.result;
     place.info = [];
-    
 
-    place.getPlaces = function () {
+    place.getPlaces = function(){
 
-            let apiSearch = {
-                params:{
+
+        let apiSearch = {
+            params: {
                 query: place.search,
                 location: '44.9778,-93.2650',
                 radius: 35000
-                }
-            };
-
-        console.log('Places be working');
-            $http.get('/places', apiSearch).then(function (response) {
-                    console.log(response.data.results);
-                    place.data = response.data.results;
-                   
-            }).catch(function (response) {
-                console.log('my places failed: ', response);
-            });
-          place.search =null; 
-        };
-    place.getInfo = function (place_id) {
-        console.log('Info be working');
-        let infoSearch = {
-            params: {
-                placeid: place_id,
             }
         };
-        console.log(place_id);
+        console.log(apiSearch);
         
-        $http.get('/places/info', infoSearch).then(function (response) {
-            console.log(response.data.result);
-            place.info = response.data.result;
-
-        }).catch(function (response) {
-            console.log('my info failed: ', response);
-        });
+        GameService.getPlaces(apiSearch);
+        place.search = null;
+        
     };
+    // place.getPlaces = function () {
+
+            // let apiSearch = {
+            //     params:{
+            //     query: place.search,
+            //     location: '44.9778,-93.2650',
+            //     radius: 35000
+            //     }
+            // };
+
+    //     console.log('Places be working');
+    //         $http.get('/places', apiSearch).then(function (response) {
+    //                 console.log(response.data.results);
+    //                 place.data = response.data.results;
+                   
+    //         }).catch(function (response) {
+    //             console.log('my places failed: ', response);
+    //         });
+    //       place.search =null; 
+    //     };
+    // place.getInfo = function (place_id) {
+    //     console.log('Info be working');
+    //     let infoSearch = {
+    //         params: {
+    //             placeid: place_id,
+    //         }
+    //     };
+    //     console.log(place_id);
+        
+    //     $http.get('/places/info', infoSearch).then(function (response) {
+    //         console.log(response.data.result);
+    //         place.info = response.data.result;
+
+    //     }).catch(function (response) {
+    //         console.log('my info failed: ', response);
+    //     });
+    // };
 
 });
