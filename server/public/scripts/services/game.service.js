@@ -5,7 +5,7 @@ let self = this;
 self.result = {};
 self.info = [];
 
-    this.getPlaces = function (apiSearch) {
+    self.getPlaces = function (apiSearch) {
         console.log(apiSearch);
         
 
@@ -21,13 +21,13 @@ self.info = [];
         }).catch(function (response) {
             console.log('my places failed: ', response);
         });
-        console.log(self.result);
+        
     };
-    this.getInfo = function (infoSearch) {
+    self.getInfo = function (infoSearch) {
         
 
         $http.get('/places/info', infoSearch).then(function (response) {
-            console.log(response.data.result);
+            
             self.info = response.data.result;
 
         }).catch(function (response) {
@@ -35,5 +35,11 @@ self.info = [];
         });
     };
 
+    self.createGame = function (places) {
+        console.log(places);
+        
+    };
+
+        
 
 });

@@ -15,7 +15,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
                 radius: 35000
             }
         };
-        console.log(apiSearch);
+       
         
         GameService.getPlaces(apiSearch);
         place.search = null;
@@ -50,8 +50,12 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         };
         
         GameService.getInfo(infoSearch);
-        console.log(place.info);
+     
         
+    };
+
+    place.createGame= function(places){
+        GameService.createGame(places);
     };
 
 });
