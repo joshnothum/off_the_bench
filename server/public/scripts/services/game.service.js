@@ -22,7 +22,7 @@ self.info = [];
             console.log('my places failed: ', response);
         });
         
-    };
+    };// end of getPlaces
     self.getInfo = function (infoSearch) {
         
 
@@ -33,12 +33,12 @@ self.info = [];
         }).catch(function (response) {
             console.log('my info failed: ', response);
         });
-    };
+    };//end of getInfo
 
     self.createGame = function (places) {
         console.log(places);
         
-    };
+    };//end of createGame
 
         
 

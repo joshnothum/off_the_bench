@@ -20,27 +20,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.getPlaces(apiSearch);
         place.search = null;
         
-    };
-    // place.getPlaces = function () {
-
-            // let apiSearch = {
-            //     params:{
-            //     query: place.search,
-            //     location: '44.9778,-93.2650',
-            //     radius: 35000
-            //     }
-            // };
-
-    //     console.log('Places be working');
-    //         $http.get('/places', apiSearch).then(function (response) {
-    //                 console.log(response.data.results);
-    //                 place.data = response.data.results;
-                   
-    //         }).catch(function (response) {
-    //             console.log('my places failed: ', response);
-    //         });
-    //       place.search =null; 
-    //     };
+    };//end of getPlaces
+   
     place.getInfo = function (place_id) {
         
         let infoSearch = {
@@ -52,10 +33,10 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.getInfo(infoSearch);
      
         
-    };
+    };//end of getInfo
 
     place.createGame= function(places){
         GameService.createGame(places);
-    };
+    };//end of createGame
 
 });

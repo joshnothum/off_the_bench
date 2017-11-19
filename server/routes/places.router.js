@@ -24,7 +24,7 @@ places.get('/', function (req, res) {
     
 });
 
-});
+});//end of places.get
 
 
 places.get('/info', function (req, res) {
@@ -37,20 +37,43 @@ places.get('/info', function (req, res) {
         
         
         res.send(body);
-    });
+    });//end of places.get(/info)
+
+    
+    // --------- post route for create Game --------//
+    // places.post('/', function (req, res, next) {
+
+    //     var createGame = {
+    //         location: req.body.location,
+    //         time: req.body.time,
+    //         date: req.body.date,
+    //         creator: req.body.creator,
+    //         players: [req.body.creator]
+    //     };
+    //     console.log('new game:', createGame);
+
+    //     pool.connect(function (err, client, done) {
+    //         if (err) {
+    //             console.log("Error connecting: ", err);
+    //             res.sendStatus(500);
+    //         }
+    //         client.query("INSERT INTO games (username, password) VALUES ($1, $2) RETURNING id",
+    //             [createGame.location, createGame.time, createGame.date, createGame.creator, createGame.players],
+    //             function (err, result) {
+    //                 client.end();
+
+    //                 if (err) {
+    //                     console.log("Error inserting data: ", err);
+    //                     res.sendStatus(500);
+    //                 } else {
+    //                     res.sendStatus(201);
+    //                 }
+    //             });
+    //     });
+
+    // });
+
+
 });
-// places.get('/', function (req, res) {
-//     console.log('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY);
-//     request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=' + API_KEY), function (error, response, body) {
-//     let info = JSON.parse(body);
-//         console.log(error);
-//         console.log(response);
-//         console.log(body);
-//         console.log(info);
-        
-//     res.sendStatus(418);
-
-
-//     };
 
 module.exports = places;
