@@ -44,6 +44,8 @@ self.newGame =[];
         
     };//end of createGame
 
+   
+
         
 
 });

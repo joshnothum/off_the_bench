@@ -5,6 +5,14 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.data = GameService.result;
     place.info = GameService.info;
     place.newGame = GameService.newGame;
+    place.date = date;
+    place.time = time;
+   
+    let gameInfo = {
+        time: place.time,
+        date: place.date,
+        address: places
+    };
 
     place.getPlaces = function(){
 

@@ -1,7 +1,22 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
+    <div>
+        <form>
+        <md-input-container>
+            <label for="time"></label>
+            <input type="time" name="" ng-model="string" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
+                ] [ng-required="string" ] [ng-change="string" ] aria-label="time">
+        </md-input-container>
+        <md-input-container>
+            <label for="date"></label>
+            <input type="date" ng-model="string" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
+                ] [ng-required="string" ] [ng-change="string" ] aria-label="date">
+        </md-input-container>
+        <md-button ng-click="game.sendGame()">Create Game</md-button>
+        </form>
+    </div>
     <p>
-        Create Game
+Game Create
     </p>
     <form>
         <md-input-container>
@@ -9,24 +24,24 @@
             <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
         </md-input-container>
         <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
-    
+
     </form>
     <div ng-cloak="" class="creatGameCard">
         <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
             <div flex-xs="" flex-gt-xs="50" layout="row">
-                <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.newGame.data'>
+                <md-card md-theme="{{'dark-purple'}}" ng-repeat='game in place.newGame'>
                     <md-card-content>
                         <md-card-title>
                             <md-card-title-text>
-                                <span class="md-headline">{{places.name}}</span>
-                                <span class="md-subhead">{{places.formatted_address}}</span>
-                                <span class="md-subhead">{{places.place_id}}</span>
+                                <span class="md-headline">{{game.name}}</span>
+                                <span class="md-subhead">{{game.formatted_address}}</span>
+                                <span class="md-subhead">{{game.place_id}}</span>
                             </md-card-title-text>
                             <md-card-title-media>
                                 <div class="md-media-sm card-media">
                                     <img ng-src="{{places.icon}}" class="md-card-image" alt="Static google Map" />
                                 </div>
-    
+
                             </md-card-title-media>
                         </md-card-title>
                         <div>
@@ -40,4 +55,4 @@
             </div>
         </md-content>
     </div>
-</div>
+    </div>
