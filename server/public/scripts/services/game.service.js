@@ -37,19 +37,21 @@ self.newGame =[];
     };//end of getInfo
 
     self.createGame = function (places) {
-        console.log(places);
+       
         self.newGame.push(places);
-        console.log(self.newGame);
+        
         
         
     };//end of createGame
 
     self.sendGame = function (gameInfo) {
-        console.log(gameInfo);
-        console.log(self.newGame);
+        $http.post('/places', gameInfo).then(function (response) {
+            console.log(response);
+        }).catch(function (response) {
+            console.log('send game did not work: ', response);
+        });
 
-
-    };//end of createGame
+    };//end of sendGame
 
 
    

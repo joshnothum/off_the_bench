@@ -1,7 +1,7 @@
 myApp.controller('PlacesController', function ($http, $location, UserService, GameService) {
     console.log('PlacesController created');
     let place = this;
-    place.search = '';
+    
     place.data = GameService.result;
     place.info = GameService.info;
     place.newGame = GameService.newGame;

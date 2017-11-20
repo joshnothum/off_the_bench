@@ -39,6 +39,31 @@ places.get('/info', function (req, res) {
         res.send(body);
     });//end of places.get(/info)
 
+
+places.post('/', function (req, res) {
+        console.log(req.body);
+        // pool.connect(function (err, client, done) {
+        //     if (err) {
+        //         console.log("Error connecting: ", err);
+        //         res.sendStatus(500);
+        //     }
+        //     client.query("INSERT INTO games (name, password) VALUES ($1, $2) RETURNING id",
+        //         [saveUser.username, saveUser.password],
+        //         function (err, result) {
+        //             client.end();
+
+        //             if (err) {
+        //                 console.log("Error inserting data: ", err);
+        //                 res.sendStatus(500);
+        //             } else {
+        //                 res.sendStatus(201);
+        //             }
+        //         });
+        // });
+
+        res.sendStatus(418);
+});
+
     
     // --------- post route for create Game --------//
     // places.post('/', function (req, res, next) {
