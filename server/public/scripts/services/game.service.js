@@ -4,6 +4,7 @@ let self = this;
 
 self.result = {};
 self.info = [];
+self.newGame =[];
 
     self.getPlaces = function (apiSearch) {
         console.log(apiSearch);
@@ -37,6 +38,9 @@ self.info = [];
 
     self.createGame = function (places) {
         console.log(places);
+        self.newGame.push(places);
+        console.log(self.newGame);
+        
         
     };//end of createGame
 
