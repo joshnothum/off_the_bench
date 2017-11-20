@@ -1,10 +1,8 @@
 # Name of Project
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Off the Bench
 
-## Built With
-
-List technologies and frameworks here
+Off the Bench is a web application designed to promote pick-up basketball in Minneapolis.  Users will create and join pickup games with the unique, intuitive design provided by Off the Bench.  Supported by Google Places, Google Maps and Trillo APIs, Off the Bench aspires to encourage teamwork, excercise and goodwill in the Minneapolis community.
 
 ## Getting Started
 
@@ -36,20 +34,37 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 
 ## Documentation
 
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+
 
 ### Completed Features
 
 High level list of items completed.
 
-- [x] Feature a
-- [x] Feature b
+
+- [x] Design Login Screen
+- [x] Create Database
+- [x] Create locations Search view
+- [x] Create game create View
+- [x] Style
+- [x] Implement Create/Post route
+- [x] Join routes
+- [x] Create user dashboard view
+- [x] Implement Edit and Delete buttons/routes
+- [x] Create Maps view
+- [x] Create user dashboard view
+- [x] Implement Introduction View
+- [x] Consistent Style
+
+
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
 
-- [ ] Feature c
+- [] Trillo implementation
+- [] Options for wheelchair accessibility
+- [] Harrasmnt reporting feature
+- [] Rating system for courts around the city
 
 ## Deployment
 
@@ -57,9 +72,6 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* Name of author(s)
-
+* Josh Nothum
 
 ## Acknowledgments
-
-* Hat tip to anyone who's code was used
