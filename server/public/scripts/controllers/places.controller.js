@@ -7,6 +7,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.newGame = GameService.newGame;
     place.date;
     place.time;
+    place.maxNumber = 0;
 
     place.getPlaces = function(){
 
@@ -47,6 +48,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         let gameInfo = {
             time: place.time,
             date: place.date,
+            maxNumber: place.maxNumber,
         };
         GameService.sendGame(gameInfo);
         console.log(gameInfo);
