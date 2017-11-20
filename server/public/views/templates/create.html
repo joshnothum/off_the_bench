@@ -4,15 +4,15 @@
         <form>
         <md-input-container>
             <label for="time"></label>
-            <input type="time" name="" ng-model="string" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
+            <input type="time" name="" ng-model="place.time" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
                 ] [ng-required="string" ] [ng-change="string" ] aria-label="time">
         </md-input-container>
         <md-input-container>
             <label for="date"></label>
-            <input type="date" ng-model="string" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
+            <input type="date" ng-model="place.date" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
                 ] [ng-required="string" ] [ng-change="string" ] aria-label="date">
         </md-input-container>
-        <md-button ng-click="game.sendGame()">Create Game</md-button>
+        <md-button ng-click="place.sendGame()">Create Game</md-button>
         </form>
     </div>
     <p>
@@ -47,7 +47,7 @@ Game Create
                         <div>
                             <md-card-actions layout="row" layout-align="end center">
                                 <md-button ng-click="place.getInfo(places.place_id)" class="md-raised">More Info</md-button>
-                                <md-button ng-click="place.createGame(places)" class="md-raised">Select</md-button>
+                                <md-button ng-click="place.sendGame(places)" class="md-raised">Create</md-button>
                             </md-card-actions>
                         </div>
                     </md-card-content>

@@ -44,6 +44,14 @@ self.newGame =[];
         
     };//end of createGame
 
+    self.sendGame = function (gameInfo) {
+        console.log(gameInfo);
+        console.log(self.newGame);
+
+
+    };//end of createGame
+
+
    
 
         

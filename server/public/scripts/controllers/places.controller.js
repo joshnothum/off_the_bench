@@ -5,14 +5,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.data = GameService.result;
     place.info = GameService.info;
     place.newGame = GameService.newGame;
-    place.date = date;
-    place.time = time;
-   
-    let gameInfo = {
-        time: place.time,
-        date: place.date,
-        address: places
-    };
+    place.date;
+    place.time;
 
     place.getPlaces = function(){
 
@@ -48,5 +42,20 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.createGame(places);
         $location.path('/create');
     };//end of createGame
+
+    place.sendGame = function () {
+        let gameInfo = {
+            time: place.time,
+            date: place.date,
+        };
+        GameService.sendGame(gameInfo);
+        console.log(gameInfo);
+        console.log(place.time);
+        console.log(place.userName);
+        
+        
+        
+    };//end of createGame
+
 
 });
