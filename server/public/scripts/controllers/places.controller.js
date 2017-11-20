@@ -4,6 +4,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.search = '';
     place.data = GameService.result;
     place.info = GameService.info;
+    place.newGame = GameService.newGame;
 
     place.getPlaces = function(){
 
