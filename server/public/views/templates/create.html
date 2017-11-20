@@ -25,7 +25,7 @@ Game Create
                             </md-card-title-text>
                             <md-card-title-media>
                                 <div class="md-media-sm card-media">
-                                    <img ng-src="{{places.icon}}" class="md-card-image" alt="Static google Map" />
+                                    <img ng-src="{{game.icon}}" class="md-card-image" alt="Static google Map" />
                                 </div>
 
                             </md-card-title-media>
@@ -56,7 +56,7 @@ Game Create
                                         <div ng-message="required" class="my-message">Please enter Max Number of Players.</div>
                                     </div>
                                 </md-input-container>
-                                <md-button ng-disabled="!Create.$valid" ng-click="place.sendGame()">&nbsp Create Game &nbsp</md-button>
+                                <md-button ng-disabled="!Create.$valid" ng-click="place.sendGame(game)">&nbsp Create Game &nbsp</md-button>
                             </form>
                         </div>
                     </md-card-content>
