@@ -37,31 +37,41 @@ places.get('/info', function (req, res) {
         
         
         res.send(body);
-    });//end of places.get(/info)
+    });
+});//end of places.get(/info)
 
 
 places.post('/', function (req, res) {
-        console.log(req.body);
-        // pool.connect(function (err, client, done) {
-        //     if (err) {
-        //         console.log("Error connecting: ", err);
-        //         res.sendStatus(500);
-        //     }
-        //     client.query("INSERT INTO games (name, password) VALUES ($1, $2) RETURNING id",
-        //         [saveUser.username, saveUser.password],
-        //         function (err, result) {
-        //             client.end();
+        console.log('here line 45',req.body);
+        pool.connect(function (err, client, done) {
+            if (err) {
+                console.log("Error connecting: ", err);
+                res.sendStatus(500);
+            }
+            let saveGame = {
+                creator_id: req.body.creator_id,
+                time: req.body.time,
+                date: req.body.date,
+                max_number: req.body.maxNumber,
+                location: req.body.location,
+                place_id: req.body.place_id,
+                name: req.body.name
+            };
+            console.log('here on line 60',saveGame);
+            
+            client.query("INSERT INTO games (creator_id, time, date, max_number, location, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+                [saveGame.creator_id,saveGame.time, saveGame.date, saveGame.max_number, saveGame.location, saveGame.place_id, saveGame.name],
+                function (err, result) {
+                    client.end();
 
-        //             if (err) {
-        //                 console.log("Error inserting data: ", err);
-        //                 res.sendStatus(500);
-        //             } else {
-        //                 res.sendStatus(201);
-        //             }
-        //         });
-        // });
-
-        res.sendStatus(418);
+                    if (err) {
+                        console.log("Error inserting data: ", err);
+                        res.sendStatus(500);
+                    } else {
+                        res.sendStatus(200);
+                    }
+                });
+        });
 });
 
     
@@ -99,6 +109,6 @@ places.post('/', function (req, res) {
     // });
 
 
-});
+// });
 
 module.exports = places;

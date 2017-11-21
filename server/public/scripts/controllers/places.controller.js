@@ -5,7 +5,11 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.data = GameService.result;
     place.info = GameService.info;
     place.newGame = GameService.newGame;
-    
+    // place.gameTime = moment(place.time).format('HH:mm:ss');
+    // console.log(gameTime);
+    // place.gameDate = moment(place.date).format('MM-DD-YYYY');
+    // console.log(gameDate);
+ 
     
     place.getPlaces = function(){
 
@@ -43,14 +47,27 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };//end of createGame
 
     place.sendGame = function (game) {
+
+        let gameTime = moment(place.time).format('HH:mm:ss');
+        console.log(gameTime);
+        let gameDate = moment(place.date).format('MM-DD-YYYY');
+        console.log(gameDate);
+        
+        
+        
+        
+    
+
+       
+       
         let gameInfo = {
-            name:game.name,
-            time: place.time,
-            date: place.date,
+            name: game.name,
+            time: gameTime,
+            date: gameDate,
             maxNumber: place.maxNumber,
             location: game.formatted_address,
             place_id: game.place_id,
-            creator: UserService.userObject.userID,
+            creator_id: UserService.userObject.userID,
         };
         console.log(gameInfo);
         
