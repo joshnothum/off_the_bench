@@ -36,6 +36,11 @@ self.newGame =[];
             console.log('send game did not work: ', response);
         });
     };//end of sendGame
+
+    self.getGames = function () {
+        
+        
+    }
         
 
 });//end of GameService
