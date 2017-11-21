@@ -27,7 +27,7 @@ Game Create
                                 <div class="md-media-sm card-media">
                                     <img ng-src="{{game.icon}}" class="md-card-image" alt="Static google Map" />
                                 </div>
-
+    
                             </md-card-title-media>
                         </md-card-title>
                         <div>
@@ -36,22 +36,23 @@ Game Create
                                     <label for="time"></label>
                                     <input type="time" name="time" ng-model="place.time" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max=""
                                         ] [required="string" ] [ng-required="string" ] [ng-change="string" ] aria-label="time" required="">
-                                        <div ng-messages="Create.time.$error" role="alert" multiple="">
-                                            <div ng-message="required" class="my-message">Please enter time.</div>
-                                        </div>
+                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter time.</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label for="date"></label>
                                     <input type="date" ng-model="place.date" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
                                         ] [ng-change="string" ] aria-label="date" ng-required="">
-                                        <div ng-messages="Create.time.$error" role="alert" multiple="">
-                                            <div ng-message="required" class="my-message">Please enter date.</div>
-                                        </div>
+                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter date.</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label for="maxNumber">Max Number of Players</label>
-                                <input type="number" name="maxNumber" ng-model="place.maxNumber" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
-                                    ] [ng-required="string" ] [ng-change="string" ] aria-label="date" required="">
+                                    <input type="number" name="maxNumber" ng-model="place.maxNumber" [name="string" ] [min="string" ] [max="string" ] [ng-min=""
+                                        ] [ng-max="" ] [required="string" ] [ng-required="string" ] [ng-change="string" ] aria-label="date"
+                                        required="">
                                     <div ng-messages="Create.time.$error" role="alert" multiple="">
                                         <div ng-message="required" class="my-message">Please enter Max Number of Players.</div>
                                     </div>

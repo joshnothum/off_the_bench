@@ -3,4 +3,26 @@
   <p>
     In Info
   </p>
+      <div ng-cloak="" class="userCards">
+        <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+          <div flex-xs="" flex-gt-xs="50" layout="row">
+            <md-card md-theme="{{'dark-purple'}}" ng-repeat=''>
+              <md-card-content>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">{{game.name}}</span>
+                    <span class="md-subhead">{{game.formatted_address}}</span>
+                    <span class="md-subhead">{{game.place_id}}</span>
+                  </md-card-title-text>
+                  <md-card-title-media>
+                    <div class="md-media-sm card-media">
+                      <img ng-src="{{game.icon}}" class="md-card-image" alt="Static google Map" />
+                    </div>
+                  </md-card-title-media>
+                </md-card-title>
+              </md-card-content>
+            </md-card>
+          </div>
+        </md-content>
+      </div>
 </div>

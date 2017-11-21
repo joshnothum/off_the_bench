@@ -74,41 +74,4 @@ places.post('/', function (req, res) {
         });
 });
 
-    
-    // --------- post route for create Game --------//
-    // places.post('/', function (req, res, next) {
-
-    //     var createGame = {
-    //         location: req.body.location,
-    //         time: req.body.time,
-    //         date: req.body.date,
-    //         creator: req.body.creator,
-    //         players: [req.body.creator]
-    //     };
-    //     console.log('new game:', createGame);
-
-    //     pool.connect(function (err, client, done) {
-    //         if (err) {
-    //             console.log("Error connecting: ", err);
-    //             res.sendStatus(500);
-    //         }
-    //         client.query("INSERT INTO games (username, password) VALUES ($1, $2) RETURNING id",
-    //             [createGame.location, createGame.time, createGame.date, createGame.creator, createGame.players],
-    //             function (err, result) {
-    //                 client.end();
-
-    //                 if (err) {
-    //                     console.log("Error inserting data: ", err);
-    //                     res.sendStatus(500);
-    //                 } else {
-    //                     res.sendStatus(201);
-    //                 }
-    //             });
-    //     });
-
-    // });
-
-
-// });
-
 module.exports = places;
