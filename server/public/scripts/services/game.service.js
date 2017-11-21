@@ -45,6 +45,8 @@ self.newGame =[];
     };//end of createGame
 
     self.sendGame = function (gameInfo) {
+        console.log(gameInfo);
+        
         $http.post('/places', gameInfo).then(function (response) {
             console.log(response);
         }).catch(function (response) {

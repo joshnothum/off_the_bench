@@ -50,8 +50,10 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
             maxNumber: place.maxNumber,
             location: game.formatted_address,
             place_id: game.place_id,
-            creator: UserService.userObject.userName,
+            creator: UserService.userObject.userID,
         };
+        console.log(gameInfo);
+        
         GameService.sendGame(gameInfo);
       
         

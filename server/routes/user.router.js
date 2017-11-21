@@ -11,9 +11,14 @@ router.get('/', function(req, res) {
   if(req.isAuthenticated()) {
     // send back user object from database
     console.log('logged in', req.user);
+    console.log(req.user);
+    
     var userInfo = {
-      username : req.user.username
+      username : req.user.username,
+      userID: req.user.id,
     };
+    console.log(userInfo);
+    
     res.send(userInfo);
   } else {
     // failure best handled on the server. do redirect here.
