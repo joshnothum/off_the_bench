@@ -8,17 +8,10 @@ self.newGame =[];
 
     self.getPlaces = function (apiSearch) {
         console.log(apiSearch);
-        
-
-    
-
         console.log('Places be working');
         $http.get('/places', apiSearch).then(function (response) {
-            console.log(response.data.results);
             self.result.data = response.data.results;
             
-            
-
         }).catch(function (response) {
             console.log('my places failed: ', response);
         });
@@ -26,7 +19,6 @@ self.newGame =[];
     };// end of getPlaces
     self.getInfo = function (infoSearch) {
         
-
         $http.get('/places/info', infoSearch).then(function (response) {
             
             self.info = response.data.result;
@@ -35,24 +27,14 @@ self.newGame =[];
             console.log('my info failed: ', response);
         });
     };//end of getInfo
-
     self.createGame = function (places) {
-       
         self.newGame.push(places);
-        
-        
-        
     };//end of createGame
-
     self.sendGame = function (gameInfo) {
-        console.log(gameInfo);
-        
         $http.post('/places', gameInfo).then(function (response) {
-            console.log(response);
         }).catch(function (response) {
             console.log('send game did not work: ', response);
         });
-
     };//end of sendGame
 
 
