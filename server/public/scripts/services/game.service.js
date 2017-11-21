@@ -38,7 +38,7 @@ self.newGame =[];
     };//end of sendGame
 
     self.getGames = function () {
-        
+        $http.getGames('/places')
         
     }
         

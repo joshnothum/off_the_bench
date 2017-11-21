@@ -2,6 +2,7 @@ myApp.controller('InfoController', function(UserService, GameService, $http, $lo
   console.log('InfoController created');
   var info = this;
   info.userService = UserService;
+  
 
   info.getInfo = function () {
   
