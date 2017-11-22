@@ -20,15 +20,16 @@ self.newGame =[];
     self.getInfo = function (infoSearch) {
         
         $http.get('/places/info', infoSearch).then(function (response) {
+            console.log(response);
 
             self.info.data = response.data.result;
 
         }).catch(function (response) {
             console.log('my info failed: ', response);
-        });  
 
-        // self.info.data = response.data.result;
+        });// self.info.data = response.data.result;
     };//end of getInfo
+
     self.createGame = function (places) {
         self.newGame.push(places);
     };//end of createGame

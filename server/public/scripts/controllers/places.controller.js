@@ -41,6 +41,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
         GameService.getInfo(infoSearch);
+     
     };//end of getInfo
 
 
