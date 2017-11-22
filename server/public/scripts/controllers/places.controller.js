@@ -26,7 +26,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         };   // end of infoSearch
 
         $mdDialog.show({
-            controller: 'DialogController',
+            controller: 'DialogController as dc',
             templateUrl: 'views/templates/dialog1.tmpl.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -40,7 +40,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
 
-        GameService.getInfo(infoSearch);      
+        GameService.getInfo(infoSearch);
     };//end of getInfo
 
 

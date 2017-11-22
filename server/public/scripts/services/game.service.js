@@ -3,7 +3,7 @@ myApp.service('GameService', function ($http, $location) {
 let self = this;
 
 self.result = {};
-self.info = [];
+self.info = {};
 self.newGame =[];
 
     self.getPlaces = function (apiSearch) {
@@ -20,12 +20,14 @@ self.newGame =[];
     self.getInfo = function (infoSearch) {
         
         $http.get('/places/info', infoSearch).then(function (response) {
-            
-            self.info = response.data.result;
+
+            self.info.data = response.data.result;
 
         }).catch(function (response) {
             console.log('my info failed: ', response);
-        });
+        });  
+
+        // self.info.data = response.data.result;
     };//end of getInfo
     self.createGame = function (places) {
         self.newGame.push(places);
@@ -40,7 +42,7 @@ self.newGame =[];
     self.getGames = function () {
         $http.getGames('/places')
         
-    }
+    };
         
 
 });//end of GameService
