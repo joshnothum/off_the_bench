@@ -16,9 +16,11 @@
 
     </form>
 </div>
+<div flex="40" class = "testy">
+<md-card flex="33" class="createDisplay" >
     <div ng-cloak="" class="creatGameCard">
-        <md-content class="md-padding" layout-xs="column" layout="row" layout-align = "center center">
-        <div flex-xs="" flex-gt-xs="50" layout="row">
+        <md-content layout="column" layout-align = "center center" >
+        <div>
             <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data'>
                 <md-card-content>
                     <md-card-title>
@@ -36,7 +38,7 @@
                     </md-card-title>
                     <div>
                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button ng-click="place.getInfo(places.place_id)" class="md-raised">More Info</md-button>
+                        <md-button ng-click="place.getInfo($event, places.place_id)" class="md-raised">More Info</md-button>
                         <md-button ng-click="place.createGame(places)" class="md-raised">Select</md-button>
                     </md-card-actions>
                     </div>
@@ -44,4 +46,6 @@
             </md-card>
         </div>
         </md-content>
+    </div>
+    </md-card>
     </div>

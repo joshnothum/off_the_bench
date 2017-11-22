@@ -32,4 +32,12 @@ myApp.service('UserService', function($http, $location){
       $location.path("/home");
     });
   };
+
+
+  self.displayGames = function () {
+    $hhtp.get('/user/info').then(function (response) {
+      console.log('hitting this path');
+      
+    })
+  }
 });

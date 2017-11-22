@@ -1,4 +1,4 @@
-myApp.controller('AngularController', function ($scope, $mdDialog) {
+myApp.controller('DialogController', function ($scope, $mdDialog, GameService) {
 
     console.log('angular controller is loaded, homie');
     
