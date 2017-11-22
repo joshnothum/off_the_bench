@@ -35,6 +35,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
         }
       }
     })
+  
     .when('/places', {
       templateUrl: '/views/templates/places.html',
       controller: 'PlacesController as place',
@@ -52,7 +53,10 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
           return UserService.getuser();
         }
       }
-    })
+      
+    }).otherwise({
+      redirectTo: 'home'
+    });
 })
 
 

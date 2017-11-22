@@ -1,4 +1,4 @@
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope) {
     console.log('PlacesController created');
     let place = this;
     
@@ -16,20 +16,47 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.getPlaces(apiSearch);
         place.search = null;     
     };//end of getPlaces  
-    place.getInfo = function (place_id) {     
+    place.getInfo = function (place_id) {
+        
+        
         let infoSearch = {
             params: {
                 placeid: place_id,
             }//end of params
-        };  //end of infoSearch
+
+
+            
+            
+
+            
+        };  
+
+        console.log(infoSearch);
+        //end of infoSearch
+        // $mdDialog.show({
+        //     controller: 'AngularController',
+        //     templateUrl: 'views/templates/dialog1.tmpl.html',
+        //     parent: angular.element(document.body),
+        //     targetEvent: ev,
+        //     clickOutsideToClose: true
+        // })
+        //     .then(function (answer) {
+        //         $scope.status = 'You said the information was "' + answer + '".';
+        //     }, function () {
+        //         $scope.status = 'You cancelled the dialog.';
+        //     });
+
 
 
         GameService.getInfo(infoSearch);      
     };//end of getInfo
+
+
     place.createGame= function(places){
         GameService.createGame(places);
         $location.path('/create');
     };//end of createGame
+
     place.sendGame = function (game) {      
         let gameTime = moment(place.time).format('HH:mm:ss');
         console.log(gameTime);
@@ -47,5 +74,6 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.sendGame(gameInfo);     
         
     };//end of createGame
+
 
 });// end of Places Controller
