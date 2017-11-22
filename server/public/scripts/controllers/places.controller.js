@@ -1,4 +1,4 @@
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog) {
     console.log('PlacesController created');
     let place = this;
     
@@ -20,8 +20,10 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         let infoSearch = {
             params: {
                 placeid: place_id,
-            }
-        };     
+            }//end of params
+        };  //end of infoSearch
+
+
         GameService.getInfo(infoSearch);      
     };//end of getInfo
     place.createGame= function(places){
