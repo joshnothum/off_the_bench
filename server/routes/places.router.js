@@ -18,6 +18,8 @@ places.get('/', function (req, res) {
     request('https://maps.googleapis.com/maps/api/place/textsearch/json?',{qs: req.query}, function (error, response, body) {
      // Print the HTML for the Google homepage.
         console.log(error);
+        console.log(body);
+        
         
     res.send(body);
    

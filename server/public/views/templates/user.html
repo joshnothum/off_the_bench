@@ -4,8 +4,11 @@
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <a href="#places">Place Search</a>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
-    <md-content layout="space-between center">
-        <md-card flex="20" layout="column">
+    <md-content layout-align="space-between start" layout="row">
+        <md-card flex="20" layout="column" layout-align="space-between start" layout-margin>
+            <md-card-title-text>
+                <span class="md-headline" layout="column" layout-align="space-between start">User Actions</span>
+            </md-card-title-text>
             <md-button class= "md-accent" aria-label="FAB" ng-click="uc.getUserGames()">Create</md-button>
             <md-button class= "md-accent" aria-label="FAB">Browse</md-button>
             <md-button class= "md-accent" aria-label="FAB">Add Location</md-button>
@@ -13,18 +16,18 @@
         <md-card flex="80">
             <md-toolbar>
                 <div class="md-toolbar-tools" layout="row">
-                    <div flex="25" layout-padding>Name</div>
+                    <div flex="35" layout-padding>Name</div>
                     <div flex="25" layout-padding>Date</div>
                     <div flex="25" layout-padding>Time</div>
-                    <div flex="25" layout-padding>Edit?</div>
+                    <div flex="15" layout-padding>Max Number</div>
                 </div>
             </md-toolbar>
             <md-list>
                 <md-list-item layout="row" ng-repeat="game in uc.userGames.data">
-                    <div flex="25" layout-padding>{{game.name}}</div>
+                    <div flex="35" layout-padding>{{game.name}}</div>
                     <div flex="25" layout-padding>{{game.date}}</div>
                     <div flex="25" layout-padding>{{game.time}}</div>
-                    <div flex="25" layout-padding>{{game.max_number}}</div>
+                    <div flex="15" layout-padding>{{game.max_number}}</div>
                 </md-list-item>
             </md-list>
 
