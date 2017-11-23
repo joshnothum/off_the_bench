@@ -1,4 +1,4 @@
-myApp.controller('UserController', function(UserService, GameService) {
+myApp.controller('UserController', function(UserService, GameService, $location) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -14,6 +14,9 @@ myApp.controller('UserController', function(UserService, GameService) {
 
   vm.browseGames = function(){
     UserService.browseGames();
-    $location.path('/browse');
+    console.log();
+    
+    
+    
   };
 });

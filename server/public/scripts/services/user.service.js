@@ -3,15 +3,16 @@ myApp.service('UserService', function($http, $location){
   var self = this;
   self.userObject = {};
   self.gameObject = {};
+  self.browseGamesObject = {};
 
   self.getuser = function(){
     console.log('UserService -- getuser');
-    $http.get('/user').then(function(response) {
-      console.log(response.data);
-        if(response.data.username) {
+    $http.get('/user').then(function(success) {
+      console.log(success.data);
+        if(success.data.username) {
             // user has a curret session on the server
-            self.userObject.userName = response.data.username;
-            self.userObject.userID = response.data.userID;
+            self.userObject.userName = success.data.username;
+            self.userObject.userID = success.data.userID;
             
             
             console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
@@ -20,15 +21,15 @@ myApp.service('UserService', function($http, $location){
             // user has no session, bounce them back to the login page
             $location.path("/home");
         }
-    },function(response){
-      console.log('UserService -- getuser -- failure: ', response);
+    },function(success){
+      console.log('UserService -- getuser -- failure: ', success);
       $location.path("/home");
     });
   },
 
   self.logout = function() {
     console.log('UserService -- logout');
-    $http.get('/user/logout').then(function(response) {
+    $http.get('/user/logout').then(function(success) {
       console.log('UserService -- logout -- logged out');
       $location.path("/home");
     });
@@ -37,7 +38,7 @@ myApp.service('UserService', function($http, $location){
 self.getUserGames = function () {
   $http.get('/info/user').then(function (success) {
 
-    console.log(success.data);
+    
     self.gameObject.data = success.data;
     
     
@@ -48,12 +49,14 @@ self.getUserGames = function () {
 
 };// end of getUserGames
   self.browseGames = function () {
-    $http.get('/info').then(function (response) {
+    $http.get('/info').then(function (success) {
       console.log('browseGames made to the get');
-      console.log(response.data);
       
+      self.browseGamesObject.data = success.data;
     }).catch(function (error) {
       console.log('error in browseGames:', error);
     });
+
+    $location.path('/browse');
   };//end of browseGames
 });

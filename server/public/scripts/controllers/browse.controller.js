@@ -2,5 +2,7 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
 
     console.log('browsing is easy now!');
     let browse = this;
+
+    browse.gamesObject = UserService.browseGamesObject;
     
 });
