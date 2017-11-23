@@ -53,6 +53,8 @@ self.getUserGames = function () {
       console.log('browseGames made to the get');
       
       self.browseGamesObject.data = success.data;
+      console.log(self.browseGamesObject.data);
+      
     }).catch(function (error) {
       console.log('error in browseGames:', error);
     });
