@@ -16,7 +16,7 @@ myApp.controller('UserController', function(UserService, GameService, $location)
     UserService.browseGames();
     console.log();
     
-    
+  
     
   };
 });
