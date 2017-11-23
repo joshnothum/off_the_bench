@@ -4,29 +4,27 @@
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <a href="#places">Place Search</a>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
-
-    <md-card flex>
+<md-content layout= "space-between center">
+    <md-card flex="25">
+        <md-button class="md-fab" aria-label="FAB">
+    </md-card>
+    <md-card flex = "75">
         <md-toolbar>
             <div class="md-toolbar-tools" layout="row">
-                <div flex="20" layout-padding>{{uc.userObject.userName}}!</div>
-                <div flex="20" layout-padding>Games Played</div>
-                <div flex="20" layout-padding>Create</div>
-                <div flex="20" layout-padding>Delete</div>
-                <div flex="20" layout-padding>Banana</div>
+                <div flex="33" layout-padding>{{uc.userObject.userName}}!</div>
+                <div flex="33" layout-padding>Games Played</div>
+                <div flex="33" layout-padding>Create</div>
             </div>
         </md-toolbar>
         <md-list>
             <md-list-item layout="row">
-                <div flex="20" layout-padding>Canopous</div>
-                <div flex="20" layout-padding>Deneb</div>
-                <div flex="20" layout-padding>Elnath</div>
-                <div flex="20" layout-padding>Alpine</div>
-                <div flex="20" layout-padding>Churchill</div>
-
+                <div flex="33" layout-padding>Canopous</div>
+                <div flex="33" layout-padding>Deneb</div>
+                <div flex="33" layout-padding>Elnath</div>
             </md-list-item>
         </md-list>
 
 
     </md-card>
-
+</md-content>
 </div>
