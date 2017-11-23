@@ -49,7 +49,8 @@ self.getUserGames = function () {
 };// end of getUserGames
   self.browseGames = function () {
     $http.get('/info').then(function (response) {
-      console.log('hitting this path');
+      console.log('browseGames made to the get');
+      console.log(response.data);
       
     }).catch(function (error) {
       console.log('error in browseGames:', error);

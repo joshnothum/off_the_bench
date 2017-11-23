@@ -14,5 +14,6 @@ myApp.controller('UserController', function(UserService, GameService) {
 
   vm.browseGames = function(){
     UserService.browseGames();
+    $location.path('/browse');
   };
 });
