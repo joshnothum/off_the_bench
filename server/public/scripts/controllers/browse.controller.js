@@ -14,6 +14,9 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
             }//end of params
         };   // end of infoSearch
 
+        console.log(infoSearch);
+        
+
         $mdDialog.show({
             controller: 'DialogController as dc',
             templateUrl: 'views/templates/dialog1.tmpl.html',

@@ -4,5 +4,5 @@ myApp.controller('DialogController', function ($scope, $mdDialog, GameService) {
     let dialog = this;
     dialog.gameInfo = GameService.info;
 
-    console.log(dialog.gameInfo);
+    
     });

@@ -18,6 +18,7 @@ self.newGame =[];
         
     };// end of getPlaces
     self.getInfo = function (infoSearch) {
+        console.log(infoSearch);
         
         $http.get('/places/info', infoSearch).then(function (response) {
             console.log(response);
