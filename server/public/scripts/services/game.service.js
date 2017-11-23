@@ -17,7 +17,12 @@ self.newGame =[];
         });
         
     };// end of getPlaces
-    self.getInfo = function (infoSearch) {
+    self.getInfo = function (place_id) {
+        let infoSearch = {
+            params: {
+                placeid: place_id,
+            }//end of params
+        };   // end of infoSearch
         console.log(infoSearch);
         
         $http.get('/places/info', infoSearch).then(function (response) {
@@ -33,6 +38,10 @@ self.newGame =[];
 
     self.createGame = function (places) {
         self.newGame.push(places);
+        console.log(places.place_id);
+        
+        self.getInfo(places.place_id);
+
     };//end of createGame
     self.sendGame = function (gameInfo) {
         $http.post('/places', gameInfo).then(function (response) {

@@ -1,10 +1,12 @@
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, $timeout) {
     console.log('PlacesController created');
     let place = this;
     
     place.data = GameService.result;
     place.info = GameService.info;
     place.newGame = GameService.newGame;
+
+
     place.getPlaces = function(){
         let apiSearch = {
             params: {
@@ -17,13 +19,6 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         place.search = null;     
     };//end of getPlaces  
     place.getInfo = function (ev, place_id) {
-        
-        
-        let infoSearch = {
-            params: {
-                placeid: place_id,
-            }//end of params
-        };   // end of infoSearch
 
         $mdDialog.show({
             controller: 'DialogController as dc',
@@ -40,7 +35,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
 
-        GameService.getInfo(infoSearch);
+        GameService.getInfo(place_id);
      
     };//end of getInfo
 
@@ -68,5 +63,9 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         
     };//end of createGame
 
+    
+    place.loadPlaces = function () {
+        UserService.browseGames();
+    }
 
 });// end of Places Controller
