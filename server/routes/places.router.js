@@ -76,4 +76,37 @@ places.post('/', function (req, res) {
         });
 });
 
+
+places.post('/locations', function (req, res) {
+    console.log('here line 81', req.body);
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Error connecting: ", err);
+            res.sendStatus(500);
+        }
+        let saveLocation = {
+            name: req.body.name,
+            location: req.body.location,
+            geometry: req.body.geometry,
+            url: req.body.url,
+            phone: req.body.phone,
+            place_id: req.body.place_id,
+        };
+        console.log('here on line 60', saveGame);
+
+        client.query("INSERT INTO games (creator_id, time, date, max_number, location, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+            [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.location, saveGame.place_id, saveGame.name],
+            function (err, result) {
+                client.end();
+
+                if (err) {
+                    console.log("Error inserting data: ", err);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200);
+                }
+            });
+    });
+});
+
 module.exports = places;
