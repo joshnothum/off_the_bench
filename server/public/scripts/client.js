@@ -54,7 +54,17 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
         }
       }
       
-    }).otherwise({
+    }).when('/browse', {
+      templateUrl: '/views/templates/browse.html',
+      controller: 'BrowseController as browser',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+
+    })
+    .otherwise({
       redirectTo: 'home'
     });
 })
