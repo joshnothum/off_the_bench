@@ -2,6 +2,7 @@ myApp.service('UserService', function($http, $location){
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
+  self.gameObject ={};
 
   self.getuser = function(){
     console.log('UserService -- getuser');
@@ -33,11 +34,21 @@ myApp.service('UserService', function($http, $location){
     });
   };
 
+self.getUserGames = function () {
+  $http.get('/info').then(function (success) {
 
+    console.log(success.data);
+    self.gameObject = success;
+
+  }).catch(function (error) {
+    console.log('error:', error);
+});
+
+};
   self.displayGames = function () {
     $hhtp.get('/user/info').then(function (response) {
       console.log('hitting this path');
       
-    })
-  }
+    });
+  };
 });
