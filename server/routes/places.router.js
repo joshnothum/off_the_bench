@@ -92,15 +92,15 @@ places.post('/locations', function (req, res) {
             phone: req.body.phone,
             place_id: req.body.place_id,
         };
-        console.log('here on line 60', saveGame);
+        console.log('here on line 60', saveLocation);
 
-        client.query("INSERT INTO games (creator_id, time, date, max_number, location, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-            [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.location, saveGame.place_id, saveGame.name],
+        client.query("INSERT INTO locations (name, location, geometry, url, phone, place_id) VALUES ($1, $2, $3, $4, $5, $6)",
+            [saveLocation.name, saveLocation.location, saveLocation.geometry, saveLocation.url, saveLocation.phone, saveLocation.place_id],
             function (err, result) {
                 client.end();
 
                 if (err) {
-                    console.log("Error inserting data: ", err);
+                    console.log("Error inserting data into locations: ", err);
                     res.sendStatus(500);
                 } else {
                     res.sendStatus(200);

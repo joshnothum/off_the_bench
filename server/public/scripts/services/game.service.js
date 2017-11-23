@@ -29,7 +29,7 @@ myApp.service('GameService', function ($http, $location) {
         $http.get('/places/info', infoSearch).then(function (response) {
            
 
-            self.info.data = response.data.result;
+            self.info = response.data.result;
 
         }).catch(function (error) {
             console.log('my info failed: ', error);
@@ -42,7 +42,7 @@ myApp.service('GameService', function ($http, $location) {
         self.getInfo(places.place_id);//runs request for addtional information for locations table on database
 
 
-            console.log(self);
+            console.log(self.info);
             
         let locationInfo = {
             name: places.name,
@@ -56,13 +56,13 @@ myApp.service('GameService', function ($http, $location) {
         console.log(locationInfo);
         
 
-        // $http.post('/places/locations').then(function (response) {
-        //     console.log(response);
+        $http.post('/places/locations', locationInfo).then(function (response) {
+            console.log(response);
             
-        // }).catch(function (response) {
-        //     console.log('create location did not work:', error);
+        }).catch(function (response) {
+            console.log('create location did not work:', error);
 
-        // });
+        });
     }; //end of createGame
     self.sendGame = function (gameInfo) {
         $http.post('/places', gameInfo).then(function (response) {
