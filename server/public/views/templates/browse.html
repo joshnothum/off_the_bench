@@ -1,34 +1,31 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container" layout="row">
-
+<div class="container">
     <p>
-        Game Create
+        Game Browse
     </p>
-    <form flex="30">
-        <md-input-container>
-            <label>Search:</label>
-            <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
-        </md-input-container>
-        <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
+    <md-content layout="row" layout-align="space-between start">
+        <md-card flex="25" layout="column">
+            <form>
+                <md-input-container>
+                    <label>Search:</label>
+                    <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
+                </md-input-container>
+                <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
 
-    </form>
-        <md-content layout="row" layout-align="space-between center" flex="70">
-                <md-card flex="15" md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject.data'>
-                    <md-card-content>
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">{{games.name}}</span>
-                                <span class="md-subhead">{{games.formatted_address}}</span>
-                                <span class="md-subhead">{{games.place_id}}</span>
-                            </md-card-title-text>
-                            <md-card-title-media>
-                                <div class="md-media-sm card-media">
-                                    <img ng-src="{{game.icon}}" class="md-card-image" alt="Static google Map" />
-                                </div>
-
-                            </md-card-title-media>
-                        </md-card-title>
-                    </md-card-content>
-                </md-card>
-        </md-content>
-    </div>
+            </form>
+        </md-card>
+        <md-card flex="75" layout="row" layout-wrap>
+            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject.data'>
+                <md-card-content>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{games.name}}</span>
+                            <span class="md-subhead">{{games.formatted_address}}</span>
+                            <span class="md-subhead">{{games.place_id}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card-content>
+        </md-card>
+        </md-card>
+    </md-content>
+</div>
