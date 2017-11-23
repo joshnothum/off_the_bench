@@ -2,7 +2,7 @@ myApp.service('UserService', function($http, $location){
   console.log('UserService Loaded');
   var self = this;
   self.userObject = {};
-  self.gameObject ={};
+  self.gameObject = {};
 
   self.getuser = function(){
     console.log('UserService -- getuser');
@@ -38,7 +38,9 @@ self.getUserGames = function () {
   $http.get('/info').then(function (success) {
 
     console.log(success.data);
-    self.gameObject = success;
+    self.gameObject.data = success.data;
+    
+    
 
   }).catch(function (error) {
     console.log('error:', error);

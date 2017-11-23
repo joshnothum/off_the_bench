@@ -25,7 +25,7 @@ info.get('/', function (req, res, next) {
                     console.log("Error getting data: ", err);
                     res.sendStatus(500);
                 } else {
-                    res.send(result.rows.data);
+                    res.send(result.rows);
                 }//end of else
             });// end of if function
     });//end of pool

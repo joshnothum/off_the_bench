@@ -20,11 +20,11 @@
                 </div>
             </md-toolbar>
             <md-list>
-                <md-list-item layout="row">
-                    <div flex="25" layout-padding>Canopous</div>
-                    <div flex="25" layout-padding>Deneb</div>
-                    <div flex="25" layout-padding>Elnath</div>
-                    <div flex="25" layout-padding>Elnath</div>
+                <md-list-item layout="row" ng-repeat="game in uc.userGames.data">
+                    <div flex="25" layout-padding>{{game.name}}</div>
+                    <div flex="25" layout-padding>{{game.date}}</div>
+                    <div flex="25" layout-padding>{{game.time}}</div>
+                    <div flex="25" layout-padding>{{game.max_number}}</div>
                 </md-list-item>
             </md-list>
 
