@@ -12,4 +12,7 @@ myApp.controller('UserController', function(UserService, GameService) {
     UserService.getUserGames(gameMaker);
   };
 
+  vm.browseGames = function(){
+    UserService.browseGames();
+  };
 });

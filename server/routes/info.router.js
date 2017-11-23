@@ -6,7 +6,7 @@ var path = require('path');
 
 
 
-info.get('/', function (req, res, next) {
+info.get('/user', function (req, res, next) {
 
     
     
@@ -30,6 +30,32 @@ info.get('/', function (req, res, next) {
             });// end of if function
     });//end of pool
     
+});//end of get
+
+info.get('/', function (req, res, next) {
+
+
+
+
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Error connecting: ", err);
+            res.sendStatus(500);
+        }
+        client.query('SELECT * FROM "games"',
+
+            function (err, result) {
+                client.end();
+
+                if (err) {
+                    console.log("Error getting data: ", err);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }//end of else
+            });// end of if function
+    });//end of pool
+
 });//end of get
 
 module.exports = info;

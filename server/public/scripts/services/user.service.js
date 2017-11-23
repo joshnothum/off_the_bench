@@ -35,7 +35,7 @@ myApp.service('UserService', function($http, $location){
   };
 
 self.getUserGames = function () {
-  $http.get('/info').then(function (success) {
+  $http.get('/info/user').then(function (success) {
 
     console.log(success.data);
     self.gameObject.data = success.data;
@@ -43,14 +43,16 @@ self.getUserGames = function () {
     
 
   }).catch(function (error) {
-    console.log('error:', error);
+    console.log('error in getUserGames:', error);
 });
 
-};
-  self.displayGames = function () {
-    $hhtp.get('/user/info').then(function (response) {
+};// end of getUserGames
+  self.browseGames = function () {
+    $http.get('/info').then(function (response) {
       console.log('hitting this path');
       
+    }).catch(function (error) {
+      console.log('error in browseGames:', error);
     });
-  };
+  };//end of browseGames
 });
