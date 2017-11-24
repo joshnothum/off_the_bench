@@ -15,15 +15,14 @@
             </form>
         </md-card>
         <md-card flex="75" layout="row" layout-wrap>
-            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject.data'>
+            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject'>
                 <md-card-content>
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">{{games.name}}</span>
-                            <span class="md-subhead">
-                                <a href="{{games.url}}">{{games.url}}</a>
-                            </span>
-                            <span class="md-subhead">{{games.place_id}}</span>
+                            <span class="md-subhead">{{games.location}}</span>
+                            <span class="md-subhead">{{games.time}}</span>
+                            <span class="md-subhead">{{games.date}}</span>
                         </md-card-title-text>
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="start center">

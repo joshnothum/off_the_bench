@@ -25,4 +25,7 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
             });
         UserService.browseGames(infoSearch);
     };
+    browse.joinGame = function(){
+        
+    }
 });

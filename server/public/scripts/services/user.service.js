@@ -4,7 +4,7 @@ myApp.service('UserService', function ($http, $location) {
   //globalNonsense
   self.userObject = {};
   self.gameObject = {};
-  self.browseGamesObject = {};
+  
   self.allLocations = {};
 
   self.getuser = function () {
@@ -45,14 +45,16 @@ myApp.service('UserService', function ($http, $location) {
     self.browseGames = function () {
       $http.get('/info').then(function (success) {
         console.log('browseGames made to the get', success.data);
-        self.browseGamesObject.data = success.data;
+        self.browseGamesObject = success.data;
+        console.log(self.browseGamesObject);
+        
       }).catch(function (error) {
         console.log('error in browseGames:', error);
       });//end of catch
       // $location.path('/browse');
     },//end of browseGames
     self.loadPlaces = function () {
-      $http.get('/locations').thne(function (success) {
+      $http.get('info/location').then(function (success) {
         console.log('loadPlaces is probably working');
         self.allLocations = success.data;
       }).catch(function (error) {

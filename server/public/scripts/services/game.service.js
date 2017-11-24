@@ -56,8 +56,4 @@ myApp.service('GameService', function ($http, $location) {
             console.log('send game did not work: ', response);
         });
     };//end of sendGame
-    self.getGames = function () {
-        $http.getGames('/places');//not exactly sure what this does
-        console.log('where is this happening... line 61');
-    };//end of getGames
 });//end of GameService
