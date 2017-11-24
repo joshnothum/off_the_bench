@@ -30,9 +30,7 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
         console.log(game_id);
         
         let playerJoin = {
-            params: {
-                gameid: game_id
-            }//end of params
+            gameid: game_id
         };// end of playerJoin object
         GameService.joinGame(playerJoin);
     };

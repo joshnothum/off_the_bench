@@ -83,7 +83,7 @@ info.post('/', function (req, res) {
             res.sendStatus(500);
         }
         let joinGame = {
-            game_id:req.body.gameid,
+            game_id: req.body.gameid,
             player_id: req.user.id
         };// end of saveGame
     
