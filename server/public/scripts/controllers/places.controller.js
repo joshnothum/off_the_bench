@@ -41,7 +41,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
     place.createLocation= function(places){
-        GameService.createLocation(places);
+        let creatorid = UserService.userObject.userID;
+        GameService.createLocation(places, creatorid);
         $location.path('/create');
     };//end of createGame
 

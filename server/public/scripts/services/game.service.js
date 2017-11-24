@@ -30,8 +30,7 @@ myApp.service('GameService', function ($http, $location) {
            
 
             self.info = response.data.result;
-            console.log(self.info.data); // this logs with what I want
-            console.log(self.info.data.formatted_phone_number);
+          
             
 
         }).catch(function (response) {
@@ -40,30 +39,24 @@ myApp.service('GameService', function ($http, $location) {
         });
     };//end of getInfo
 
-    self.createLocation = function (places) {
+    self.createLocation = function (places, creatorid) {
         let getInfo = self.getInfo(places.place_id);
         
         getInfo.then(function(response){//runs request for addtional information for locations table on database
 
-     
-
+            console.log(self.info.geometry.location.lng);
             
-        
-            console.log(self.info);
-            
-
-        
-          
         let locationInfo = {
+            creator_id: creatorid,
             name: places.name,
             location: places.formatted_address,
-            geometry: self.info.geometry,
+            lat: self.info.geometry.location.lat,
+            lng: self.info.geometry.location.lng,
             url: self.info.url,
             phone: self.info.formatted_phone_number,
             place_id: places.place_id
 
-            };
-      
+            };// send to locations database
         console.log(locationInfo);
         $http.post('/places/locations', locationInfo).then(function (response) {
             console.log(response);

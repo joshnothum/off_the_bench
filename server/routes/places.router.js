@@ -34,8 +34,8 @@ places.get('/info', function (req, res) {
     req.query.key = API_KEY;
     request('https://maps.googleapis.com/maps/api/place/details/json?', { qs: req.query }, function (error, response, body) {
         // Print the HTML for the Google homepage.
-        console.log(error);
-        console.log(body);
+     console.log('this was an error made by anyone else but me:',error);
+     
         
         
         res.send(body);
@@ -85,17 +85,19 @@ places.post('/locations', function (req, res) {
             res.sendStatus(500);
         }
         let saveLocation = {
+            creator_id: req.body.creator_id,
             name: req.body.name,
             location: req.body.location,
-            geometry: req.body.geometry,
+            lat: req.body.lat,
+            lng:req.body.lng,
             url: req.body.url,
             phone: req.body.phone,
             place_id: req.body.place_id,
         };
         console.log('here on line 60', saveLocation);
 
-        client.query("INSERT INTO locations (name, location, geometry, url, phone, place_id) VALUES ($1, $2, $3, $4, $5, $6)",
-            [saveLocation.name, saveLocation.location, saveLocation.geometry, saveLocation.url, saveLocation.phone, saveLocation.place_id],
+        client.query("INSERT INTO locations (creator_id, name, location, lat, lng, url, phone, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+            [saveLocation.creator_id,saveLocation.name, saveLocation.location, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.phone, saveLocation.place_id],
             function (err, result) {
                 client.end();
 
