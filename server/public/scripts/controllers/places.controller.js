@@ -21,6 +21,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };//end of getPlaces  
 
     place.getInfo = function (ev, place_id) {
+        GameService.getInfo(place_id);
         $mdDialog.show({
             controller: 'DialogController as dc',
             templateUrl: 'views/templates/dialog1.tmpl.html',
@@ -33,7 +34,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
             }, function () {
                 $scope.status = 'You cancelled the dialog.';
             });
-        GameService.getInfo(place_id);
+        
     };//end of getInfo
 
 
