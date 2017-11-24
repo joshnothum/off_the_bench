@@ -47,4 +47,10 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         });
       }
     };
+
+    vm.getRegister = function(){
+      console.log('getRegister got hit');
+      $location.path('/register');
+      
+    };
 });
