@@ -13,7 +13,7 @@ if (process.env.MONGODB_URI != undefined) {
 }
 
 mongoose.connect(mongoURI, {
-    useMongoClient: true
+    useMongoClient: trueå
 });
 
 mongoose.connection.on('error', function (err) {

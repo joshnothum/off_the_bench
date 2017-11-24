@@ -1,24 +1,24 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div layout="row" layout-align="space-between none">
     <div>
-    <h1 class="lead">Let's get started</h1>
-    <h1>{{7===7}}</h1>
-    <h2>Oh, the places you will go</h2>
-    <p>Use the search bar to find places to play</p>
-    <p>If you find one you like, select 'Create'</p>
-    <p>Need more information? Select 'More Info'</p>
-</div>
+        <h1 class="lead">Let's get started</h1>
+        <h1>{{7===7}}</h1>
+        <h2>Oh, the places you will go</h2>
+        <p>Use the search bar to find places to play</p>
+        <p>If you find one you like, select 'Create'</p>
+        <p>Need more information? Select 'More Info'</p>
+    </div>
     <form>
         <md-input-container>
             <label>Search:</label>
-            <input type="text" md-no-asterisk="true" name="places" ng-model="place.search"/>
+            <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
         </md-input-container>
         <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
 
     </form>
 </div>
 <div ng-cloak="" class="creatGameCard">
-        <md-content layout="row" layout-align = "center center" >
+    <md-content layout="row" layout-align="center center">
         <div>
             <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data'>
                 <md-card-content>
@@ -36,13 +36,13 @@
                         </md-card-title-media>
                     </md-card-title>
                     <div>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-button ng-click="place.getInfo(ev, places.place_id)" class="md-raised">More Info</md-button>
-                        <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
-                    </md-card-actions>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button ng-click="place.getInfo(ev, places.place_id)" class="md-raised">More Info</md-button>
+                            <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
+                        </md-card-actions>
                     </div>
                 </md-card-content>
             </md-card>
         </div>
-        </md-content>
-    </div>
+    </md-content>
+</div>

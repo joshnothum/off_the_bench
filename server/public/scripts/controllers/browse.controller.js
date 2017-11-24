@@ -6,17 +6,11 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
     browse.gamesObject = UserService.browseGamesObject;
 
     browse.getInfo = function (ev, place_id) {
-
-
         let infoSearch = {
             params: {
                 placeid: place_id,
             }//end of params
         };   // end of infoSearch
-
-        console.log(infoSearch);
-        
-
         $mdDialog.show({
             controller: 'DialogController as dc',
             templateUrl: 'views/templates/dialog1.tmpl.html',
@@ -29,11 +23,6 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
             }, function () {
                 $scope.status = 'You cancelled the dialog.';
             });
-
-
-
         GameService.getInfo(infoSearch);
-
     };
-    
 });

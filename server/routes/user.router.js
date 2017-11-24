@@ -3,22 +3,21 @@ var router = express.Router();
 require('dotenv').config();
 var request = require('request');
 
-
 // Handles Ajax request for user information if user is authenticated
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   console.log('get /user route');
   // check if logged in
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     // send back user object from database
     console.log('logged in', req.user);
     console.log(req.user);
-    
+
     var userInfo = {
-      username : req.user.username,
+      username: req.user.username,
       userID: req.user.id,
     };
     console.log(userInfo);
-    
+
     res.send(userInfo);
   } else {
     // failure best handled on the server. do redirect here.
@@ -28,14 +27,12 @@ router.get('/', function(req, res) {
   }
 });
 
-
 // clear all server session information about this user
-router.get('/logout', function(req, res) {
+router.get('/logout', function (req, res) {
   // Use passport's built-in method to log out the user
   console.log('Logged out');
   req.logOut();
   res.sendStatus(200);
 });
-
 
 module.exports = router;

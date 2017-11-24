@@ -4,12 +4,7 @@ var passport = require('passport');
 var pool = require('../modules/pool.js');
 var path = require('path');
 
-
-
 info.get('/user', function (req, res, next) {
-
-    
-    
 
     pool.connect(function (err, client, done) {
         if (err) {
@@ -17,7 +12,7 @@ info.get('/user', function (req, res, next) {
             res.sendStatus(500);
         }
         client.query('SELECT * FROM "games" WHERE "creator_id" = 2',
-            
+
             function (err, result) {
                 client.end();
 
@@ -29,13 +24,10 @@ info.get('/user', function (req, res, next) {
                 }//end of else
             });// end of if function
     });//end of pool
-    
+
 });//end of get
 
 info.get('/', function (req, res, next) {
-
-
-
 
     pool.connect(function (err, client, done) {
         if (err) {
@@ -58,12 +50,7 @@ info.get('/', function (req, res, next) {
 
 });//end of get
 
-
-
 info.get('/location', function (req, res, next) {
-
-
-
 
     pool.connect(function (err, client, done) {
         if (err) {

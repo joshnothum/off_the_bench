@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute','ngMaterial','ngMessages','ngAria', 'ngAnimate']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate']);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
@@ -21,7 +21,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
@@ -30,12 +30,12 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController',
       resolve: {
-        getuser : function(UserService){
+        getuser: function (UserService) {
           return UserService.getuser();
         }
       }
     })
-  
+
     .when('/places', {
       templateUrl: '/views/templates/places.html',
       controller: 'PlacesController as place',
@@ -53,7 +53,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
           return UserService.getuser();
         }
       }
-      
+
     }).when('/browse', {
       templateUrl: '/views/templates/browse.html',
       controller: 'BrowseController as browser',
@@ -67,6 +67,6 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     .otherwise({
       redirectTo: 'home'
     });
-})
+});
 
 
