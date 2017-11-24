@@ -23,14 +23,15 @@ myApp.service('GameService', function ($http, $location) {
             params: {
                 placeid: place_id,
             }//end of params
-        };   // end of infoSearch
+        };   // end of infoSearch object for api parameter
        
 
-        $http.get('/places/info', infoSearch).then(function (response) {
+          return $http.get('/places/info', infoSearch).then(function (response) {
            
 
             self.info = response.data.result;
-            console.log(self.info);
+            console.log(self.info.data); // this logs with what I want
+            console.log(self.info.data.formatted_phone_number);
             
 
         }).catch(function (response) {
@@ -40,15 +41,18 @@ myApp.service('GameService', function ($http, $location) {
     };//end of getInfo
 
     self.createLocation = function (places) {
-        self.newGame.push(places);
-        return self.getInfo(places.place_id).then(function (response){
+        let getInfo = self.getInfo(places.place_id);
+        
+        getInfo.then(function(response){//runs request for addtional information for locations table on database
+
+     
 
             
-        //runs request for addtional information for locations table on database
-
-
+        
             console.log(self.info);
             
+
+        
           
         let locationInfo = {
             name: places.name,
@@ -61,16 +65,16 @@ myApp.service('GameService', function ($http, $location) {
             };
       
         console.log(locationInfo);
-        // $http.post('/places/locations', locationInfo).then(function (response) {
-        //     console.log(response);
+        $http.post('/places/locations', locationInfo).then(function (response) {
+            console.log(response);
             
-        // }).catch(function (response) {
-        //     console.log('create location did not work:', response);
+        }).catch(function (response) {
+            console.log('create location did not work:', response);
 
-        // });
-
-    });//end of getInfo promisechain
-    }; //end of createGame
+        });
+        });
+        self.newGame.push(places);
+    };//end of createGame
     self.sendGame = function (gameInfo) {
         $http.post('/places', gameInfo).then(function (response) {
         }).catch(function (response) {
