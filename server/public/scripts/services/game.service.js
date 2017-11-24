@@ -41,15 +41,15 @@ myApp.service('GameService', function ($http, $location) {
 
     self.createLocation = function (places) {
         self.newGame.push(places);
-        self.getInfo(places.place_id).then(function (response){
+        return self.getInfo(places.place_id).then(function (response){
 
-       
+            
         //runs request for addtional information for locations table on database
 
 
             console.log(self.info);
             
-            
+          
         let locationInfo = {
             name: places.name,
             location: places.formatted_address,
@@ -59,7 +59,8 @@ myApp.service('GameService', function ($http, $location) {
             place_id: places.place_id
 
             };
-        // console.log(locationInfo);
+      
+        console.log(locationInfo);
         // $http.post('/places/locations', locationInfo).then(function (response) {
         //     console.log(response);
             
