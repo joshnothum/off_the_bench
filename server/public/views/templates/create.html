@@ -15,7 +15,7 @@ Game Create
     <div layout="column" layout-align="center center">
         <div layout="column" layout-align="center center" style="padding:40px" ng-cloak="" class="selectdemoOptionsWithAsyncSearch">
             <md-select placeholder="Locations" ng-model="place.locations" md-on-open="place.loadPlaces()" style="min-width: 400px;">
-                <md-option ng-value="location" ng-repeat="location in place.gamesObject.data">{{location.name}}</md-option>
+                <md-option ng-value="location" ng-repeat="location in place.allLocations">{{location.name}}</md-option>
             </md-select>
         </div>
     </div>

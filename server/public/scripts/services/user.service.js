@@ -4,6 +4,7 @@ myApp.service('UserService', function($http, $location){
   self.userObject = {};
   self.gameObject = {};
   self.browseGamesObject = {};
+  self.allLocations = {};
 
   self.getuser = function(){
     console.log('UserService -- getuser');
@@ -61,4 +62,16 @@ self.getUserGames = function () {
 
     // $location.path('/browse');
   };//end of browseGames
+
+
+  self.loadPlaces= function () {
+    $http.get('/locations').thne(function(success){
+      console.log('loadPlaces is probably working');
+      self.allLocations = success.data;
+      
+    }).catch(function(error){
+      console.log('we gots an error in loadPlaces:', error);
+      
+    });
+  };//end of loadPlaces
 });

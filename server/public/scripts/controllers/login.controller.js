@@ -44,6 +44,7 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
           vm.message = "Please try again.";
+          $location.path('/user');
         });
       }
     };

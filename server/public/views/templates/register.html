@@ -10,25 +10,32 @@
     <md-card-content>
       <form name="Form">
         <md-input-container class="md-block">
-          <label>Login</label>
-          <input type="text" name="username" ng-model="lc.user.username" placeholder="login" required="" />
+          <label>Register Username</label>
+          <input type="text" name="username" ng-model="lc.user.username" placeholder="username" required="" />
           <div ng-messages="Form.username.$error" role="alert" multiple="">
-            <div ng-message="required" class="my-message">Please enter your username.</div>
+            <div ng-message="required" class="my-message">Please enter a username.</div>
           </div>
         </md-input-container>
         <md-input-container class="md-block">
           <label>Password</label>
           <input type="password" name="password" ng-model="lc.user.password" placeholder="password" required="" md-maxlength="16" />
           <div ng-messages="Form.password.$error" role="alert" multiple="">
-            <div ng-message="required" class="my-message">Please enter your password.</div>
+            <div ng-message="required" class="my-message">Please enter a password.</div>
             <div ng-message="md-maxlength" class="my-message">Too long.</div>
           </div>
           </md-input-container>
+           <md-input-container class="md-block">
+            <label>Email</label>
+            <input type="email" name="email" ng-model="lc.user.email" placeholder="email" required=""/>
+            <div ng-messages="Form.email.$error" role="alert" multiple="">
+              <div ng-message="required" class="my-message">Please enter your email.</div>
+            </div>
+           </md-input-container>
           <md-input-container class="md-block">
             <label>Re-Enter Password</label>
           <input type="password" name="test_password" ng-model="lc.user.testPass" placeholder="re-enter password" required="" md-maxlength="16"/>
           <div ng-messages="Form.password.$error" role="alert" multiple="">
-            <div ng-message="required" class="my-message">Please enter a password.</div>
+            <div ng-message="required" class="my-message">Please re-enter your password.</div>
             <div ng-message="md-maxlength" class="my-message">Too long.</div>
           </div>
         </md-input-container>

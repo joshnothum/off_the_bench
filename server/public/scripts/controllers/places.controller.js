@@ -6,6 +6,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.info = GameService.info;
     place.newGame = GameService.newGame;
     place.gamesObject = UserService.browseGamesObject;
+    place.allLocations = UserService.allLocations;
 
 
     place.getPlaces = function(){
@@ -66,8 +67,12 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };//end of createGame
 
     
-    place.loadPlaces = function () {
+    place.loadGames = function () {
         UserService.browseGames();
     };
+
+    place.loadPlaces = function(){
+        UserService.loadPlaces();
+    }
 
 });// end of Places Controller
