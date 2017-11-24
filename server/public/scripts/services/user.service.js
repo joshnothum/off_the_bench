@@ -44,7 +44,7 @@ myApp.service('UserService', function ($http, $location) {
     },// end of getUserGames
     self.browseGames = function () {
       $http.get('/info').then(function (success) {
-        console.log('browseGames made to the get');
+        console.log('browseGames made to the get', success.data);
         self.browseGamesObject.data = success.data;
       }).catch(function (error) {
         console.log('error in browseGames:', error);

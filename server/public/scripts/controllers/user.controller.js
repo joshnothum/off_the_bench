@@ -6,13 +6,12 @@ myApp.controller('UserController', function (UserService, GameService, $location
   vm.userGames = UserService.gameObject;
 
   vm.getUserGames = function () {
-    let gameMaker = UserService.userObject.userID;
-
-
-    UserService.getUserGames(gameMaker);
+    UserService.getUserGames();
   };
   vm.browseGames = function () {
     UserService.browseGames();
+    $location.path('/browse');
 
   };
+  vm.getUserGames();
 });

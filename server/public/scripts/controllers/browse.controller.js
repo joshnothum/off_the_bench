@@ -23,6 +23,6 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
             }, function () {
                 $scope.status = 'You cancelled the dialog.';
             });
-        GameService.getInfo(infoSearch);
+        UserService.browseGames(infoSearch);
     };
 });

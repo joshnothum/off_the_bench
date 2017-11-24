@@ -5,13 +5,16 @@ var pool = require('../modules/pool.js');
 var path = require('path');
 
 info.get('/user', function (req, res, next) {
-
+    let user = req.user;
+    console.log('9', user);
+    
     pool.connect(function (err, client, done) {
         if (err) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        client.query('SELECT * FROM "games" WHERE "creator_id" = 2',
+        let queryText = 'SELECT * FROM "games" WHERE "creator_id" = $1;';
+        client.query(queryText,[user.id],
 
             function (err, result) {
                 client.end();
