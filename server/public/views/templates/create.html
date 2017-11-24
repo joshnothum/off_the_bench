@@ -12,6 +12,13 @@ Game Create
         <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
 
     </form>
+    <div layout="column" layout-align="center center">
+        <div layout="column" layout-align="center center" style="padding:40px" ng-cloak="" class="selectdemoOptionsWithAsyncSearch">
+            <md-select placeholder="Locations" ng-model="place.locations" md-on-open="place.loadPlaces()" style="min-width: 400px;">
+                <md-option ng-value="location" ng-repeat="location in place.gamesObject.data">{{location.name}}</md-option>
+            </md-select>
+        </div>
+    </div>
     <div ng-cloak="" class="creatGameCard">
         <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
             <div flex-xs="" flex-gt-xs="50" layout="row">
@@ -65,12 +72,5 @@ Game Create
             </div>
         </md-content>
     </div>
-<div layout= "column" layout-align = "center center">
-    <div layout="column" layout-align="center center" style="padding:40px" ng-cloak="" class="selectdemoOptionsWithAsyncSearch">
-        <md-select placeholder="Assign to user" ng-model="user" md-on-open="loadUsers()" style="min-width: 200px;">
-            <md-option ng-value="user" ng-repeat="user in users">{{user.name}}</md-option>
-        </md-select>
-        <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p>
-    </div>
-    </div>
+
     </div>

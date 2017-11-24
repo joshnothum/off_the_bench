@@ -59,6 +59,6 @@ self.getUserGames = function () {
       console.log('error in browseGames:', error);
     });
 
-    $location.path('/browse');
+    // $location.path('/browse');
   };//end of browseGames
 });
