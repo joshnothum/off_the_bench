@@ -4,8 +4,9 @@ myApp.service('UserService', function ($http, $location) {
   //globalNonsense
   self.userObject = {};
   self.gameObject = {};
-  
   self.allLocations = {};
+  
+  
 
   self.getuser = function () {
     console.log('UserService -- getuser');
@@ -56,7 +57,9 @@ myApp.service('UserService', function ($http, $location) {
     self.loadPlaces = function () {
       $http.get('info/location').then(function (success) {
         console.log('loadPlaces is probably working');
-        self.allLocations = success.data;
+        self.allLocations.data = success.data;
+        console.log(success.data);
+        
       }).catch(function (error) {
         console.log('we gots an error in loadPlaces:', error);
       });

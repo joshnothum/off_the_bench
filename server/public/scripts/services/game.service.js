@@ -25,7 +25,9 @@ myApp.service('GameService', function ($http, $location) {
             console.log('my info failed: ', response);
         });
     };//end of getInfo
-
+    self.pushLocation = function (places) {
+        self.newGame.push(places);
+    };
     self.createLocation = function (places, creatorid) {
         let getInfo = self.getInfo(places.place_id);
         getInfo.then(function (response) {//runs request for addtional information for locations table on database/ with promise chain
@@ -48,7 +50,7 @@ myApp.service('GameService', function ($http, $location) {
                 console.log('create location did not work:', response);
             });
         });
-        self.newGame.push(places);
+        self.pushLocation(places);
     };//end of createGame
     self.sendGame = function (gameInfo) {
         $http.post('/places', gameInfo).then(function (response) {
