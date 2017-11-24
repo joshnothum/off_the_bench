@@ -59,8 +59,8 @@ myApp.service('GameService', function ($http, $location) {
         });
     };//end of sendGame
 
-    self.joinGame= function(game_id){
-        $http.post('/info', game_id).then(function(response){
+    self.joinGame= function(playerJoin){
+        $http.post('/info', playerJoin).then(function(response){
             console.log(response.status);
             
         }).catch(function (response) {

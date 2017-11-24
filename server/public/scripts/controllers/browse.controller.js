@@ -22,16 +22,16 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
                 $scope.status = 'You said the information was "' + answer + '".';
             }, function () {
                 $scope.status = 'You cancelled the dialog.';
-            });
-       
-    };
-    browse.joinGame = function(game_id){
-        let playerJoin = {
-            params:{
-                gameid:place_id
-        }
+            });// end of dialog
 
-        
-    };
+    };//end of getInfo
+
+    browse.joinGame = function (game_id) {
+        let playerJoin = {
+            params: {
+                gameid: place_id
+            }//end of params
+        };// end of playerJoin object
+        GameService.joinGame(playerJoin);
     };
 });
