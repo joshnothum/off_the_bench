@@ -58,4 +58,15 @@ myApp.service('GameService', function ($http, $location) {
             console.log('send game did not work: ', response);
         });
     };//end of sendGame
+
+    self.joinGame= function(game_id){
+        $http.post('/info', game_id).then(function(response){
+            console.log(response.status);
+            
+        }).catch(function (response) {
+            console.log('joinGame did not work', response);
+            
+        });//end of post/catch
+    };//end of joinGame
+
 });//end of GameService

@@ -25,7 +25,13 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
             });
        
     };
-    browse.joinGame = function(){
+    browse.joinGame = function(game_id){
+        let playerJoin = {
+            params:{
+                gameid:place_id
+        }
+
         
-    }
+    };
+    };
 });

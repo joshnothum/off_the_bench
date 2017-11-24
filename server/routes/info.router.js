@@ -75,5 +75,30 @@ info.get('/location', function (req, res, next) {
     });//end of pool
 
 });//end of get
+info.post('/', function (req, res) {
+
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Error connecting: ", err);
+            res.sendStatus(500);
+        }
+        let joinGame = {
+            game_id:req.body.game_id,
+            player_id: req.user.id
+        };// end of saveGame
+    
+        client.query("INSERT INTO player_joins (game_id, player_id) VALUES ($1, $2)",
+            [joinGame.game_id, joinGame.player_id],
+            function (err, result) {
+                client.end();
+                if (err) {
+                    console.log("Error inserting data: ", err);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200);
+                }
+            });
+    });
+});//end of places.post(/)
 
 module.exports = info;
