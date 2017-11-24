@@ -9,13 +9,11 @@ myApp.controller('UserController', function (UserService, GameService, $location
     UserService.getUserGames();
   };
   vm.browseGames = function () {
-    UserService.browseGames();
     $location.path('/browse');
-
   };
 
   vm.createScreen = function () {
     $location.path('/create');
-  }
+  };
   vm.getUserGames();
 });

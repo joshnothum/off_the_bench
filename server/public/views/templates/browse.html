@@ -15,7 +15,7 @@
             </form>
         </md-card>
         <md-card flex="75" layout="row" layout-wrap>
-            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject'>
+            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject.data'>
                 <md-card-content>
                     <md-card-title>
                         <md-card-title-text>
@@ -27,7 +27,7 @@
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="start center">
                         <md-button class="md-raised md-primary" ng-click="browser.getInfo(ev,games.place_id)">More Info</md-button>
-                        <md-button class="md-raised md-primary">Join</md-button>
+                        <md-button class="md-raised md-primary" ng-click="browser.join(games.id)">Join</md-button>
                     </md-card-actions>
                 </md-card-content>
             </md-card>

@@ -71,4 +71,10 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.loadPlaces = function () {
         UserService.loadPlaces();
     };//end of of loadPlaces
+
+    place.pushLocation= function(place){
+        GameService.pushLocation(place);
+    };
+
+    place.loadPlaces();
 });// end of Places Controller
