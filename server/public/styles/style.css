@@ -21,8 +21,19 @@ html {
   margin-top: 14px;
 }
 
-#container {
+#searchHolder {
   margin-top: 10px;
+  max-width:66%;
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+
+}
+
+#cardHolder{
+  margin-top: 10px;
+ 
 }
 
 .container p {
@@ -80,29 +91,4 @@ li a {
 li a:hover {
   text-decoration: underline;
   color: #eee;
-}
-
-.createGameCard .card-media {
-  background-color: #999999;
-  opacity: 1;
-  transition: all 1s linear, opacity 1ms;
-  transform: rotate(390deg);
-}
-/* for the search bar */
-
-.search-bar {
-  background-color: #222;
-  
-}
-
-.search-bar * {
-  color: white !important;
-}
-
-.search-bar input {
-  border-bottom-color: white;
-}
-
-.md-errors-spacer {
-  display: none;
 }

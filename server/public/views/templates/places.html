@@ -1,4 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
+
 <!-- <div layout="row" layout-align="space-between none">
     <div>
         <h1 class="lead">Let's get started</h1>
@@ -17,68 +18,46 @@
 
     </form>
 </div> -->
-<md-content layout="row" layout-align="center start">
-    <md-card flex="66">
-        <md-toolbar>
-            <!-- Pre-Search Bar -->
-            <div id="search-bar" ng-show="place.showPreSearchBar()" class="md-toolbar-tools" ng-click="place.initiateSearch()" layout-align="space-between center">
+<div id="container p">
+    <div id="searchHolder">
+        <md-content layout="column" layout-align="space-between none">
 
-                <h2>Search Bar App</h2>
-
-                <!-- Search button (initiates search) -->
-                <md-button ng-click="place.initiateSearch()">
-
-                    <span>Search</span>
-                </md-button>
-
-            </div>
-
-            <!-- Search bar -->
-            <div ng-show="place.showSearchBar()" class="md-toolbar-tools search-bar">
-                <md-button class="md-icon-button" ng-click="place.endSearch()">
-                    <md-icon>close</md-icon>
-                </md-button>
-                
-
-                <!-- Input Text -->
-                <md-input-container flex>
-                    <!-- <label for="search">Search</label> -->
-                    <input aria-label = "search field" id="search-input" type="text" ng-model="place.searchBar" />
+            <md-card layout="column" layout-align="center none">
+                <md-input-container>
+                    <label for="places">Search:</label>
+                    <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
                 </md-input-container>
+                <div layout="row" layout-align="center center">
 
-                <md-button class="md-icon-button" ng-click="place.getPlaces()">
-                    <md-icon>search</md-icon>
-                </md-button>
-            </div>
+                    <md-button ng-click="place.getPlaces()">Search</md-button>
 
-        </md-toolbar>
-    </md-card>
-    <div ng-cloak="" class="creatGameCard">
-            <div>
-                <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data'>
-                    <md-card-content>
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">{{places.name}}</span>
-                                <span class="md-subhead">{{places.formatted_address}}</span>
-                                <span class="md-subhead">{{places.place_id}}</span>
-                            </md-card-title-text>
-                            <md-card-title-media>
-                                <div class="md-media-sm card-media">
-                                    <img ng-src="{{places.icon}}" class="md-card-image" alt="Static google Map" />
-                                </div>
-
-                            </md-card-title-media>
-                        </md-card-title>
-                        <div>
-                            <md-card-actions layout="row" layout-align="end center">
-                                <md-button ng-click="place.getInfo(ev, places.place_id)" class="md-raised">More Info</md-button>
-                                <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
-                            </md-card-actions>
-                        </div>
-                    </md-card-content>
-                </md-card>
-            </div>
-  
+                </div>
+            </md-card>
+        </md-content>
     </div>
-<md-content>
+    <div id="cardHolder" layout="row" ng-cloak="" layout-wrap layout-align="center">
+        <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data' flex="33">
+            <md-card-content>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{places.name}}</span>
+                        <span class="md-subhead">{{places.formatted_address}}</span>
+                        <span class="md-subhead">{{places.place_id}}</span>
+                    </md-card-title-text>
+                    <!-- <md-card-title-media>
+                        <div class="md-media-sm card-media">
+                            <img ng-src="{{places.icon}}" class="md-card-image" alt="Static google Map" />
+                        </div>
+
+                    </md-card-title-media>
+                </md-card-title> -->
+                <div>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="place.getInfo(ev, places.place_id)" class="md-raised">More Info</md-button>
+                        <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
+                    </md-card-actions>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+    </div>

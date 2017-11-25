@@ -1,17 +1,9 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+<div id="container">
 
     <p>
         Game Create
     </p>
-    <form>
-        <md-input-container>
-            <label>Search:</label>
-            <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
-        </md-input-container>
-        <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
-
-    </form>
     <div layout="column" layout-align="center center">
         <div layout="column" layout-align="center center" style="padding:40px" ng-cloak="" class="selectdemoOptionsWithAsyncSearch">
             <md-select placeholder="Locations" ng-model="place.locations" md-on-close="place.pushLocation(place.locations)" style="min-width: 400px;">
@@ -20,8 +12,8 @@
         </div>
     </div>
     <div ng-cloak="" class="creatGameCard">
-        <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
-            <div flex-xs="" flex-gt-xs="50" layout="row">
+        <md-content class="md-padding" layout="row" layout-align="center">
+            <div>
                 <md-card md-theme="{{'dark-purple'}}" ng-repeat='game in place.newGame'>
                     <md-card-content>
                         <md-card-title>
@@ -30,12 +22,6 @@
                                 <span class="md-subhead">{{game.formatted_address}}</span>
                                 <span class="md-subhead">{{game.place_id}}</span>
                             </md-card-title-text>
-                            <md-card-title-media>
-                                <div class="md-media-sm card-media">
-                                    <img ng-src="{{game.icon}}" class="md-card-image" alt="Static google Map" />
-                                </div>
-
-                            </md-card-title-media>
                         </md-card-title>
                         <div>
                             <form name="Create">

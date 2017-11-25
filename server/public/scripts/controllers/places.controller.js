@@ -7,7 +7,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.newGame = GameService.newGame;
     place.gamesObject = UserService.browseGamesObject;
     place.allLocations = UserService.allLocations;
-
+    place.searchBar = '';
     place.getPlaces = function () {
         let apiSearch = {
             params: {
@@ -76,32 +76,6 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.pushLocation(place);
     };
 //for searchBar may need to edit
-
-    
-    place.showPreSearchBar = function () {
-        return place.searchBar == null;
-    };
-    place.showSearchBar = function () {
-        return place.searchBar != null;
-    };
-    place.initiateSearch = function () {
-        place.searchBar = '';
-        place.showSearchBar();
-    };
-    place.endSearch = function () {
-        return place.searchBar = null;
-    };
-    // place.submit = function () {
-    //     console.error('Search function not yet implemented');
-    // };
-
-    // to focus on input element after it appears
-    $scope.$watch(function () {
-        return document.querySelector('#search-bar:not(.ng-hide)');
-    }, function () {
-        document.getElementById('search-input').focus();
-    });
-
 
 
 
