@@ -1,21 +1,21 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div id="container">
+<div id="container" class="clearCard">
 
     <p>
         Game Create
     </p>
-    <div layout="column" layout-align="center center">
+    <div layout="column" layout-align="center center" class="clearCard">
         <div layout="column" layout-align="center center" style="padding:40px" ng-cloak="" class="selectdemoOptionsWithAsyncSearch">
             <md-select placeholder="Locations" ng-model="place.locations" md-on-close="place.pushLocation(place.locations)" style="min-width: 400px;">
                 <md-option ng-value="location" ng-repeat="location in place.allLocations.data">{{location.name}}</md-option>
             </md-select>
         </div>
     </div>
-    <div ng-cloak="" class="creatGameCard">
-        <md-content class="md-padding" layout="row" layout-align="center">
-            <div>
+    <div ng-cloak="" id="createGameCard">
+        <md-content class="md-padding clearCard" layout="row" layout-align="center">
+            <div class= "clearCard">
                 <md-card md-theme="{{'dark-purple'}}" ng-repeat='game in place.newGame'>
-                    <md-card-content>
+                    <md-card-content class="clearCard">
                         <md-card-title>
                             <md-card-title-text>
                                 <span class="md-headline">{{game.name}}</span>

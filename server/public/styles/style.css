@@ -7,9 +7,9 @@ html {
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 
-.loginCard{
+.clearCard{
   background-color: transparent;
-  min-height: 50%;
+ 
 }
 
 .instructions .container h1 {
@@ -64,6 +64,10 @@ html {
 
 .btn-danger {
   margin-left: 10px;
+}
+
+#createGameCard {
+  background-color: transparent;
 }
 
 .navbar {
