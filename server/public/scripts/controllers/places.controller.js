@@ -63,6 +63,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
             creator_id: UserService.userObject.userID,
         };//end of gameInfo object
         GameService.sendGame(gameInfo);
+        $location.path('/user');
     };//end of sendGame
 
     place.loadGames = function () {
@@ -73,6 +74,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };//end of of loadPlaces
 
     place.pushLocation= function(place){
+        console.log(place);
+        
         GameService.pushLocation(place);
     };
 //for searchBar may need to edit

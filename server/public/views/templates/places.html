@@ -1,23 +1,4 @@
 <div ng-include="'views/partials/nav.html'"></div>
-
-<!-- <div layout="row" layout-align="space-between none">
-    <div>
-        <h1 class="lead">Let's get started</h1>
-        <h1>{{7===7}}</h1>
-        <h2>Oh, the places you will go</h2>
-        <p>Use the search bar to find places to play</p>
-        <p>If you find one you like, select 'Create'</p>
-        <p>Need more information? Select 'More Info'</p>
-    </div>
-    <form>
-        <md-input-container>
-            <label>Search:</label>
-            <input type="text" md-no-asterisk="true" name="places" ng-model="place.search" />
-        </md-input-container>
-        <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
-
-    </form>
-</div> -->
 <div id="container p">
     <div id="searchHolder">
         <md-content layout="column" layout-align="space-between none">
@@ -41,6 +22,7 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{places.name}}</span>
+                        <span class="md-subhead">{{places.location}}</span>
                         <span class="md-subhead">{{places.formatted_address}}</span>
                         <span class="md-subhead">{{places.place_id}}</span>
                     </md-card-title-text>

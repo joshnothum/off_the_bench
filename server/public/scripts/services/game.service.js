@@ -33,10 +33,12 @@ myApp.service('GameService', function ($http, $location) {
         getInfo.then(function (response) {//runs request for addtional information for locations table on database/ with promise chain
             console.log(self.info.geometry.location.lng);
 
+            
+
             let locationInfo = {
                 creator_id: creatorid,
                 name: places.name,
-                location: places.formatted_address,
+                formatted_address: places.formatted_address,
                 lat: self.info.geometry.location.lat,
                 lng: self.info.geometry.location.lng,
                 url: self.info.url,

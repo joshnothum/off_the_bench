@@ -5,15 +5,19 @@
     <a href="#places">Place Search</a>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
     <md-content layout-align="space-between start" layout="row">
-        <md-card flex="20" layout="column" layout-align="space-between start" layout-margin>
+        <md-card flex="20" layout="column" layout-align="space-between start" >
+            <md-toolbar>
+                <div class="md-toolbar-tools">
             <md-card-title-text>
                 <span class="md-headline" layout="column" layout-align="space-between start">User Actions</span>
             </md-card-title-text>
+            </div>
+        </md-toolbar>
             <md-button class="md-accent" aria-label="Create" ng-click="uc.createScreen()">Create</md-button>
             <md-button class="md-accent" aria-label="Browse" ng-click="uc.browseGames()">Browse</md-button>
             <md-button class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location</md-button>
         </md-card>
-        <md-card flex="80">
+        <md-card flex="80" md-theme= "{{'dark-purple'}}">
             <md-toolbar>
                 <div class="md-toolbar-tools" layout="row">
                     <div flex="35" layout-padding>Name</div>

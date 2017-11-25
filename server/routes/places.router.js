@@ -36,13 +36,13 @@ places.post('/', function (req, res) {
             time: req.body.time,
             date: req.body.date,
             max_number: req.body.maxNumber,
-            location: req.body.location,
+            formatted_address: req.body.formatted_address,
             place_id: req.body.place_id,
             name: req.body.name
         };// end of saveGame
 
-        client.query("INSERT INTO games (creator_id, time, date, max_number, location, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-            [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.location, saveGame.place_id, saveGame.name],
+        client.query("INSERT INTO games (creator_id, time, date, max_number, formatted_address, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+            [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.formatted_address, saveGame.place_id, saveGame.name],
             function (err, result) {
                 client.end();
                 if (err) {
