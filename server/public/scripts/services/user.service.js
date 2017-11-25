@@ -17,8 +17,6 @@ myApp.service('UserService', function ($http, $location) {
         // user has a curret session on the server
         self.userObject.userName = success.data.username;
         self.userObject.userID = success.data.userID;
-
-
         console.log('UserService -- getuser -- User Data: ', self.userObject.userName);
       } else {
         console.log('UserService -- getuser -- failure');

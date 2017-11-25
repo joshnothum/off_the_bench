@@ -27,7 +27,6 @@ info.get('/user', function (req, res, next) {
                 }//end of else
             });// end of if function
     });//end of pool
-
 });//end of get
 
 info.get('/', function (req, res, next) {
@@ -50,9 +49,7 @@ info.get('/', function (req, res, next) {
                 }//end of else
             });// end of if function
     });//end of pool
-
 });//end of get
-
 info.get('/location', function (req, res, next) {
 
     pool.connect(function (err, client, done) {
@@ -73,7 +70,6 @@ info.get('/location', function (req, res, next) {
                 }//end of else
             });// end of if function
     });//end of pool
-
 });//end of get
 info.post('/', function (req, res) {
 
@@ -85,7 +81,7 @@ info.post('/', function (req, res) {
         let joinGame = {
             game_id: req.body.gameid,
             player_id: req.user.id
-        };// end of saveGame
+        };// end of joinGame
     
         client.query("INSERT INTO player_joins (game_id, player_id) VALUES ($1, $2)",
             [joinGame.game_id, joinGame.player_id],
