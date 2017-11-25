@@ -13,7 +13,7 @@ info.get('/user', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        let queryText = 'SELECT * FROM "games" WHERE "creator_id" = $1;';
+        let queryText = 'SELECT * FROM "games" JOIN  player_joins ON player_joins.game_id = games.id WHERE "games"."creator_id" = $1 OR "player_joins"."player_id" = $1;';
         client.query(queryText,[user.id],
 
             function (err, result) {
@@ -24,6 +24,8 @@ info.get('/user', function (req, res, next) {
                     res.sendStatus(500);
                 } else {
                     res.send(result.rows);
+                    console.log(result.rows);
+                    
                 }//end of else
             });// end of if function
     });//end of pool

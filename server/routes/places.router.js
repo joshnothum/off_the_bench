@@ -66,7 +66,7 @@ places.post('/locations', function (req, res) {
         let saveLocation = {
             creator_id: req.body.creator_id,
             name: req.body.name,
-            location: req.body.location,
+            formatted_address: req.body.formatted_address,
             lat: req.body.lat,
             lng: req.body.lng,
             url: req.body.url,
@@ -74,8 +74,8 @@ places.post('/locations', function (req, res) {
             place_id: req.body.place_id,
         };//end of saveLocation
 
-        client.query("INSERT INTO locations (creator_id, name, location, lat, lng, url, phone, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
-            [saveLocation.creator_id, saveLocation.name, saveLocation.location, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.phone, saveLocation.place_id],
+        client.query("INSERT INTO locations (creator_id, name, formatted_address, lat, lng, url, phone, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+            [saveLocation.creator_id, saveLocation.name, saveLocation.formatted_address, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.phone, saveLocation.place_id],
             function (err, result) {
                 client.end();
 

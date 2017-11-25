@@ -58,7 +58,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
             time: gameTime,
             date: gameDate,
             maxNumber: place.maxNumber,
-            location: game.formatted_address,
+            formatted_address: game.formatted_address,
             place_id: game.place_id,
             creator_id: UserService.userObject.userID,
         };//end of gameInfo object

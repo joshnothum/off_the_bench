@@ -27,7 +27,7 @@
                 </div>
             </md-toolbar>
             <md-list>
-                <md-list-item layout="row" ng-repeat="game in uc.userGames.data">
+                <md-list-item layout="row" ng-repeat="game in uc.userGames.data | orderBy: 'date' as filtered_result track by game.game_id">
                     <div flex="35" layout-padding>{{game.name}}</div>
                     <div flex="25" layout-padding>{{game.date}}</div>
                     <div flex="25" layout-padding>{{game.time}}</div>

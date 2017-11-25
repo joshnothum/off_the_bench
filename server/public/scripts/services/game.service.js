@@ -47,7 +47,7 @@ myApp.service('GameService', function ($http, $location) {
 
             };// send to locations database
             $http.post('/places/locations', locationInfo).then(function (response) {
-                console.log(response);
+                console.log(response.status);
             }).catch(function (response) {
                 console.log('create location did not work:', response);
             });
