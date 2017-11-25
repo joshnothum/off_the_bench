@@ -11,13 +11,13 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.getPlaces = function () {
         let apiSearch = {
             params: {
-                query: place.search,
+                query: place.searchBar,
                 location: '44.9778,-93.2650',
                 radius: 35000
             }
         };
         GameService.getPlaces(apiSearch);
-        place.search = null;
+        place.searchBar = null;
     };//end of getPlaces  
 
     place.getInfo = function (ev, place_id) {
@@ -77,22 +77,23 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };
 //for searchBar may need to edit
 
-    place.searchBar = null;
+    
     place.showPreSearchBar = function () {
         return place.searchBar == null;
-    };
-    place.initiateSearch = function () {
-        place.searchBar = '';
     };
     place.showSearchBar = function () {
         return place.searchBar != null;
     };
+    place.initiateSearch = function () {
+        place.searchBar = '';
+        place.showSearchBar();
+    };
     place.endSearch = function () {
         return place.searchBar = null;
     };
-    place.submit = function () {
-        console.error('Search function not yet implemented');
-    };
+    // place.submit = function () {
+    //     console.error('Search function not yet implemented');
+    // };
 
     // to focus on input element after it appears
     $scope.$watch(function () {
