@@ -6,6 +6,7 @@ myApp.service('UserService', function ($http, $location) {
   self.gameObject = {};
   self.allLocations = {};
   self.browseGamesObject={};
+  self.editGame = {};
   
   
 
@@ -63,4 +64,9 @@ myApp.service('UserService', function ($http, $location) {
         console.log('we gots an error in loadPlaces:', error);
       });
     };//end of loadPlaces
+
+    self.editUserGames = function(game){
+      console.log('we are in editUser service' , game);
+      
+    };
 });

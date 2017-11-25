@@ -1,0 +1,54 @@
+<div id="container">
+
+    <p>
+        Game Edit
+    </p>
+    <div ng-cloak="" id="createGameCard">
+        <md-content class="md-padding clearCard" layout="row" layout-align="center">
+            <div class="clearCard">
+                <md-card md-theme="{{'dark-purple'}}" ng-repeat='game in infos.newGame'>
+                    <md-card-content class="clearCard">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{game.name}}</span>
+                                <span class="md-subhead">{{game.formatted_address}}</span>
+                                <span class="md-subhead">{{game.place_id}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <div>
+                            <form name="Create">
+                                <md-input-container>
+                                    <label for="time"></label>
+                                    <input type="time" name="time" ng-model="place.time" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max=""
+                                        ] [ng-change="string" ] aria-label="time" required="">
+                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter time.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label for="date"></label>
+                                    <input type="date" ng-model="place.date" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
+                                        ] [ng-change="string" ] aria-label="date" ng-required="">
+                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter date.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label for="maxNumber">Max Number of Players</label>
+                                    <input type="number" name="maxNumber" ng-model="place.maxNumber" [name="string" ] [min="string" ] [max="string" ] [ng-min=""
+                                        ] [ng-max="" ] [required="string" ] [ng-required="string" ] [ng-change="string" ] aria-label="date"
+                                        required="">
+                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
+                                        <div ng-message="required" class="my-message">Please enter Max Number of Players.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-button ng-disabled="!Create.$valid" ng-click="place.sendGame(game)">&nbsp Create Game &nbsp</md-button>
+                            </form>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+
+</div>
