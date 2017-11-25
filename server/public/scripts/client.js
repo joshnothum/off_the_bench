@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate']);
 
 /// Routes ///
-myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
 
   $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
 
