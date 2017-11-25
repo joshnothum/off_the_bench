@@ -17,8 +17,8 @@
 
     </form>
 </div> -->
-<div class="container">
-    <md-card>
+<md-content layout="row" layout-align="center start">
+    <md-card flex="66">
         <md-toolbar>
             <!-- Pre-Search Bar -->
             <div id="search-bar" ng-show="place.showPreSearchBar()" class="md-toolbar-tools" ng-click="place.initiateSearch()" layout-align="space-between center">
@@ -35,26 +35,25 @@
 
             <!-- Search bar -->
             <div ng-show="place.showSearchBar()" class="md-toolbar-tools search-bar">
-
-                <md-button class="md-icon-button" ng-click="place.submit()">
-                    <md-icon>search</md-icon>
+                <md-button class="md-icon-button" ng-click="place.endSearch()">
+                    <md-icon>close</md-icon>
                 </md-button>
+                
 
                 <!-- Input Text -->
-                <md-input-container flex="">
+                <md-input-container flex>
                     <!-- <label for="search">Search</label> -->
                     <input id="search-input" type="text" ng-model="place.searchBar" />
                 </md-input-container>
 
-                <md-button class="md-icon-button" ng-click="place.endSearch()">
-                    <md-icon>close</md-icon>
+                <md-button class="md-icon-button" ng-click="place.submit()">
+                    <md-icon>search</md-icon>
                 </md-button>
             </div>
 
         </md-toolbar>
     </md-card>
     <div ng-cloak="" class="creatGameCard">
-        <md-content layout="row" layout-align="center center">
             <div>
                 <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data'>
                     <md-card-content>
@@ -80,6 +79,6 @@
                     </md-card-content>
                 </md-card>
             </div>
-        </md-content>
+  
     </div>
-</div>
+<md-content>
