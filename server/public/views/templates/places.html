@@ -1,5 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div layout="row" layout-align="space-between none">
+<!-- <div layout="row" layout-align="space-between none">
     <div>
         <h1 class="lead">Let's get started</h1>
         <h1>{{7===7}}</h1>
@@ -16,7 +16,42 @@
         <md-button type='submit' ng-click="place.getPlaces()">Search</md-button>
 
     </form>
-</div>
+</div> -->
+<div class= "container">
+<md-toolbar>
+    <!-- Pre-Search Bar -->
+    <div id="search-bar" ng-show="place.showPreSearchBar()" class="md-toolbar-tools">
+
+        <h2>Search Bar App</h2>
+        <span flex></span>
+
+        <!-- Search button (initiates search) -->
+        <md-button ng-click="place.initiateSearch()">
+            <md-icon>search</md-icon>
+            <span>Search</span>
+        </md-button>
+
+    </div>
+
+    <!-- Search bar -->
+    <div ng-show="place.showSearchBar()" class="md-toolbar-tools search-bar">
+
+        <md-button class="md-icon-button" ng-click="place.submit()">
+            <md-icon>search</md-icon>
+        </md-button>
+
+        <!-- Input Text -->
+        <md-input-container flex>
+            <!-- <label for="search">Search</label> -->
+            <input id="search-input" type="text" ng-model="place.searchBar" />
+        </md-input-container>
+
+        <md-button class="md-icon-button" ng-click="place.endSearch()">
+            <md-icon>close</md-icon>
+        </md-button>
+    </div>
+
+</md-toolbar>
 <div ng-cloak="" class="creatGameCard">
     <md-content layout="row" layout-align="center center">
         <div>
@@ -45,4 +80,5 @@
             </md-card>
         </div>
     </md-content>
+</div>
 </div>

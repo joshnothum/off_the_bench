@@ -15,5 +15,9 @@ myApp.controller('UserController', function (UserService, GameService, $location
   vm.createScreen = function () {
     $location.path('/create');
   };
+
+  vm.searchScreen = function(){
+    $location.path('/places');
+  };
   vm.getUserGames();
 });

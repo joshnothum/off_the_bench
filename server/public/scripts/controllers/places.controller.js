@@ -1,4 +1,4 @@
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, $timeout) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, $mdIconProvider) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
@@ -75,6 +75,34 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.pushLocation= function(place){
         GameService.pushLocation(place);
     };
+//for searchBar may need to edit
+
+    place.searchBar = null;
+    place.showPreSearchBar = function () {
+        return place.searchBar == null;
+    };
+    place.initiateSearch = function () {
+        place.searchBar = '';
+    };
+    place.showSearchBar = function () {
+        return place.searchBar != null;
+    };
+    place.endSearch = function () {
+        return place.searchBar = null;
+    };
+    place.submit = function () {
+        console.error('Search function not yet implemented');
+    };
+
+    // to focus on input element after it appears
+    $scope.$watch(function () {
+        return document.querySelector('#search-bar:not(.ng-hide)');
+    }, function () {
+        document.getElementById('search-input').focus();
+    });
+
+
+
 
     place.loadPlaces();
 });// end of Places Controller
