@@ -5,6 +5,7 @@ myApp.service('GameService', function ($http, $location) {
     self.info = {};
     self.newGame = [];
     self.newLocation = {};
+   
 
     self.getPlaces = function (apiSearch) {
         $http.get('/places', apiSearch).then(function (response) {
