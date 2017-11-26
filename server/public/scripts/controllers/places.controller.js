@@ -1,3 +1,4 @@
+
 myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope) {
     console.log('PlacesController created');
     let place = this;
@@ -21,7 +22,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };//end of getPlaces  
 
     place.getInfo = function (ev, place_id) {
-
+        console.log('getInfo is working here', place_id);
+        
         let dialogBox = GameService.getInfo(place_id);
 
         dialogBox.then(function (response) {

@@ -15,7 +15,7 @@ info.get('/user', function (req, res, next) {
         }
         // let queryText = 'SELECT * FROM "games" LEFT JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."creator_id" = $1 OR "player_joins"."creator_id" = $1;';
         // let queryText = 'SELECT * FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE (("player_joins"."player_id" =$1 AND "games"."creator_id" != $1") OR ("player_joins"."player_id" !=$1 AND "games"."creator_id" != $1"));';
-        let queryText = 'SELECT * FROM "games" JOIN "player_joins" ON "games"."creator_id" = "player_joins"."player_id" WHERE "games"."creator_id" = $1 OR "player_joins"."player_id" = $1;';
+        let queryText = 'SELECT * FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."creator_id" = $1 OR "player_joins"."player_id" = $1;';
         client.query(queryText,[user.id],
 
             function (err, result) {
