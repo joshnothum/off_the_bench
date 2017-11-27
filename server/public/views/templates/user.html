@@ -29,7 +29,7 @@
             </md-toolbar>
             <md-list>
                 <md-list-item layout="row" ng-repeat="game in uc.userGames.data">
-                    <div flex="30" layout-padding ng-click="uc.userGamesMaps({})">{{game.name}}</div>
+                    <div flex="30" layout-padding ng-click="uc.getGameMaps(game)">{{game.name}}</div>
                     <div flex="25" layout-padding>{{game.date}}</div>
                     <div flex="15" layout-padding>{{game.time}}</div>
                     <div flex="15" layout-padding>{{game.max_number}}</div>

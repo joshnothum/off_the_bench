@@ -1,4 +1,20 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<md-content layout="row" layout-align="space-between none">
-    
+<md-content ng-cloak="" layout="row" layout-align="space-around none">
+    <div ng-click="gameInfo.goToMap()" flex="50" layout="column" layout-align="center center" layout-padding> 
+        <img ng-src='{{gameInfo.getMap.map}}' alt="Static map"/>
+    </div>
+    <md-card flex="50">
+        <md-card-content>
+<h2>{{gameInfo.gameInformation.name}}</h2>
+<p>{{gameInfo.gameInformation.formatted_address}}</p>
+<p>{{gameInfo.gameInformation.date}}</p>
+<p>{{gameInfo.gameInformation.maxNumber}}</p>
+</md-card-content>
+<md-card-actions>
+    <md-button class="md-primary">Join</md-button>
+    <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
+   
+</md-card-actions>
+    </md-card>
+ 
 </md-content>

@@ -7,6 +7,7 @@ var request = require('request');
 let newPlace = '';
 API_KEY = process.env.API_KEY;
 
+
 places.get('/', function (req, res) {
 
     req.query.key = API_KEY;
@@ -19,11 +20,37 @@ places.get('/', function (req, res) {
 places.get('/info', function (req, res) {
     req.query.key = API_KEY;
     request('https://maps.googleapis.com/maps/api/place/details/json?', { qs: req.query }, function (error, response, body) {
-        // Print the HTML for the Google homepage.
+        
         console.log('this was an error made by anyone else but me:', error);
+        
+        
         res.send(body);
     });
 });//end of places.get(/info)
+
+
+places.get('/maps', function (req, res) {
+
+
+    
+    
+    req.query.key = API_KEY;
+  
+    
+    request('https://maps.googleapis.com/maps/api/staticmap?',{qs:req.query}, function (error, response, body) {
+        // static map 
+       
+        res.send(response);
+        console.log(error);
+      
+        
+        
+        
+      
+        
+        
+    });
+});//end of places.get(/maps)
 places.post('/', function (req, res) {
 
     pool.connect(function (err, client, done) {

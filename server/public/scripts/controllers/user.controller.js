@@ -1,10 +1,11 @@
 
-myApp.controller('UserController', function (UserService, GameService, $location, $mdDialog) {
+myApp.controller('UserController', function (UserService, GameService, $location, $mdDialog, MapService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.userGames = UserService.gameObject;
+  vm.MapService = MapService;
 
   vm.getUserGames = function () {
     UserService.getUserGames();
@@ -39,6 +40,14 @@ myApp.controller('UserController', function (UserService, GameService, $location
         $scope.status = 'You cancelled the dialog.';
       });
       UserService.editUserGames(game);
+  };
+
+  vm.getGameMaps = function(game) {
+    $location.path('/games');
+    MapService.getGameMaps(game);
+    MapService.getGameInfo(game);
+    
+    
   };
   vm.getUserGames();
 });

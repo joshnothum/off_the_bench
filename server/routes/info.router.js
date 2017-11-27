@@ -101,5 +101,32 @@ info.post('/', function (req, res) {
     });
 });//end of places.post(/)
 
+    info.get('/gameInfo', function (req, res, next) {
+        let place_id = req.body.place_id;
+        console.log('logged gameMaps',place_id);
+        
+
+        pool.connect(function (err, client, done) {
+            
+            if (err) {
+                console.log("Error connecting: ", err);
+                res.sendStatus(500);
+            }
+            let queryText = 'SELECT * FROM "locations" WHERE "locations"."place_id" = $1;';
+            client.query( queryText,[place_id],
+
+                function (err, result) {
+                    client.end();
+
+                    if (err) {
+                        console.log("Error getting data: ", err);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }//end of else
+                });// end of if function
+        });//end of pool
+    });//end of get gameInfo
+
 module.exports = info;
 
