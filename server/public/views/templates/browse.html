@@ -1,12 +1,12 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+
     <p>
         Game Browse
     </p>
-    <md-content layout="row" layout-align="space-between start">
+    <md-content layout="row" layout-padding layout-align="space-around center" flex="75" layout-wrap>
         
-        <md-card flex="75" layout="row" layout-wrap>
-            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject.data'>
+        
+            <md-card md-theme="{{'dark-purple'}}" ng-repeat='games in browser.gamesObject.data' layout-padding>
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">{{games.name}}</span>
@@ -23,6 +23,4 @@
                     </md-card-actions>
                 </md-card-content>
             </md-card>
-        </md-card>
     </md-content>
-</div>
