@@ -9,11 +9,10 @@ myApp.service('MapService', function ($http, $location) {
 
 
     self.getGameInfo= function(game){
-        let mapPlaceID = game.place_id;
-        console.log(mapPlaceID);
-        
+        let gameIDForinfo = game.place_id;
 
-        $http.get('/info/gameInfo', mapPlaceID ).then(function (response) {
+
+        $http.get('/info/gameInfo', gameIDForinfo ).then(function (response) {
             console.log(response);
 
 

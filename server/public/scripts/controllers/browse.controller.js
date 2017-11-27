@@ -5,8 +5,10 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
 
     browse.gamesObject = UserService.browseGamesObject;
 
-    browse.getInfo = function (ev, place_id) {
-        GameService.getInfo(place_id);
+    browse.getInfo = function (place) {
+
+
+        MapService.getGameInfo(place);
         //let dialogBox = GameService.getInfo(place_id);
 
         // dialogBox.then(function (response) {
@@ -23,6 +25,7 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
         //             $scope.status = 'You cancelled the dialog.';
         //         });
         // });
+        $location.path('/games');
     };//end of getInfo
 
     browse.joinGame = function (game_id) {
