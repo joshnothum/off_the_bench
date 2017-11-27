@@ -30,7 +30,26 @@ myApp.service('MapService', function ($http, $location) {
         });
     };
 
+    self.getPhoto = function (photoID) {
+        let photoref = photoID.photo_reference;
+        let photoSearch = {
+            params:{
+                maxheight: 400,
+                maxwidth: 400,
+                photoreference: photoref
+            }
+        };
+        console.log(photoSearch);
+        
+        $http.get('/places/photo', photoSearch).then(function (response) {
+            self.photo = response;
+            console.log(self.photo);
 
+        }).catch(function (response) {
+            console.log('my photo failed: ', response);
+        });
+
+    };
 
     self.getGameMaps = function (game) {
         console.log('we are connected', game.formatted_address);

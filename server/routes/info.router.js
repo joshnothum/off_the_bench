@@ -40,7 +40,9 @@ info.get('/', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        client.query('SELECT * FROM "games"',
+
+        let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" GROUP BY "games"."id";';
+        client.query(queryText,
 
             function (err, result) {
                 client.end();

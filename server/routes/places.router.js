@@ -5,6 +5,7 @@ var pool = require('../modules/pool.js');
 require('dotenv').config();
 var request = require('request');
 let newPlace = '';
+const fs = require('fs');
 API_KEY = process.env.API_KEY;
 
 
@@ -31,14 +32,16 @@ places.get('/info', function (req, res) {
 places.get('/photo', function(req, res){
 
     req.query.key = API_KEY;
+    console.log(req.query);
+    
 
     request('https://maps.googleapis.com/maps/api/place/photo?', { qs: req.query }, function (error, response, body) {
-        res.send(body);
+        //res.send('photos/' + req.query.photoreference + '.png');
         console.log(error);
+        res.sendFile(path.join(__dirname, '../public/photos/' + req.query.photoreference + '.png'));
+        //console.log(response);
         
-        console.log(response);
-        
-    });
+    }).pipe(fs.createWriteStream('server/public/photos/' + req.query.photoreference + '.png'));
 
 });
 

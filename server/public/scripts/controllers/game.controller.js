@@ -26,4 +26,10 @@ gc.joinGame = function (gameInfo) {
     GameService.joinGame(playerJoin);
     
 };
+
+gc.getGameInfoNumber = function (gameInfo) {
+    console.log(gc.GameInfo);
+    
+    
+};
     });

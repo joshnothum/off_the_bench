@@ -1,5 +1,5 @@
 
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
@@ -23,12 +23,12 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
     place.getInfo = function (ev, places) {
         let place_id = places.place_id;
-        let photoreference = places.reference;
+        let photoreference = places.photos[0];
         console.log('getInfo is working here', place_id);
         console.log(photoreference);
         
         GameService.getInfo(place_id);
-        GameService.getInfo(photoreference);
+        //MapService.getPhoto(photoreference);
 
         // dialogBox.then(function (response) {
 

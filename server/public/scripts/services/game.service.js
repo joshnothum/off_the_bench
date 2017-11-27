@@ -24,28 +24,13 @@ myApp.service('GameService', function ($http, $location) {
         };   // end of infoSearch object for api parameter
         $http.get('/places/info', infoSearch).then(function (response) {
             self.info = response.data.result;
+            console.log(self.info);
+            
         }).catch(function (response) {
             console.log('my info failed: ', response);
         });
     };//end of getInfo
 
-    self.getPhotos = function (photoref) {
-        let photoSearch = {
-            params:{
-                maxheight:400,
-                maxwidth:400,
-                photoreference:photoref
-            }
-        };
-        $http.get('/places/photo', photoSearch).then(function (response) {
-            self.photo = response.data.result;
-            console.log(self.photo);
-            
-        }).catch(function (response) {
-            console.log('my photo failed: ', response);
-        });
-        
-    };
     self.pushLocation = function (places) {
         self.newGame.push(places);
     };
@@ -65,7 +50,7 @@ myApp.service('GameService', function ($http, $location) {
                 url: self.info.url,
                 phone: self.info.formatted_phone_number,
                 place_id: places.place_id,
-                photoreference: places.photoreference
+                
 
             };// send to locations database
             $http.post('/places/locations', locationInfo).then(function (response) {

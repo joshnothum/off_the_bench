@@ -6,22 +6,23 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
     browse.gamesObject = UserService.browseGamesObject;
 
     browse.getInfo = function (ev, place_id) {
-        let dialogBox = GameService.getInfo(place_id);
+        GameService.getInfo(place_id);
+        //let dialogBox = GameService.getInfo(place_id);
 
-        dialogBox.then(function (response) {
-            $mdDialog.show({
-                controller: 'DialogController as dc',
-                templateUrl: 'views/templates/dialog1.tmpl.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose: true
-            })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
-                });
-        });
+        // dialogBox.then(function (response) {
+        //     $mdDialog.show({
+        //         controller: 'DialogController as dc',
+        //         templateUrl: 'views/templates/dialog1.tmpl.html',
+        //         parent: angular.element(document.body),
+        //         targetEvent: ev,
+        //         clickOutsideToClose: true
+        //     })
+        //         .then(function (answer) {
+        //             $scope.status = 'You said the information was "' + answer + '".';
+        //         }, function () {
+        //             $scope.status = 'You cancelled the dialog.';
+        //         });
+        // });
     };//end of getInfo
 
     browse.joinGame = function (game_id) {

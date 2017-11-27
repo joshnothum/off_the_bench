@@ -21,6 +21,7 @@
             <md-card-content>
                 <md-card-title>
                     <md-card-title-text>
+                        <img ng-if="places.photos" ng-src="/places/photo?maxwidth=400&photoreference={{places.photos[0].photo_reference}}">
                         <span class="md-headline">{{places.name}}</span>
                         <span class="md-subhead">{{places.location}}</span>
                         <span class="md-subhead">{{places.formatted_address}}</span>
