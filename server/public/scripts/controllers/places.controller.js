@@ -21,33 +21,39 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         place.searchBar = null;
     };//end of getPlaces  
 
-    place.getInfo = function (ev, place_id) {
+    place.getInfo = function (ev, places) {
+        let place_id = places.place_id;
+        let photoreference = places.reference;
         console.log('getInfo is working here', place_id);
+        console.log(photoreference);
         
-        let dialogBox = GameService.getInfo(place_id);
+        GameService.getInfo(place_id);
+        GameService.getInfo(photoreference);
 
-        dialogBox.then(function (response) {
+        // dialogBox.then(function (response) {
 
 
-            $mdDialog.show({
-                controller: 'DialogController as dc',
-                templateUrl: 'views/templates/dialog1.tmpl.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose: true
-            })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
-                });
-        });
+        //     $mdDialog.show({
+        //         controller: 'DialogController as dc',
+        //         templateUrl: 'views/templates/dialog1.tmpl.html',
+        //         parent: angular.element(document.body),
+        //         targetEvent: ev,
+        //         clickOutsideToClose: true
+        //     })
+        //         .then(function (answer) {
+        //             $scope.status = 'You said the information was "' + answer + '".';
+        //         }, function () {
+        //             $scope.status = 'You cancelled the dialog.';
+        //         });
+        // });
     };//end of getInfo
 
 
     place.createLocation = function (places) {
         let creatorid = UserService.userObject.userID;
         GameService.createLocation(places, creatorid);
+        
+        
         $location.path('/create');
     };//end of createGame
     place.sendGame = function (game) {

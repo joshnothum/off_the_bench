@@ -15,4 +15,15 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     MapService.gameReq();
     
 };
+
+gc.joinGame = function (gameInfo) {
+    console.log(gameInfo);
+
+    let playerJoin = {
+        gameid: gameInfo
+    };// end of playerJoin object
+    
+    GameService.joinGame(playerJoin);
+    
+};
     });

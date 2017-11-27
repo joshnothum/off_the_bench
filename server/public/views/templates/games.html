@@ -11,7 +11,7 @@
 <p>{{gameInfo.gameInformation.maxNumber}}</p>
 </md-card-content>
 <md-card-actions>
-    <md-button class="md-primary">Join</md-button>
+    <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
     <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
    
 </md-card-actions>

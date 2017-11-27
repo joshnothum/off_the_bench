@@ -5,10 +5,13 @@ myApp.service('GameService', function ($http, $location) {
     self.info = {};
     self.newGame = [];
     self.newLocation = {};
+    self.photo ={};
 
     self.getPlaces = function (apiSearch) {
         $http.get('/places', apiSearch).then(function (response) {
             self.result.data = response.data.results;
+            console.log(self.result.data);
+            
         }).catch(function (response) {
             console.log('my places failed: ', response);
         });
@@ -19,12 +22,30 @@ myApp.service('GameService', function ($http, $location) {
                 placeid: place_id,
             }//end of params
         };   // end of infoSearch object for api parameter
-        return $http.get('/places/info', infoSearch).then(function (response) {
+        $http.get('/places/info', infoSearch).then(function (response) {
             self.info = response.data.result;
         }).catch(function (response) {
             console.log('my info failed: ', response);
         });
     };//end of getInfo
+
+    self.getPhotos = function (photoref) {
+        let photoSearch = {
+            params:{
+                maxheight:400,
+                maxwidth:400,
+                photoreference:photoref
+            }
+        };
+        $http.get('/places/photo', photoSearch).then(function (response) {
+            self.photo = response.data.result;
+            console.log(self.photo);
+            
+        }).catch(function (response) {
+            console.log('my photo failed: ', response);
+        });
+        
+    };
     self.pushLocation = function (places) {
         self.newGame.push(places);
     };
@@ -43,7 +64,8 @@ myApp.service('GameService', function ($http, $location) {
                 lng: self.info.geometry.location.lng,
                 url: self.info.url,
                 phone: self.info.formatted_phone_number,
-                place_id: places.place_id
+                place_id: places.place_id,
+                photoreference: places.photoreference
 
             };// send to locations database
             $http.post('/places/locations', locationInfo).then(function (response) {
@@ -63,7 +85,7 @@ myApp.service('GameService', function ($http, $location) {
 
     self.joinGame= function(playerJoin){
         $http.post('/info', playerJoin).then(function(response){
-            console.log(response.status);
+            console.log(response);
             
         }).catch(function (response) {
             console.log('joinGame did not work', response);

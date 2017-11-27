@@ -28,6 +28,20 @@ places.get('/info', function (req, res) {
     });
 });//end of places.get(/info)
 
+places.get('/photo', function(req, res){
+
+    req.query.key = API_KEY;
+
+    request('https://maps.googleapis.com/maps/api/place/photo?', { qs: req.query }, function (error, response, body) {
+        res.send(body);
+        console.log(error);
+        
+        console.log(response);
+        
+    });
+
+});
+
 
 places.get('/maps', function (req, res) {
     console.log(req.query);
