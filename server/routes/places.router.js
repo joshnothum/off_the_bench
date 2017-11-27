@@ -30,6 +30,8 @@ places.get('/info', function (req, res) {
 
 
 places.get('/maps', function (req, res) {
+    console.log(req.query);
+    
 
 
     

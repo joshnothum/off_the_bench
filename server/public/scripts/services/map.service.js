@@ -41,8 +41,9 @@ myApp.service('MapService', function ($http, $location) {
                 center: mapAddress,
                 zoom: '15',
                 size: '800 x 500',
-            }
-        };
+          
+        }
+    };
 
         self.gameInfo = game;
 
