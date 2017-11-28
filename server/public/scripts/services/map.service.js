@@ -5,6 +5,9 @@ myApp.service('MapService', function ($http, $location) {
 
     self.gameMap = {};
     self.gameInfo={};
+    self.mapSearch={};
+
+   
 
 
 
@@ -52,35 +55,47 @@ myApp.service('MapService', function ($http, $location) {
 
     self.getGameMaps = function (game) {
         console.log('we are connected', game.formatted_address);
-        let mapAddress = game.formatted_address;
+        let mapAddress = encodeURI(game.formatted_address);
+        // function initMap() {
+        // } d
+    
+        console.log(mapAddress);
+        
 
-        let mapSearch = {
-            params: {
+      self.mapSearch.map = {
+           
                 center: mapAddress,
-                zoom: '15',
-                size: '800 x 500',
+                zoom: '14',
+                size: '1200 x 800',
+                key:'AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8',
+                scale: 3
+           };
           
-        }
-    };
+   
+    
+    // };
 
         self.gameInfo = game;
 
 
-        $http.get('/places/maps', mapSearch).then(function (response) {
-            console.log(response);
+        // // $http.get('/places/maps/'+ game).then(function (response) {
+        // //     console.log(game);
+            
+        // //     console.log(response);
+
+
+console.log(self.mapSearch);
+
+           
 
 
 
-            self.gameMap.map = response.data.request.uri.href;
+            
 
+        // }).catch(function (response) {
+        //     console.log('my maps failed: ', response);
 
-
-            console.log(self.gameMap);
-
-        }).catch(function (response) {
-            console.log('my maps failed: ', response);
-
-        });
+        // });
     };  //end of getMaps
 
 

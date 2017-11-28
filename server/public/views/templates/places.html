@@ -16,12 +16,12 @@
             </md-card>
         </md-content>
     </div>
-    <div id="cardHolder" layout="row" ng-cloak="" layout-wrap layout-align="center">
+    <div id="cardHolder" layout="row" ng-cloak="" layout-wrap>
         <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data' flex="33">
             <md-card-content>
                 <md-card-title>
                     <md-card-title-text>
-                        <img ng-if="places.photos" ng-src="/places/photo?maxwidth=400&photoreference={{places.photos[0].photo_reference}}">
+                        <img ng-if="places.photos" ng-src="https://maps.googleapis.com/maps/api/staticmap?{{}}">
                         <span class="md-headline">{{places.name}}</span>
                         <span class="md-subhead">{{places.location}}</span>
                         <span class="md-subhead">{{places.formatted_address}}</span>
@@ -32,15 +32,14 @@
                             <img ng-src="{{places.icon}}" class="md-card-image" alt="Static google Map" />
                         </div>
 
-                    </md-card-title-media>
-                </md-card-title> -->
-                <div>
+                    </md-card-title-media>-->
+                </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
                         <md-button ng-click="place.getInfo(ev, places)" class="md-raised">More Info</md-button>
                         <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
                     </md-card-actions>
+                    </md-card-content>
                 </div>
-            </md-card-content>
+            
         </md-card>
-    </div>
     </div>

@@ -44,32 +44,12 @@ places.get('/photo', function(req, res){
     }).pipe(fs.createWriteStream('server/public/photos/' + req.query.photoreference + '.png'));
 
 });
-
-
-places.get('/maps', function (req, res) {
-    console.log(req.query);
-    
-
-
-    
-    
-    req.query.key = API_KEY;
-  
-    
-    request('https://maps.googleapis.com/maps/api/staticmap?',{qs:req.query}, function (error, response, body) {
-        // static map 
-       
-        res.send(response);
-        console.log(error);
-      
-        
-        
         
       
         
         
-    });
-});//end of places.get(/maps)
+   
+
 places.post('/', function (req, res) {
 
     pool.connect(function (err, client, done) {
@@ -133,6 +113,8 @@ places.post('/locations', function (req, res) {
                 }
             });
     });
+
+
 });//end of places.post(/locations)
 
 module.exports = places;

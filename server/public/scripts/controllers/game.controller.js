@@ -2,7 +2,7 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     console.log('GameController created');
     var gc = this;
     gc.userService = UserService;
-    gc.getMap = MapService.gameMap;
+    gc.getMap = MapService.mapSearch.map;
     gc.gameInformation = MapService.gameInfo;
     
 
@@ -32,4 +32,7 @@ gc.getGameInfoNumber = function (gameInfo) {
     
     
 };
+
+console.log(gc.getMap);
+
     });

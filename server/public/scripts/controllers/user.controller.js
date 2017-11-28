@@ -9,6 +9,7 @@ myApp.controller('UserController', function (UserService, GameService, $location
 
   vm.getUserGames = function () {
     UserService.getUserGames();
+    
     console.log(vm.userGames);
     
   };
@@ -50,4 +51,5 @@ myApp.controller('UserController', function (UserService, GameService, $location
     
   };
   vm.getUserGames();
+
 });
