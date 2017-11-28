@@ -13,8 +13,7 @@ info.get('/user', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        // let queryText = 'SELECT * FROM "games" LEFT JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."creator_id" = $1 OR "player_joins"."creator_id" = $1;';
-        // let queryText = 'SELECT * FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE (("player_joins"."player_id" =$1 AND "games"."creator_id" != $1") OR ("player_joins"."player_id" !=$1 AND "games"."creator_id" != $1"));';
+        
         let queryText = 'SELECT "games"."id", "games"."name", "games"."time", "games"."date", "games"."formatted_address", "games"."place_id", "games"."max_number", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."creator_id" = $1 OR "player_joins"."player_id" = $1 GROUP BY "games"."id";';
         client.query(queryText,[user.id],
 
