@@ -57,8 +57,6 @@ myApp.service('MapService', function ($http, $location) {
     self.getGameMaps = function (game) {
         console.log('we are connected', game.formatted_address);
         let mapAddress = encodeURI(game.formatted_address);
-        // function initMap() {
-        // } d
     
         console.log(mapAddress);
         
@@ -119,5 +117,6 @@ console.log(self.mapSearch);
                 console.log('we gots an error in loadDataBasePlaces:', error);
             });
         };//end of loadDatabasePlaces
+
 
 });
