@@ -1,36 +1,55 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<!-- <div id="container p"> -->
-    <div id="searchHolder">
-        <md-content layout="row" layout-align="center center">
 
-            <md-card layout="column" layout-align="center none">
-                <md-input-container>
-                    <label for="places">Search:</label>
-                    <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
-                </md-input-container>
-                <div layout="row" layout-align="center center">
 
-                    <md-button ng-click="place.getPlaces()">Search</md-button>
 
-                </div>
-            </md-card>
+
+<md-input-container layout-align="center center" flex="">
+    <label for="places">search</label>
+    <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
+</md-input-container>
+<md-card-icon-actions>
+    <md-icon md-font-icon="material-design" ng-click="place.getPlaces()">search</md-icon>
+</md-card-icon-actions>
+<div layout="row">
+    <div layout="column" flex="40" layout-fill ng-cloak>
+
+        <md-toolbar md-scroll-shrink>
+            <div class="md-toolbar-tools">Locations</div>
+        </md-toolbar>
+
+        <md-content style="height: 600px;">
+
+            <section>
+                <md-subheader class="md-primary">Locations</md-subheader>
+                <md-list layout-padding>
+                    <md-list-item class="md-3-line" ng-repeat="places in place.data.data">
+                        <div class="md-list-item-text">
+                            <h3>{{places.name}}</h3>
+                            <h4>{{places.formatted_address}}</h4>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </section>
+
         </md-content>
     </div>
-<div ng-cloak="" class="gridListdemoBasicUsage">
-    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
-        md-gutter="12px" md-gutter-gt-sm="8px">
-
-        <md-grid-tile class="red" md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-repeat="places in place.data.data">
-  
-            <span class="md-headline">{{places.name}}</span>
-            <span class="md-subhead">{{places.location}}</span>
-            <span class="md-subhead">{{places.formatted_address}}</span>
-            <span class="md-subhead">{{places.place_id}}</span>
-            <md-grid-tile-footer>
-                <md-button ng-click="place.getInfo(places)" class="md-raised">More Info</md-button>
-                <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
-            </md-grid-tile-footer>
-        </md-grid-tile>
-
-    </md-grid-list>
+    <md-card flex="50">
+        
+            <ng-map default-style="false" center="[44.9778,-93.2650]"></ng-map>
+    </md-card>
 </div>
+
+<!-- <md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools">
+        <span>Location</span>
+    </div>
+</md-toolbar>
+<md-content layout="row" layout-align="center none" layout-padding>
+    <md-virtual-repeat-container md-top-index="topIndex">
+
+        <md-list flex="">
+            <md-list-item md-virtual-repeat="places in place.data.data" class="repeated-item" md-item-size="40" class="md-headline">{{places.name}}</md-list-item>
+        </md-list>
+    </md-virtual-repeat-container>
+</md-content>
+ -->
