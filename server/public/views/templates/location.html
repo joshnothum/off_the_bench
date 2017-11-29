@@ -4,34 +4,109 @@
         <marker position="{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}"></marker>
     </ng-map>
 </md-card>
+<div layout="row" layout-align="space-around start">
+    <md-content flex="25">
+        <md-card>
+            <uib-accordion>
+                <div uib-accordion-group class="panel-default">
+                    <uib-accordion-heading>
+                        <div>Address</div>
+                    </uib-accordion-heading>
+                    {{place.locationDetail.detail.formatted_address}}
+                    <md-icon md-font-icon="material-design">room</md-icon>
 
- <script type="text/ng-template" id="group-template.html">
-    <div class="panel-heading">
-      <h4 class="panel-title" style="color:#fa39c3">
-        <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
-          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
-            {{heading}}
-          </span>
-        </a>
-      </h4>
-    </div>
-    <div class="panel-collapse collapse">
-      <div class="panel-body" style="text-align: right" ng-transclude></div>
-    </div>
-  </script>
+                </div>
+                <div uib-accordion-group class="panel-default">
+                    <uib-accordion-heading>
+                        <div>Phone Number</div>
+                    </uib-accordion-heading>
+                    {{place.locationDetail.detail.formatted_phone_number}}
+                    <md-icon md-font-class="material-icons">settings_phone</md-icon>
+                </div>
+                <div uib-accordion-group class="panel-default">
+                    <uib-accordion-heading>
+                        <div>Photos</div>
+                    </uib-accordion-heading>
 
-<uib-accordion>
-    <div uib-accordion-group class="panel-default" heading="Address">
-        {{place.locationDetail.detail.formatted_address}}
-        <md-icon md-font-icon="material-design">room</md-icon>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Phone Number">
-        {{place.locationDetail.detail.formatted_phone_number}}
-        <md-icon md-font-class="material-icons">settings_phone</md-icon>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Photos">
-        <p>The body of the uib-accordion group grows to fit the contents</p>
-        <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-        <div ng-repeat="item in items">{{item}}</div>
-    </div>
-</uib-accordion>
+                   
+                </div>
+                <div uib-accordion-group class="panel-default">
+                    <uib-accordion-heading>
+                        <div>Reviews</div>
+                    </uib-accordion-heading>
+
+                </div>
+                <div uib-accordion-group class="panel-default">
+                    <uib-accordion-heading>
+                        <div>Street</div>
+                    </uib-accordion-heading>
+                <ng-map zoom="16" center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]" default-style="false" map-type-id="MapTypeId.SATELLITE" tilt="45">
+                    <street-view-panorama container="streetview">
+                    </street-view-panorama>
+                </ng-map>
+                <div id="streetview"></div>
+                    
+                </div>
+            </uib-accordion>
+        </md-card>
+    </md-content>
+<md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Location Details</span>
+                    <span class="md-subhead">What do you know about this court?</span>
+                </md-card-title-text>
+            </md-card-title>
+</md-card>
+<md-card>
+            <md-card-content>
+                <div layout="row" layout-align="space-between center">
+                    <span>Indoors or Outdoors?</span>
+                    <md-select ng-model="weapon" placeholder="Indoor" class="md-no-underline">
+                        <md-option value="axe">Indoor</md-option>
+                        <md-option value="sword">Outdoor</md-option>
+                    </md-select>
+                </div>
+
+                <div layout="row" layout-align="space-between center">
+                    <span>Lights?</span>
+                    <md-switch ng-model="data.lights" aria-label="Switch 1" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+                        Switch 2 (md-warn): {{ data.cb2 }}
+                    </md-switch>
+                </div>
+
+                <div layout="row" layout-align="space-between center">
+                    <span>Air Conditioning?</span>
+                <md-switch ng-model="data.airCon" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+                    Switch 2 (md-warn): {{ data.cb2 }}
+                </md-switch>
+                </div>
+                <div layout="row" layout-align="space-between center">
+                    <span>Surface?</span>
+                    <md-select ng-model="weapon" placeholder="Indoor" class="md-no-underline">
+                        <md-option value="axe">Asphalt</md-option>
+                        <md-option value="sword">Rubber</md-option>
+                        <md-option value="axe">Carpet</md-option>
+                        <md-option value="sword">Hardwood</md-option>
+                    </md-select>
+                </div>
+                <div layout="row" layout-align="space-between center">
+                    <span>Court Size?</span>
+                    <md-select ng-model="weapon" placeholder="Indoor" class="md-no-underline">
+                        <md-option value="axe">Full</md-option>
+                        <md-option value="sword">Half</md-option>
+                        <md-option value="sword">3/4</md-option>
+                    </md-select>
+                </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Rating</span>
+<span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+    titles="['one','two','three']" aria-labelledby="default-rating"></span>
+<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+    ng-show="overStar && !isReadonly">{{percent}}%</span>
+                    </div>
+            </md-card-content>
+        </md-card>
+        </md-card>
+</div>
