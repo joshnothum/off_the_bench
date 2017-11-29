@@ -22,13 +22,11 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
     place.getInfo = function (places) {
         let place_id = places.place_id;
-        // let photoreference = places.photos[0];
         console.log('getInfo is working here', place_id);
-        // console.log(photoreference);
-        
         MapService.getMoreLocationInfo(place_id);
         
     };//end of getInfo
+
 
 
     place.createLocation = function (places) {
@@ -68,15 +66,5 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         
         GameService.pushLocation(place);
     };
-
-
-    // NgMap.getMap().then(function (map) {
-    //     console.log(map.getCenter());
-    //     console.log('markers', map.markers);
-    //     console.log('shapes', map.shapes);
-    // });
-
-
-
-//for searchBar may need to edit
+   
 });// end of Places Controller

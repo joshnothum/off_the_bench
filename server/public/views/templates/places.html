@@ -24,7 +24,7 @@
             <md-content style="height: 600px;">
                 <md-list layout-padding>
                     <md-list-item class="md-3-line" ng-repeat="places in place.data.data">
-                        <div class="md-list-item-text">
+                        <div class="md-list-item-text" ng-click="places.getInfo(places)">
                             <h3>{{places.name}}</h3>
                             <h4>{{places.formatted_address}}</h4>
                         </div>
@@ -42,7 +42,6 @@
         </ng-map>
     </md-card>
 </div>
-
 <!-- <md-toolbar layout="row" class="md-hue-3">
     <div class="md-toolbar-tools">
         <span>Location</span>
