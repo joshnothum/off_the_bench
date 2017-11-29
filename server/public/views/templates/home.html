@@ -1,4 +1,4 @@
-<md-content layout="row" layout-align = "center center" class="clearCard">
+<!-- <md-content layout="row" layout-align = "center center" class="clearCard">
     <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -31,4 +31,32 @@
             </form>
         </md-card-content>
     </md-card>
-</md-content>
+</md-content> -->
+    <div style="height: 600px">
+        <div uib-carousel active="active" interval="myInterval">
+            <md-card uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <img ng-src="{{slide.image}}"/>
+                <div class="carousel-caption">
+                    <h4>Slide {{slide.id}}</h4>
+                    <p>{{slide.text}}</p>
+                </md-card>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+            <button type="button" class="btn btn-info" ng-click="randomize()">Randomize slides</button>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="noWrapSlides"> Disable Slide Looping
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            Interval, in milliseconds:
+            <input type="number" class="form-control" ng-model="myInterval">
+            <br />Enter a negative number or 0 to stop the interval.
+        </div>
+    </div>
+</div>

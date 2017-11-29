@@ -1,4 +1,4 @@
-myApp.controller('LoginController', function ($http, $location, UserService) {
+myApp.controller('LoginController', function ($http, $location, UserService, $scope) {
   console.log('LoginController created');
   var vm = this;
   vm.user = {
@@ -52,4 +52,9 @@ myApp.controller('LoginController', function ($http, $location, UserService) {
     $location.path('/register');
 
   };
+  $scope.myInterval = 5000;
+  $scope.noWrapSlides = false;
+  $scope.active = 0;
+  var slides = $scope.slides = [];
+  var currIndex = 0;
 });
