@@ -1,9 +1,37 @@
 <div ng-include="'views/partials/nav.html'"></div>
-    <md-card>
-    <ng-map center ="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">
+<md-card>
+    <ng-map center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">
         <marker position="{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}"></marker>
     </ng-map>
 </md-card>
-<md-content>
 
-</md-content>
+ <script type="text/ng-template" id="group-template.html">
+    <div class="panel-heading">
+      <h4 class="panel-title" style="color:#fa39c3">
+        <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+            {{heading}}
+          </span>
+        </a>
+      </h4>
+    </div>
+    <div class="panel-collapse collapse">
+      <div class="panel-body" style="text-align: right" ng-transclude></div>
+    </div>
+  </script>
+
+<uib-accordion>
+    <div uib-accordion-group class="panel-default" heading="Address">
+        {{place.locationDetail.detail.formatted_address}}
+        <md-icon md-font-icon="material-design">room</md-icon>
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Phone Number">
+        {{place.locationDetail.detail.formatted_phone_number}}
+        <md-icon md-font-class="material-icons">settings_phone</md-icon>
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Photos">
+        <p>The body of the uib-accordion group grows to fit the contents</p>
+        <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+        <div ng-repeat="item in items">{{item}}</div>
+    </div>
+</uib-accordion>

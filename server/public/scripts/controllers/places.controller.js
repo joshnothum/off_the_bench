@@ -1,5 +1,5 @@
 
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap ) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
@@ -66,5 +66,5 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         
         GameService.pushLocation(place);
     };
-   
+    
 });// end of Places Controller
