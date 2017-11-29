@@ -1,5 +1,5 @@
 
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
