@@ -1,5 +1,8 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <md-card>
-    <ng-map center ="[40.74, -74.18]"></ng-map>
+    <ng-map center ="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">
+        <marker position="{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}"></marker>
+    </ng-map>
+    
 </md-card>
