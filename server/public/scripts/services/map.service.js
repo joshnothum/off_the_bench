@@ -4,8 +4,10 @@ myApp.service('MapService', function ($http, $location) {
     let self = this;
 
     self.gameMap = {};
+    self.getMoreLocationInfo = {};
     self.gameInfo={};
     self.mapSearch={};
+    self.allLocations ={};
 
    
 
@@ -31,8 +33,7 @@ myApp.service('MapService', function ($http, $location) {
 
         });
     };
-
-    self.getPhoto = function (photoID) {
+    self.getLocationPhoto = function (photoID) {
         let photoref = photoID.photo_reference;
         let photoSearch = {
             params:{
@@ -88,7 +89,26 @@ console.log(self.mapSearch);
 
     };  //end of getMaps
 
-        self.loadDatabasePlaces = function () {
+
+    self.getMoreLocationInfo=function(place_id){
+
+       
+            let locationDetailsSearch = {
+                params: {
+                    placeid: place_id,
+                }//end of params
+            };   // end of gameInfoSearch object for table join games on locations
+            $http.get('/places/locationDetail', gameInfoSearch).then(function (response) {
+                self.getMoreLocationInfo = response.data.result;
+                console.log(self.getMoreLocationInfo);
+
+            }).catch(function (response) {
+                console.log('my info failed: ', response);
+            });
+
+    };//end of getMoreLocationInfo
+
+        self.loadDataBasePlaces = function () {
             $http.get('info/location').then(function (success) {
                 console.log('loadPlaces is probably working');
                 self.allLocations.data = success.data;

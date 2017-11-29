@@ -57,7 +57,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
     })
     .when('/create', {
       templateUrl: '/views/templates/create.html',
-      controller: 'CreateController as cc',
+      controller: 'CreateController as create',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();
@@ -67,6 +67,15 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
     }).when('/browse', {
       templateUrl: '/views/templates/browse.html',
       controller: 'BrowseController as browser',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+
+    }).when('/locationdetail', {
+      templateUrl: '/views/templates/locationdetail.html',
+      controller: 'PlacesController as place',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

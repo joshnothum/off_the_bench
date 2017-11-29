@@ -7,7 +7,6 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.info = GameService.info;
     place.newGame = GameService.newGame;
     place.gamesObject = UserService.browseGamesObject;
-    place.allLocations = UserService.allLocations;
     place.searchBar = '';
     place.getPlaces = function () {
         let apiSearch = {
@@ -21,31 +20,14 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         place.searchBar = null;
     };//end of getPlaces  
 
-    place.getInfo = function (ev, places) {
+    place.getInfo = function (places) {
         let place_id = places.place_id;
         let photoreference = places.photos[0];
         console.log('getInfo is working here', place_id);
         console.log(photoreference);
         
-        GameService.getInfo(place_id);
-        //MapService.getPhoto(photoreference);
-
-        // dialogBox.then(function (response) {
-
-
-        //     $mdDialog.show({
-        //         controller: 'DialogController as dc',
-        //         templateUrl: 'views/templates/dialog1.tmpl.html',
-        //         parent: angular.element(document.body),
-        //         targetEvent: ev,
-        //         clickOutsideToClose: true
-        //     })
-        //         .then(function (answer) {
-        //             $scope.status = 'You said the information was "' + answer + '".';
-        //         }, function () {
-        //             $scope.status = 'You cancelled the dialog.';
-        //         });
-        // });
+        MapService.getMoreLocationInfo();
+        
     };//end of getInfo
 
 

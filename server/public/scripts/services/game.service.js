@@ -17,6 +17,8 @@ myApp.service('GameService', function ($http, $location) {
             console.log('my places failed: ', response);
         });
     };// end of getPlaces
+
+    //below may be moved to gameService
     self.getMoreGameInfo = function (place_id) {
         let gameInfoSearch = {
             params: {

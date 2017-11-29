@@ -7,7 +7,7 @@
     <div layout="column" layout-align="center center" class="clearCard">
         <div layout="column" layout-align="center center" style="padding:40px" class="selectdemoOptionsWithAsyncSearch">
             <md-select placeholder="Locations" ng-model="place.locations" md-on-close="place.pushLocation(place.locations)" style="min-width: 400px;">
-                <md-option ng-value="location" ng-repeat="location in place.allLocations.data">{{location.name}}</md-option>
+                <md-option ng-value="location" ng-repeat="location in create.allLocations.data">{{location.name}}</md-option>
             </md-select>
         </div>
     </div>

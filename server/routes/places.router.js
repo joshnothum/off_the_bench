@@ -18,11 +18,11 @@ places.get('/', function (req, res) {
 
 });//end of places.get
 
-places.get('/gameInfo', function (req, res) {
+places.get('/locationDetail', function (req, res) {
     req.query.key = API_KEY;
     request('https://maps.googleapis.com/maps/api/place/details/json?', { qs: req.query }, function (error, response, body) {
         
-        console.log('this was an error made by anyone else but me:', error);
+       
         
         
         res.send(body);
