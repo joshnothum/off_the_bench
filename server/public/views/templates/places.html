@@ -2,25 +2,26 @@
 
 
 
-
-<md-input-container layout-align="center center" flex="">
-    <label for="places">search</label>
-    <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
-</md-input-container>
-<md-card-icon-actions>
-    <md-icon md-font-icon="material-design" ng-click="place.getPlaces()">search</md-icon>
-</md-card-icon-actions>
-<div layout="row">
+<div>
+    <md-input-container layout-align="center center" flex="nogrow">
+        <label for="places">search</label>
+        <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
+    </md-input-container>
+    <md-card-icon-actions>
+        <md-icon md-font-icon="material-design" ng-click="place.getPlaces()">search</md-icon>
+    </md-card-icon-actions>
+</div>
+<div layout="row" layout-align="space-around center">
     <div layout="column" flex="40" layout-fill ng-cloak>
 
         <md-toolbar md-scroll-shrink>
             <div class="md-toolbar-tools">Locations</div>
         </md-toolbar>
 
-        <md-content style="height: 600px;">
 
-            <section>
-                <md-subheader class="md-primary">Locations</md-subheader>
+
+        <section>
+            <md-content style="height: 600px;">
                 <md-list layout-padding>
                     <md-list-item class="md-3-line" ng-repeat="places in place.data.data">
                         <div class="md-list-item-text">
@@ -29,13 +30,16 @@
                         </div>
                     </md-list-item>
                 </md-list>
-            </section>
 
-        </md-content>
+            </md-content>
+        </section>
     </div>
-    <md-card flex="50">
-        
-            <ng-map default-style="false" center="[44.9778,-93.2650]"></ng-map>
+    <md-card flex>
+
+        <ng-map default-style="false" zoom="11" style="height:670px" center="[44.9778,-93.2650]">
+
+            <marker ng-repeat="markers in place.data.data" position="[{{markers.geometry.location.lat}},{{markers.geometry.location.lng}}]"></marker>
+        </ng-map>
     </md-card>
 </div>
 
