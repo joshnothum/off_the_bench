@@ -57,7 +57,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
     })
     .when('/create', {
       templateUrl: '/views/templates/create.html',
-      controller: 'PlacesController as place',
+      controller: 'CreateController as cc',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

@@ -86,18 +86,17 @@ myApp.service('MapService', function ($http, $location) {
 
 console.log(self.mapSearch);
 
-           
-
-
-
-            
-
-        // }).catch(function (response) {
-        //     console.log('my maps failed: ', response);
-
-        // });
     };  //end of getMaps
 
+        self.loadDatabasePlaces = function () {
+            $http.get('info/location').then(function (success) {
+                console.log('loadPlaces is probably working');
+                self.allLocations.data = success.data;
+                console.log(success.data);
 
+            }).catch(function (error) {
+                console.log('we gots an error in loadDataBasePlaces:', error);
+            });
+        };//end of loadDatabasePlaces
 
 });

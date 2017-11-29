@@ -1,14 +1,15 @@
-myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $http, $location, UserService) {
-    UserService.browseGames();
+myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $http, $location, UserService, MapService) {
+    GameService.browseGames();
     console.log('browsing is easy now!');
     let browse = this;
 
-    browse.gamesObject = UserService.browseGamesObject;
+    browse.gamesObject = GameService.browseGamesObject;
 
-    browse.getInfo = function (place) {
+    browse.getMoreGameInfo = function (game) {
 
-
-        MapService.getGameInfo(place);
+        //game =place_id that can be used to join games table and locations table
+        
+        GameService.getMoreGameInfo(game);
   
         $location.path('/games');
     };//end of getInfo

@@ -87,8 +87,4 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.pushLocation(place);
     };
 //for searchBar may need to edit
-
-
-
-    place.loadPlaces();
 });// end of Places Controller

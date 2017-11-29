@@ -10,11 +10,12 @@ myApp.controller('UserController', function (UserService, GameService, $location
   vm.getUserGames = function () {
     UserService.getUserGames();
     
-    console.log(vm.userGames);
+    console.log('User games from player_joins table',vm.userGames);
     
   };
   vm.browseGames = function () {
     $location.path('/browse');
+    //browse.html is ctrl by browserController.
   };
 
   vm.createScreen = function () {

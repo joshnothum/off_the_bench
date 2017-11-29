@@ -2,6 +2,7 @@ myApp.service('GameService', function ($http, $location) {
     let self = this;
     //globalNonsense
     self.result = {};
+    self.browseGamesObject = {};
     self.info = {};
     self.newGame = [];
     self.newLocation = {};
@@ -16,13 +17,13 @@ myApp.service('GameService', function ($http, $location) {
             console.log('my places failed: ', response);
         });
     };// end of getPlaces
-    self.getInfo = function (place_id) {
-        let infoSearch = {
+    self.getMoreGameInfo = function (place_id) {
+        let gameInfoSearch = {
             params: {
                 placeid: place_id,
             }//end of params
-        };   // end of infoSearch object for api parameter
-        $http.get('/places/info', infoSearch).then(function (response) {
+        };   // end of gameInfoSearch object for table join games on locations
+        $http.get('/places/gameInfo', gameInfoSearch).then(function (response) {
             self.info = response.data.result;
             console.log(self.info);
             
@@ -77,5 +78,17 @@ myApp.service('GameService', function ($http, $location) {
             
         });//end of post/catch
     };//end of joinGame
+
+    self.browseGames = function () {
+        $http.get('/info').then(function (success) {
+            console.log('browseGames made to the get', success);
+            self.browseGamesObject.data = success.data;
+            console.log(self.browseGamesObject);
+
+        }).catch(function (error) {
+            console.log('error in browseGames:', error);
+        });//end of catch
+        // $location.path('/browse');
+    };//end of browseGames
 
 });//end of GameService

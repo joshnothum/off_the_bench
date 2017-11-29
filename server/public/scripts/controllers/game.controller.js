@@ -4,35 +4,23 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     gc.userService = UserService;
     gc.getMap = MapService.mapSearch.map;
     gc.gameInformation = MapService.gameInfo;
-    
 
-    gc.getMaps = function () {
-        
-        GameService.getGameInfo();
-     };
-    gc.gameReq = function () {
+    gc.joinGame = function (gameInfo) {
+        console.log(gameInfo);
 
-    MapService.gameReq();
-    
-};
+        let playerJoin = {
+            gameid: gameInfo
+        };// end of playerJoin object
 
-gc.joinGame = function (gameInfo) {
-    console.log(gameInfo);
+        GameService.joinGame(playerJoin);
 
-    let playerJoin = {
-        gameid: gameInfo
-    };// end of playerJoin object
-    
-    GameService.joinGame(playerJoin);
-    
-};
+    };
 
-gc.getGameInfoNumber = function (gameInfo) {
-    console.log(gc.GameInfo);
-    
-    
-};
+    gc.getGameInfoNumber = function (gameInfo) {
+        console.log(gc.GameInfo);
 
-console.log(gc.getMap);
 
-    });
+    };
+
+
+});

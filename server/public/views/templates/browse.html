@@ -18,7 +18,7 @@
                     <md-card-content>
                         <span class="md-subhead"> Spots Available: {{games.max_number-games.count}}</span>
                     <md-card-actions layout="row" layout-align="start center">
-                        <md-button class="md-raised md-primary" ng-click="browser.getInfo(ev,games.place_id)">More Info</md-button>
+                        <md-button class="md-raised md-primary" ng-click="browser.getMoreGameInfo(games.place_id)">More Info</md-button>
                         <md-button class="md-raised md-primary" ng-click="browser.joinGame(games.id)">Join</md-button>
                     </md-card-actions>
                 </md-card-content>

@@ -1,7 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div id="container p">
+<!-- <div id="container p"> -->
     <div id="searchHolder">
-        <md-content layout="column" layout-align="space-between none">
+        <md-content layout="row" layout-align="space-between none">
 
             <md-card layout="column" layout-align="center none">
                 <md-input-container>
@@ -16,7 +16,7 @@
             </md-card>
         </md-content>
     </div>
-    <div id="cardHolder" layout="row" ng-cloak="" layout-wrap>
+<!-- <div id="cardHolder" layout="row" ng-cloak="" layout-wrap>
         <md-card md-theme="{{'dark-purple'}}" ng-repeat='places in place.data.data' flex="33">
             <md-card-content>
                 <md-card-title>
@@ -27,12 +27,12 @@
                         <span class="md-subhead">{{places.formatted_address}}</span>
                         <span class="md-subhead">{{places.place_id}}</span>
                     </md-card-title-text>
-                    <!-- <md-card-title-media>
+                    <md-card-title-media>
                         <div class="md-media-sm card-media">
                             <img ng-src="{{places.icon}}" class="md-card-image" alt="Static google Map" />
                         </div>
 
-                    </md-card-title-media>-->
+                    </md-card-title-media>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button ng-click="place.getInfo(ev, places)" class="md-raised">More Info</md-button>
@@ -41,4 +41,22 @@
             </md-card-content>
             </md-card>
     </div>
+</div> -->
+<div ng-cloak="" class="gridListdemoBasicUsage">
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px">
+
+        <md-grid-tile class="red" md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1" ng-repeat="places in place.data.data">
+  
+            <span class="md-headline">{{places.name}}</span>
+            <span class="md-subhead">{{places.location}}</span>
+            <span class="md-subhead">{{places.formatted_address}}</span>
+            <span class="md-subhead">{{places.place_id}}</span>
+            <md-grid-tile-footer>
+                <md-button ng-click="place.getInfo(ev, places)" class="md-raised">More Info</md-button>
+                <md-button ng-click="place.createLocation(places)" class="md-raised">Select</md-button>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+
+    </md-grid-list>
 </div>
