@@ -73,8 +73,8 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
         }
       }
 
-    }).when('/locationdetail', {
-      templateUrl: '/views/templates/locationdetail.html',
+    }).when('/location', {
+      templateUrl: '/views/templates/location.html',
       controller: 'PlacesController as place',
       resolve: {
         getuser: function (UserService) {

@@ -99,7 +99,7 @@ console.log(self.mapSearch);
                 }//end of params
             };   // end of gameInfoSearch object for table join games on locations
             $http.get('/places/locationDetail', locationDetailSearch).then(function (response) {
-                self.getMoreLocationDetail = response.data.result;
+                self.getMoreLocationDetail.detail = response.data.result;
                 console.log(self.getMoreLocationDetail);
 
             }).catch(function (response) {
