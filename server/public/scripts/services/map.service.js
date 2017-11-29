@@ -4,7 +4,7 @@ myApp.service('MapService', function ($http, $location) {
     let self = this;
 
     self.gameMap = {};
-    self.getMoreLocationInfo = {};
+    self.getMoreLocationDetail = {};
     self.gameInfo={};
     self.mapSearch={};
     self.allLocations ={};
@@ -33,26 +33,26 @@ myApp.service('MapService', function ($http, $location) {
 
         });
     };
-    self.getLocationPhoto = function (photoID) {
-        let photoref = photoID.photo_reference;
-        let photoSearch = {
-            params:{
-                maxheight: 400,
-                maxwidth: 400,
-                photoreference: photoref
-            }
-        };
-        console.log(photoSearch);
+    // self.getLocationPhoto = function (photoID) {
+    //     let photoref = photoID.photo_reference;
+    //     let photoSearch = {
+    //         params:{
+    //             maxheight: 400,
+    //             maxwidth: 400,
+    //             photoreference: photoref
+    //         }
+    //     };
+    //     console.log(photoSearch);
         
-        $http.get('/places/photo', photoSearch).then(function (response) {
-            self.photo = response;
-            console.log(self.photo);
+    //     $http.get('/places/photo', photoSearch).then(function (response) {
+    //         self.photo = response;
+    //         console.log(self.photo);
 
-        }).catch(function (response) {
-            console.log('my photo failed: ', response);
-        });
+    //     }).catch(function (response) {
+    //         console.log('my photo failed: ', response);
+    //     });
 
-    };
+    // };
 
     self.getGameMaps = function (game) {
         console.log('we are connected', game.formatted_address);
@@ -93,18 +93,19 @@ console.log(self.mapSearch);
     self.getMoreLocationInfo=function(place_id){
 
        
-            let locationDetailsSearch = {
+            let locationDetailSearch = {
                 params: {
                     placeid: place_id,
                 }//end of params
             };   // end of gameInfoSearch object for table join games on locations
-            $http.get('/places/locationDetail', gameInfoSearch).then(function (response) {
-                self.getMoreLocationInfo = response.data.result;
-                console.log(self.getMoreLocationInfo);
+            $http.get('/places/locationDetail', locationDetailSearch).then(function (response) {
+                self.getMoreLocationDetail = response.data.result;
+                console.log(self.getMoreLocationDetail);
 
             }).catch(function (response) {
                 console.log('my info failed: ', response);
             });
+            $location.path('/location');
 
     };//end of getMoreLocationInfo
 

@@ -6,7 +6,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.data = GameService.result;
     place.info = GameService.info;
     place.newGame = GameService.newGame;
-    place.gamesObject = UserService.browseGamesObject;
+    place.locationDetail = MapService.getMoreLocationDetail;
     place.searchBar = '';
     place.getPlaces = function () {
         let apiSearch = {
@@ -22,11 +22,11 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
     place.getInfo = function (places) {
         let place_id = places.place_id;
-        let photoreference = places.photos[0];
+        // let photoreference = places.photos[0];
         console.log('getInfo is working here', place_id);
-        console.log(photoreference);
+        // console.log(photoreference);
         
-        MapService.getMoreLocationInfo();
+        MapService.getMoreLocationInfo(place_id);
         
     };//end of getInfo
 
