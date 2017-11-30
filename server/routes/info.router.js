@@ -138,20 +138,25 @@ info.post('/', function (req, res) {
     });//end of get gameInfo
 
     
-info.delete('/', function (req, res) {
-
+info.delete('/:pid', function (req, res, next) {
+    console.log(req.params.pid);
     pool.connect(function (err, client, done) {
+        
         if (err) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
         let unJoinGame = {
-            games_id: req.body.gameid,
+            game_id: req.params.pid,
             player_id: req.user.id
-        };// end of joinGame
+        };// end of UnjoinGame
 
-        client.query("DELETE FROM player_joins WHERE 'player_joins'.'games_id' = $1 AND 'players_joins'.'player_id' = $2 VALUES ($1, $2)",
-            [joinGame.game_id, joinGame.player_id],
+        console.log(unJoinGame);
+        let queryText ='DELETE FROM "player_joins" WHERE "player_joins"."game_id" = $1 AND "player_joins"."player_id" = $2;';
+
+
+        client.query( queryText,
+            [unJoinGame.game_id, unJoinGame.player_id],
             function (err, result) {
                 client.end();
                 if (err) {

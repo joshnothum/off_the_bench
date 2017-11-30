@@ -1,6 +1,3 @@
-import { log } from "util";
-
-
 myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope) {
   console.log('UserController created');
   var vm = this;
@@ -30,7 +27,7 @@ myApp.controller('UserController', function (UserService, GameService, $location
 
   vm.unJoinGames = function(game){
 
-    console.log(game);
+    let unJoinGame = game.id;
     
     // let willUnjoin = GameService.unJoinGames(game);
     // swal({
@@ -46,7 +43,8 @@ myApp.controller('UserController', function (UserService, GameService, $location
     //     } else {
     //       swal("Ok, great!");
     //     }
-    UserService.getUserGames();
+    GameService.unJoinGames(unJoinGame);
+ 
   };
 
   vm.getGameMaps = function(game) {

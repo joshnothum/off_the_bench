@@ -99,12 +99,14 @@ myApp.service('GameService', function ($http, $location) {
         });//end of catch
         // $location.path('/browse');
     };//end of browseGames
-    self.unJoinGames = function (playerJoin) {
-        $http.post('/info', playerJoin).then(function (response) {
+    self.unJoinGames = function (playerUnJoin) {
+        console.log(playerUnJoin);
+        
+        $http.delete('/info/' + playerUnJoin).then(function (response) {
             console.log(response);
-
+            //need refresh here
         }).catch(function (response) {
-            console.log('joinGame did not work', response);
+            console.log('UnjoinGame did not work', response);
 
         });//end of post/catch
     };//end of joinGame
