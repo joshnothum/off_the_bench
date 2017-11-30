@@ -1,5 +1,5 @@
 
-myApp.controller('UserController', function (UserService, GameService, $location, $mdDialog, MapService, $scope) {
+myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -27,8 +27,21 @@ myApp.controller('UserController', function (UserService, GameService, $location
   };
 
   vm.unJoinGames = function(game){
-
-      GameService.unJoinGames(game);
+    let willUnjoin = GameService.unJoinGames(game);
+    swal({
+      title: "Are you sure?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willUnjoin) => {
+        if (willUnjoin) {
+          swal("Too bad! Maybe next time!", {
+          });
+        } else {
+          swal("Ok, great!");
+        }
+      });
   };
 
   vm.getGameMaps = function(game) {
@@ -43,15 +56,15 @@ myApp.controller('UserController', function (UserService, GameService, $location
 });
 
 
-$mdDialog.show({
-  controller: 'DialogController as dc',
-  templateUrl: 'views/templates/dialog.template.html',
-  parent: angular.element(document.body),
-  targetEvent: ev,
-  clickOutsideToClose: true
-})
-  .then(function (answer) {
-    $scope.status = 'You said the information was "' + answer + '".';
-  }, function () {
-    $scope.status = 'You cancelled the dialog.';
-  });
+// $mdDialog.show({
+//   controller: 'DialogController as dc',
+//   templateUrl: 'views/templates/dialog.template.html',
+//   parent: angular.element(document.body),
+//   targetEvent: ev,
+//   clickOutsideToClose: true
+// })
+//   .then(function (answer) {
+//     $scope.status = 'You said the information was "' + answer + '".';
+//   }, function () {
+//     $scope.status = 'You cancelled the dialog.';
+//   });
