@@ -11,23 +11,21 @@
             <md-button class="md-accent" aria-label="Browse" ng-click="uc.browseGames()">Browse</md-button>
             <md-button class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location</md-button>
         </md-card>
-        <md-card flex="80">
+        <md-card flex="60">
             <md-toolbar>
                 <div class="md-toolbar-tools" layout="row">
                     <div flex="30" layout-padding>Name</div>
                     <div flex="25" layout-padding>Date</div>
-                    <div flex="15" layout-padding>Time</div>
-                    <div flex="15" layout-padding>Max Number</div>
-                    <div flex= "15" layout-padding>Edit</div>
+                    <div flex="20" layout-padding>Time</div>
+                    <div flex= "20" layout-padding>Edit</div>
                 </div>
             </md-toolbar>
             <md-list>
                 <md-list-item layout="row" ng-repeat="game in uc.userGames.data">
                     <div flex="30" layout-padding ng-click="uc.getGameMaps(game)">{{game.name}}</div>
                     <div flex="25" layout-padding>{{game.date}}</div>
-                    <div flex="15" layout-padding>{{game.time}}</div>
-                    <div flex="15" layout-padding>{{game.max_number}}</div>
-                    <div flex="15" layout-padding>
+                    <div flex="20" layout-padding>{{game.time}}</div>
+                    <div flex="20" layout-padding>
                         <md-button class="md-warn" ng-click="uc.editUserGames(ev,game)">Edit</md-button>
                     </div>
                 </md-list-item>

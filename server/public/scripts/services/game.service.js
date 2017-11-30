@@ -99,5 +99,13 @@ myApp.service('GameService', function ($http, $location) {
         });//end of catch
         // $location.path('/browse');
     };//end of browseGames
+    self.unJoinGames = function (playerJoin) {
+        $http.post('/info', playerJoin).then(function (response) {
+            console.log(response);
 
+        }).catch(function (response) {
+            console.log('joinGame did not work', response);
+
+        });//end of post/catch
+    };//end of joinGame
 });//end of GameService

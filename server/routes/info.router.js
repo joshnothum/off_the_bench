@@ -137,5 +137,31 @@ info.post('/', function (req, res) {
         });//end of pool
     });//end of get gameInfo
 
+    
+info.delete('/', function (req, res) {
+
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Error connecting: ", err);
+            res.sendStatus(500);
+        }
+        let unJoinGame = {
+            games_id: req.body.gameid,
+            player_id: req.user.id
+        };// end of joinGame
+
+        client.query("DELETE FROM player_joins WHERE 'player_joins'.'games_id' = $1 AND 'players_joins'.'player_id' = $2 VALUES ($1, $2)",
+            [joinGame.game_id, joinGame.player_id],
+            function (err, result) {
+                client.end();
+                if (err) {
+                    console.log("Error inserting data: ", err);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(200);
+                }
+            });
+    });
+});//end of places.post(/)
 module.exports = info;
 
