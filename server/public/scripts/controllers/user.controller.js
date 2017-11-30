@@ -47,9 +47,8 @@ myApp.controller('UserController', function (UserService, GameService, $location
  
   };
 
-  vm.getGameMaps = function(game) {
+  vm.getGameInfo = function(game) {
     $location.path('/games');
-    MapService.getGameMaps(game);
     MapService.getGameInfo(game);
     
     

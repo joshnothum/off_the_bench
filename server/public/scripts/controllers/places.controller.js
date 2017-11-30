@@ -31,11 +31,15 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
 
-    place.createLocation = function () {
+    place.createLocation = function (place) {
 
-        console.log(place);
+        console.log(place.locationDetail);
+
+        let createLocation = place.locationDetail;
+        console.log(place.courtInformation);
         
-        MapService.createLocation(place.locationDetail, place.courtInformation);
+        
+        MapService.createLocation(place.courtInformation, createLocation);
         
         
         $location.path('/create');

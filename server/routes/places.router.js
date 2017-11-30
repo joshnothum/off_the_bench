@@ -108,7 +108,6 @@ places.post('/locations', function (req, res) {
             size: req.body.courtInfo.size,
             rating: req.body.courtInfo.size,
         };
-
         // let savePhotos = {
         //     photo_reference: req.body.photos.photo_reference,
         // };
@@ -122,11 +121,11 @@ places.post('/locations', function (req, res) {
                     console.log("Error inserting data into locations: ", err);
                     res.sendStatus(500);
                 } else {
-                    let courtQuerytText = "INSERT INTO 'courts' (indoor, lights, surface, size, rating) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING 'id' ;";
+                    let courtQuerytText = "INSERT INTO 'courts' (indoor, lights, surface, size, rating, location_id) VALUES ($1, $2, $3, $4, $5);";
                     let location_id = result.rows[0].id;
 
                     client.query(courtQueryText,
-                        [saveCourt.name, saveCourt.lights, saveCourt.surface, saveCourt.size, saveLocation.size, saveCourt.rating, location_id],
+                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, location_id],
                         function (err, result) {
                             client.end();
 

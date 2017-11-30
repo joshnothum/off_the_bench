@@ -75,7 +75,7 @@ self.loadDataBasePlaces = function () {
         console.log(locationInfo);
         console.log(courtInfo);
 
-        let newLocation = { location: locationInfo.detail,
+        let newLocation = { location: locationInfo,
             court: courtInfo,
         };
 
