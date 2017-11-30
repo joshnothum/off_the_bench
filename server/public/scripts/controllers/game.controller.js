@@ -21,6 +21,4 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
 
 
     };
-
-
 });
