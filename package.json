@@ -10,6 +10,10 @@
   "author": "Scott Bromander, Kris Szafranski",
   "license": "ISC",
   "dependencies": {
+    "@material/button": "^0.26.0",
+    "@material/card": "^0.25.0",
+    "@material/textfield": "^0.26.0",
+    "@material/typography": "^0.3.0",
     "angular": "^1.6.6",
     "angular-animate": "^1.6.6",
     "angular-aria": "^1.6.6",
@@ -28,6 +32,7 @@
     "express-session": "^1.13.0",
     "fs": "0.0.1-security",
     "jquery": "^2.1.4",
+    "material-components-web": "^0.26.0",
     "material-design-icons": "^3.0.1",
     "moment": "^2.19.2",
     "ngmap": "^1.18.4",

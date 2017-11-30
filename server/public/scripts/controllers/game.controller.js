@@ -1,4 +1,4 @@
-myApp.controller('GameController', function (UserService, GameService, $http, $location, MapService) {
+myApp.controller('GameController', function (UserService, GameService, $http, $location, MapService, $mdProgressCircularProvider) {
     console.log('GameController created');
     var gc = this;
     gc.userService = UserService;

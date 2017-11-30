@@ -1,4 +1,4 @@
-myApp.controller('CreateController', function ($scope, $mdDialog, GameService, UserService, MapService) {
+myApp.controller('CreateController', function ($scope, $mdDialog, GameService, UserService, MapService, $mdProgressCircularProvider) {
     console.log('and there was only on true Creator!');
 
     let creator = this;

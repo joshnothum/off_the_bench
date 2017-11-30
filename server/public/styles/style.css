@@ -20,18 +20,14 @@ html {
 }
 
 .instructions {
-  background-color: #FFFCF5;
-  color: #0029FF;
+  text-align: center;
+  background-color:white;
+  color:lightskyblue;
   padding: 5px;
 }
 
 #entryForm {
   margin-top: 14px;
-}
-
-#cardHolder{
-  margin-top: 10px;
- 
 }
 
 .container p {
@@ -96,54 +92,91 @@ li a:hover {
 #carosel{
   height: 100%;
 };
-/* .demo-md-panel {
-  min-height: 500px;
-}
 
-.demo-dialog-example {
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
-  width: 500px;
-}
+ .hero .demo-card {
+   width: 320px;
+   background-color: white;
+ }
 
-.demo-dialog-content {
-  padding: 0 15px;
-  width: 100%;
-}
+ .hero {
+   min-height: 480px;
+ }
 
-.demo-dialog-content img {
-  height: 300px;
-  margin: auto;
-}
+ .demo-card {
+   max-width: 21.875rem;
+   /* 350sp */
+   margin-bottom: 48px;
+ }
 
-.demo-dialog-button {
-  width: 100%;
-}
+ @media(min-width: 768px) {
+   .demo-card {
+     margin-bottom: 24px;
+   }
+ }
 
-.demo-menu-example {
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
-  width: 256px;
-}
+ .demo-card--with-avatar .mdc-card__primary {
+   position: relative;
+ }
 
-.demo-menu-item {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  height: 48px;
-  padding: 0 16px;
-  position: relative;
-  transition: background 0.15s linear;
-  width: auto;
-}
+ .demo-card--with-avatar .demo-card__avatar {
+   position: absolute;
+   background: #bdbdbd;
+   height: 2.5rem;
+   /* 40sp */
+   width: 2.5rem;
+   /* 40sp */
+   border-radius: 50%;
+ }
 
-.demo-menu-item:hover,
-.demo-menu-item:focus {
-  background-color: rgb(238, 238, 238);
-}
+ .demo-card--with-avatar .mdc-card__title,
+ .demo-card--with-avatar .mdc-card__subtitle {
+   margin-left: 56px;
+ }
 
-.demo-menu-item.selected {
-  color: rgb(16, 108, 200);
-}; */
+ [dir="rtl"] .demo-card--with-avatar .mdc-card__title,
+ [dir="rtl"] .demo-card--with-avatar .mdc-card__subtitle {
+   margin-right: 56px;
+   margin-left: initial;
+ }
+
+ .demo-card__16-9-media {
+   background-image: url("images/16-9.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 12.313rem;
+   /* 197sp, for 16:9 ratio with 350sp demo card width */
+ }
+
+ .demo-card--small .mdc-card__media {
+   background-image: url("images/1-1.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 10.938rem;
+   /* 175sp, for 1:1 ratio with 175sp demo card width */
+ }
+
+ .demo-card--bg-demo {
+   height: 21.875rem;
+   /* 350sp */
+   background-image: url("images/1-1.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+ }
+
+ .demo-card--bg-demo .mdc-card__primary,
+ .demo-card--bg-demo .mdc-card__actions {
+   background: rgba(0, 0, 0, .4);
+ }
+
+ #demo-wrapper {
+   margin: 24px;
+   display: flex;
+   flex-flow: row wrap;
+   align-content: left;
+   justify-content: left;
+ }
+
+ #demo-wrapper .demo-card {
+   margin: 24px;
+   min-width: 320px;
+ }

@@ -1,5 +1,5 @@
 
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap, $mdPanel ) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap, $mdPanel, $mdProgressCircularProvider ) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
@@ -76,11 +76,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     };
 
     place.ratingStates = [
-        { stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle' },
         { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' },
-        { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
-        { stateOn: 'glyphicon-heart' },
-        { stateOff: 'glyphicon-off' }
     ];
 
 
