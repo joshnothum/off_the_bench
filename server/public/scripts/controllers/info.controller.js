@@ -13,3 +13,21 @@ myApp.controller('InfoController', function (UserService, GameService, $http, $l
     
   };
 });
+// // browse.getInfo = function (ev, place_id) {
+// //   let dialogBox = MapService.getInfo(place_id);
+
+// //   dialogBox.then(function (response) {
+// //     $mdDialog.show({
+// //       controller: 'DialogController as dc',
+// //       templateUrl: 'views/templates/dialog1.tmpl.html',
+// //       parent: angular.element(document.body),
+// //       targetEvent: ev,
+// //       clickOutsideToClose: true
+// //     })
+// //       .then(function (answer) {
+// //         $scope.status = 'You said the information was "' + answer + '".';
+// //       }, function () {
+// //         $scope.status = 'You cancelled the dialog.';
+// //       });
+// //   });
+// };

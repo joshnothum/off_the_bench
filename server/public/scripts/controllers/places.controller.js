@@ -1,5 +1,5 @@
 
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap ) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap, $mdPanel ) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
@@ -67,19 +67,42 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.pushLocation(place);
     };
    
-    $scope.max = 5;
-    $scope.isReadonly = false;
+    place.max = 5;
+    place.isReadonly = false;
 
-    $scope.hoveringOver = function (value) {
-        $scope.overStar = value;
-        $scope.percent = 100 * (value / $scope.max);
+    place.hoveringOver = function (value) {
+        place.overStar = value;
+        place.percent = 100 * (value / $scope.max);
     };
 
-    $scope.ratingStates = [
+    place.ratingStates = [
         { stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle' },
         { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' },
         { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
         { stateOn: 'glyphicon-heart' },
         { stateOff: 'glyphicon-off' }
     ];
+
+
+
+    place.getPanelInfo = function (ev, place_id) {
+        // let dialogBox = MapService.getMoreLocationInfo(place_id);
+        // dialogBox.then
+        
+        
+      function dialogBox(response) {
+            $mdDialog.show({
+                controller: 'DialogController as dc',
+                templateUrl: 'views/templates/dialog.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true
+            })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        }
+    };
 });// end of Places Controller

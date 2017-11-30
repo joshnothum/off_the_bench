@@ -103,7 +103,6 @@ myApp.controller('LoginController', function ($http, $location, UserService, $sc
 //         array[top] = tmp;
 //       }
 //     }
-
 //     return array;
 //   }
 });

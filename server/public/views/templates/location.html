@@ -12,22 +12,22 @@
                     <uib-accordion-heading>
                         <div>Address</div>
                     </uib-accordion-heading>
-                    {{place.locationDetail.detail.formatted_address}}
                     <md-icon md-font-icon="material-design">room</md-icon>
+                    {{place.locationDetail.detail.formatted_address}}
 
                 </div>
                 <div uib-accordion-group class="panel-default">
                     <uib-accordion-heading>
                         <div>Phone Number</div>
                     </uib-accordion-heading>
-                    {{place.locationDetail.detail.formatted_phone_number}}
                     <md-icon md-font-class="material-icons">settings_phone</md-icon>
+                    {{place.locationDetail.detail.formatted_phone_number}}
                 </div>
                 <div uib-accordion-group class="panel-default">
                     <uib-accordion-heading>
                         <div>Photos</div>
                     </uib-accordion-heading>
-
+                    <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{place.locationDetail.detail.photos[0].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8"/>
                    
                 </div>
                 <div uib-accordion-group class="panel-default">
@@ -72,14 +72,12 @@
                 <div layout="row" layout-align="space-between center">
                     <span>Lights?</span>
                     <md-switch ng-model="data.lights" aria-label="Switch 1" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
-                        Switch 2 (md-warn): {{ data.cb2 }}
                     </md-switch>
                 </div>
 
                 <div layout="row" layout-align="space-between center">
                     <span>Air Conditioning?</span>
                 <md-switch ng-model="data.airCon" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
-                    Switch 2 (md-warn): {{ data.cb2 }}
                 </md-switch>
                 </div>
                 <div layout="row" layout-align="space-between center">
@@ -94,9 +92,9 @@
                 <div layout="row" layout-align="space-between center">
                     <span>Court Size?</span>
                     <md-select ng-model="weapon" placeholder="Indoor" class="md-no-underline">
-                        <md-option value="axe">Full</md-option>
-                        <md-option value="sword">Half</md-option>
-                        <md-option value="sword">3/4</md-option>
+                        <md-option value=100>Full</md-option>
+                        <md-option value=50>Half</md-option>
+                        <md-option value=25>3/4</md-option>
                     </md-select>
                 </div>
                     <div layout="row" layout-align="space-between center">
