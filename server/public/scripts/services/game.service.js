@@ -25,10 +25,17 @@ myApp.service('GameService', function ($http, $location) {
                 placeid: place_id,
             }//end of params
         };   // end of gameInfoSearch object for table join games on locations
-        $http.get('/places/gameInfo', gameInfoSearch).then(function (response) {
+        // $http.get('/info/gameInfo', gameInfoSearch).then(function (response) {
+        //     self.info = response.data.result;
+        //     console.log(self.info);
+            
+        // }).catch(function (response) {
+        //     console.log('my info failed: ', response);
+        // });
+        $http.get('/info/gameInfo', gameInfoSearch).then(function (response) {
             self.info = response.data.result;
             console.log(self.info);
-            
+
         }).catch(function (response) {
             console.log('my info failed: ', response);
         });

@@ -10,7 +10,6 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
         //game =place_id that can be used to join games table and locations table
         
         GameService.getMoreGameInfo(game);
-  
         $location.path('/games');
     };//end of getInfo
 
