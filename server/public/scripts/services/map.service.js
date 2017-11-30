@@ -66,4 +66,24 @@ self.loadDataBasePlaces = function () {
         });
 
     };//end of getMoreLocationInfo
+
+    self.pushLocation = function (places) {
+        self.newGame.push(places);
+    };
+    self.createLocation = function (locationInfo, courtInfo) {
+
+        console.log(locationInfo);
+        console.log(courtInfo);
+
+        let newLocation = { location: locationInfo.detail,
+            court: courtInfo,
+        };
+
+        $http.post('/places/locations', newLocation).then(function (response) {
+            console.log(response);
+        }).catch(function (response) {
+            console.log('create location did not work:', response);
+        });
+
+    };//end of createGame
 });

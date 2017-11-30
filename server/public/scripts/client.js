@@ -3,8 +3,6 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngA
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
 
-  
-
   $locationProvider.hashPrefix('');
   console.log('myApp -- config');
   $routeProvider

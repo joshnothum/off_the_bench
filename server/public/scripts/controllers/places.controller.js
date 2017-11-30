@@ -1,5 +1,5 @@
 
-myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap, $mdPanel, $mdProgressCircularProvider ) {
+myApp.controller('PlacesController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap, $mdPanel) {
     console.log('PlacesController created');
     let place = this;
     //globalNonsense
@@ -8,12 +8,14 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.newGame = GameService.newGame;
     place.locationDetail = MapService.getMoreLocationDetail;
     place.searchBar = '';
+    place.courtInformation={};
+
     place.getPlaces = function () {
         let apiSearch = {
             params: {
                 query: place.searchBar,
                 location: '44.9778,-93.2650',
-                radius: 35000
+                radius: 35000,
             }
         };
         GameService.getPlaces(apiSearch);
@@ -29,9 +31,11 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
 
-    place.createLocation = function (places) {
-        let creatorid = UserService.userObject.userID;
-        GameService.createLocation(places, creatorid);
+    place.createLocation = function () {
+
+        console.log(place);
+        
+        MapService.createLocation(place.locationDetail, place.courtInformation);
         
         
         $location.path('/create');
