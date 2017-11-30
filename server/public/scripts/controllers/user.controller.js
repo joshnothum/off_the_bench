@@ -1,3 +1,5 @@
+import { log } from "util";
+
 
 myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope) {
   console.log('UserController created');
@@ -27,21 +29,24 @@ myApp.controller('UserController', function (UserService, GameService, $location
   };
 
   vm.unJoinGames = function(game){
-    let willUnjoin = GameService.unJoinGames(game);
-    swal({
-      title: "Are you sure?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-      .then((willUnjoin) => {
-        if (willUnjoin) {
-          swal("Too bad! Maybe next time!", {
-          });
-        } else {
-          swal("Ok, great!");
-        }
-      });
+
+    console.log(game);
+    
+    // let willUnjoin = GameService.unJoinGames(game);
+    // swal({
+    //   title: "Are you sure?",
+    //   icon: "warning",
+    //   buttons: true,
+    //   dangerMode: true,
+    // })
+    //   .then((willUnjoin) => {
+    //     if (willUnjoin) {
+    //       swal("Too bad! Maybe next time!", {
+    //       });
+    //     } else {
+    //       swal("Ok, great!");
+    //     }
+    UserService.getUserGames();
   };
 
   vm.getGameMaps = function(game) {
