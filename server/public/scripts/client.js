@@ -1,10 +1,9 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate', 'ngMap', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate', 'ngMap', 'ui.bootstrap',]);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
 
- 
-
+  
 
   $locationProvider.hashPrefix('');
   console.log('myApp -- config');
@@ -88,6 +87,9 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
       controller: 'DialogController as dc',
 
     })
+
+
+    
     .otherwise({
       redirectTo: 'home'
     });
