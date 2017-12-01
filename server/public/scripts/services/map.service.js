@@ -63,7 +63,6 @@ self.loadDataBasePlaces = function () {
 
         console.log(locationInfo);
         console.log(courtInfo);
-
         //had some dataBinding issues and found this to work
 
         let locationAndCourt = {
@@ -80,11 +79,11 @@ self.loadDataBasePlaces = function () {
         };
 
         $http.post('/places/locations', locationAndCourt).then(function (response) {
-            console.log(response);
         }).catch(function (response) {
+            $location.path('/create');
             console.log('create location did not work:', response);
+            console.log(response);
         });
-      console.log(response);
       
     };//end of createLocation
 });
