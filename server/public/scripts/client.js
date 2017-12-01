@@ -14,15 +14,6 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as lc'
     })
-    .when('/tablelocation', {
-      templateUrl: '/views/templates/tablelocation.html',
-      controller: 'TableController as tc',
-      resolve: {
-        getuser: function (UserService) {
-          return UserService.getuser();
-        }
-      }
-    })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',
@@ -98,6 +89,14 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
         }
       }
 
+    }).when('/locationtable', {
+      templateUrl: '/views/templates/locationtable.html',
+      controller: 'TableDataController as tc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
     })
     .otherwise({
       redirectTo: 'home'

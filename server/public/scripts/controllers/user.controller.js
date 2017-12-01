@@ -50,10 +50,13 @@ myApp.controller('UserController', function (UserService, GameService, $location
     $location.path('/user');
   };
 
-vm.goToTable = function(){
-  
-  $location.path('/create');
-};
+
+
+  vm.tableScreen = function (params) {
+    MapService.loadDataBasePlaces();
+    $location.path('/locationtable');
+  };
+
 
   vm.getUserGames();
 });
