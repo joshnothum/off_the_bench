@@ -6,10 +6,11 @@ myApp.service('GameService', function ($http, $location) {
     self.browseGamesObject = {};
     self.gameLocationInfo = {};
     //getMorGameInfo
-    self.gameByIDInfo ={};
+    self.gameByIDInfo = {};
     self.newGame = {};
     self.newLocation = {};
     self.photo ={};
+    self.gameFromBrowse={};
 
     self.getPlaces = function (apiSearch) {
         $http.get('/places', apiSearch).then(function (response) {
@@ -67,16 +68,14 @@ myApp.service('GameService', function ($http, $location) {
         });//end of post/catch
     };//end of unjoinGame
 
-    self.getGameInfo = function (game) {
-
-        let gameID = game.id;
+    self.getGameInfo = function (games,gameID) {
+        self.gameFromBrowse=games;
       console.log(gameID);
         $http.get('/info/getGameById/'+ gameID).then(function (response) {
             console.log(response);
             self.gameByIDInfo.data = response.data;
             console.log(response.data);
             console.log(self.gameByIDInfo);
-            
             $location.path('/games');
         }).catch(function (response) {
             console.log('getGameInfo failed: ', response);

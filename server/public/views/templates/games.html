@@ -1,21 +1,26 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <md-content ng-cloak="" layout="row" layout-align="space-around none">
-    <md-card "gameInfo.goToMap()">
-        <img ng-src= '/photos/basketball-hoop-2819605_1920.jpg'/>
+    <md-card>
+        <img ng-src="{{gameInfo.map.mapUrl}}" />
+    </md-card>
+    <md-card ng-click="gameInfo.goToMap()" flex="30" layout="column" layout-align="center center" layout-padding>
+        <img ng-cloak="" ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{gameInfo.getMap.center}}&zoom={{gameInfo.getMap.zoom}}&size={{gameInfo.getMap.size}}&scale={{gameInfo.getMap.scale}}&key={{gameInfo.getMap.key}}"
+        />
+        {{gameInfo.gameForDisplay}}
     </md-card>
     <md-card flex="50">
+        {{gameInfo.gameForDisplay.name}}
         <md-card-content>
-<h2>{{gameInfo.gameInformation.name}}</h2>
-<p>{{gameInfo.gameInformation.formatted_address}}</p>
-<p>{{gameInfo.gameInformation.date}}</p>
-<p>{{gameInfo.gameInformation.time}}</p>
-<p>Spaces Available : {{gameInfo.gameInformation.max_number - gameInfo.gameInformation.count}}</p>
-</md-card-content>
-<md-card-actions>
-    <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
-    <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
-   
-</md-card-actions>
+            <h2>{{gameInfo.gameForDisplay.formatted_address}}</h2>
+            <p>{{gameInfo.gameForDisplay.date}}</p>
+            <p>{{gameInfo.gameInformation.time}}</p>
+            <p>Spaces Available : {{gameInfo.gameForDisplay.max_number - gameInfo.gameInformation.count}}</p>
+        </md-card-content>
+        <md-card-actions>
+            <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
+            <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
+
+        </md-card-actions>
     </md-card>
- 
+
 </md-content>

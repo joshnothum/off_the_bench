@@ -119,14 +119,14 @@ info.post('/', function (req, res) {
         
         let getGame = req.params.gid;
         let user = req.user.id;
-        console.log(getGame);
+        console.log('logged the best game ever',getGame);
         
         pool.connect(function (err, client, done) {
             if (err) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","users"."username" , "player_joins"."player_id", COUNT("player_joins"."game_id") FROM "users" JOIN "player_joins" ON "users"."id" = "player_joins"."player_id" JOIN "games" ON "games"."id" = "player_joins"."game_id" WHERE "games"."id" = $1 GROUP BY "games"."id", "player_joins"."player_id", "users"."username";';
+            let queryText = 'SELECT "users"."username", FROM "games"."time", "games"."date", "games"."formatted_address", "games"."place_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."id"=$1 GROUP BY "games"."id";';
             client.query( queryText,[getGame],
 
                 function (err, result) {

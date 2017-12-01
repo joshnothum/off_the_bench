@@ -2,7 +2,10 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     console.log('GameController created');
     var gc = this;
     us = UserService;
-    gc.gameInformation = GameService.gameByIDInfo;
+
+    gc.gameInformation = MapService.gameInfo;
+    gc.gameForDisplay = GameService.gameFromBrowse;
+    console.log(gc.gameInformation);
     
     gc.joinGame = function (gameInfo) {
         console.log(gameInfo);
