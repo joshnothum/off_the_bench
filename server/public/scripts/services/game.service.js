@@ -2,8 +2,10 @@ myApp.service('GameService', function ($http, $location) {
     let self = this;
     //globalNonsense
     self.result = {};
+    // for getPlaces
     self.browseGamesObject = {};
     self.info = {};
+    //getMorGameInfo
     self.newGame = [];
     self.newLocation = {};
     self.photo ={};
@@ -12,7 +14,6 @@ myApp.service('GameService', function ($http, $location) {
         $http.get('/places', apiSearch).then(function (response) {
             self.result.data = response.data.results;
             console.log(self.result.data);
-            
         }).catch(function (response) {
             console.log('my places failed: ', response);
         });
@@ -24,22 +25,14 @@ myApp.service('GameService', function ($http, $location) {
             params: {
                 placeid: place_id,
             }//end of params
-        };   // end of gameInfoSearch object for table join games on locations
-        // $http.get('/info/gameInfo', gameInfoSearch).then(function (response) {
-        //     self.info = response.data.result;
-        //     console.log(self.info);
-            
-        // }).catch(function (response) {
-        //     console.log('my info failed: ', response);
-        // });
+        };   //
         $http.get('/info/gameInfo', gameInfoSearch).then(function (response) {
             self.info = response.data.result;
             console.log(self.info);
-
         }).catch(function (response) {
             console.log('my info failed: ', response);
         });
-    };//end of getInfo
+    };//end of getMoreGameInfo
     self.sendGame = function (gameInfo) {
         $http.post('/places', gameInfo).then(function (response) {
         }).catch(function (response) {
@@ -50,7 +43,6 @@ myApp.service('GameService', function ($http, $location) {
     self.joinGame= function(playerJoin){
         $http.post('/info', playerJoin).then(function(response){
             console.log(response);
-            
         }).catch(function (response) {
             console.log('joinGame did not work', response);
             
@@ -59,24 +51,30 @@ myApp.service('GameService', function ($http, $location) {
 
     self.browseGames = function () {
         $http.get('/info').then(function (success) {
-            console.log('browseGames made to the get', success);
             self.browseGamesObject.data = success.data;
-            console.log(self.browseGamesObject);
 
         }).catch(function (error) {
             console.log('error in browseGames:', error);
         });//end of catch
-        // $location.path('/browse');
     };//end of browseGames
     self.unJoinGames = function (playerUnJoin) {
         console.log(playerUnJoin);
         
         $http.delete('/info/' + playerUnJoin).then(function (response) {
             console.log(response);
-            //need refresh here
+            $location.path('/user');
         }).catch(function (response) {
-            console.log('UnjoinGame did not work', response);
-
+            console.log('UnJoinGame did not work', response);
         });//end of post/catch
-    };//end of joinGame
+    };//end of unjoinGame
+
+    self.getGameInfo = function (game) {
+        let gameIDForInfo = game.place_id;
+        $http.get('/info/gameInfo', gameIDForinfo).then(function (response) {
+            console.log(response);
+        }).catch(function (response) {
+            console.log('getGameInfo failed: ', response);
+        });
+    };
+
 });//end of GameService

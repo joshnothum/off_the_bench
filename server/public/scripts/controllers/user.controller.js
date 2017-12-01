@@ -8,15 +8,12 @@ myApp.controller('UserController', function (UserService, GameService, $location
 
   vm.getUserGames = function () {
     UserService.getUserGames();
-    
     console.log('User games from player_joins table',vm.userGames);
-    
   };
   vm.browseGames = function () {
     $location.path('/browse');
     //browse.html is ctrl by browserController.
   };
-
   vm.createScreen = function () {
     $location.path('/create');
   };
@@ -24,7 +21,6 @@ myApp.controller('UserController', function (UserService, GameService, $location
   vm.searchScreen = function(){
     $location.path('/places');
   };
-
   vm.unJoinGames = function(game){
 
     let unJoinGame = game.id;
@@ -47,14 +43,11 @@ myApp.controller('UserController', function (UserService, GameService, $location
  
   };
 
-  vm.getGameInfo = function(game) {
-    $location.path('/games');
-    MapService.getGameInfo(game);
-    
+  vm.goToGame = function(game) {
+    GameService.getGameInfo(game);
     
   };
   vm.getUserGames();
-
 });
 
 

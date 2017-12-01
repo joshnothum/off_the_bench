@@ -39,7 +39,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         
         MapService.createLocation(courtInfoToSend, sendLocation);
         
-    };//end of createGame
+    };//end of createLocation
     place.sendGame = function (game) {
         let gameTime = moment(place.time).format('HH:mm:ss');
         console.log(gameTime);
@@ -65,12 +65,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         UserService.loadPlaces();
     };//end of of loadPlaces
 
-    place.pushLocation= function(place){
-        console.log(place);
-        
-        GameService.pushLocation(place);
-    };
-   
+
+    // stars on rating
     place.max = 7;
     place.rate = 10;
     place.isReadonly = false;
@@ -80,11 +76,10 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         place.percent = 100 * (value / $scope.max);
     };
 
-    place.ratingStates = [{ stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle' },
-        { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' },
-        { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
-        { stateOn: 'glyphicon-heart' },
-        { stateOff: 'glyphicon-off' }];
+    place.ratingStates = [
+        { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' }];
+
+
     // place.getPanelInfo = function (ev, place_id) {
     //     // let dialogBox = MapService.getMoreLocationInfo(place_id);
     //     // dialogBox.then
