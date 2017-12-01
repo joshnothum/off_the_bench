@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate', 'ngMap', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate', 'ngMap', 'ui.bootstrap', 'ngMaterialDatePicker']);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
@@ -90,10 +90,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
       }
 
     })
-    
     .otherwise({
       redirectTo: 'home'
     });
-});
-
-
+  });
