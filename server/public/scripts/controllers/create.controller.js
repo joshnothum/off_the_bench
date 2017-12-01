@@ -1,34 +1,70 @@
-myApp.controller('CreateController', function ($scope, $mdDialog, GameService, UserService, MapService) {
+myApp.controller('CreateController', function ($scope, $mdDialog, GameService, UserService, MapService, $location) {
     console.log('and there was only on true Creator!');
 let creator = this;
 
     creator.allLocations = MapService.allLocations;
-
-    creator.newGame ={};
-    
-
+  creator.gameLocation= {};
+    creator.gameTime = '';
+    creator.location = '';
+    creator.gameDate = '';
+    creator.gameMaxNumber = '';
     creator.loadPlaces = function () {
         MapService.loadDataBasePlaces();
 
         console.log('load places is here');
     };//end of of loadDataBasePlaces
-    creator.sendGame = function (game) {
-        let gameTime = moment(place.time).format('HH:mm:ss');
+    creator.sendGame = function (location) {
+
+        console.log(location);
+        
+        let gameTime = moment(creator.gameTime).format('HH:mm:ss');
         console.log(gameTime);
-        let gameDate = moment(place.date).format('MM-DD-YYYY');
+        let gameDate = moment(creator.gameDate).format('MM-DD-YYYY');
         console.log(gameDate);
         let gameInfo = {
-            name: game.name,
+            name: location.name,
             time: gameTime,
             date: gameDate,
-            maxNumber: place.maxNumber,
-            formatted_address: game.formatted_address,
-            place_id: game.place_id,
-            creator_id: UserService.userObject.userID,
+            maxNumber: creator.gameMaxNumber,
+            formatted_address: location.formatted_address,
+            place_id: location.place_id,
+            location_id: location.id,
         };//end of gameInfo object
         GameService.sendGame(gameInfo);
+        console.log(gameInfo);
         $location.path('/user');
     };//end of sendGame
+    creator.mytime = new Date();
 
+    creator.hstep = 1;
+    creator.mstep = 15;
+
+    creator.options = {
+        hstep: [1, 2, 3],
+        mstep: [1, 5, 10, 15, 25, 30]
+    };
+
+    creator.ismeridian = true;
+    creator.toggleMode = function () {
+        creator.ismeridian = !creator.ismeridian;
+    };
+
+    creator.update = function () {
+        var d = new Date();
+        d.setHours(14);
+        d.setMinutes(0);
+        creator.mytime = d;
+    };
+
+    creator.clear = function () {
+        creator.mytime = null;
+    };
+
+    creator.pushLocation = function(location){
+    };
 creator.loadPlaces();
+
+
+
+   
 });

@@ -32,6 +32,8 @@ myApp.service('GameService', function ($http, $location) {
     };//end of getMoreGameInfo
     self.sendGame = function (gameInfo) {
         $http.post('/places', gameInfo).then(function (response) {
+            console.log(response);
+            
         }).catch(function (response) {
             console.log('send game did not work: ', response);
         });
@@ -40,6 +42,7 @@ myApp.service('GameService', function ($http, $location) {
     self.joinGame= function(playerJoin){
         $http.post('/info', playerJoin).then(function(response){
             console.log(response);
+            $location.path('/user');
         }).catch(function (response) {
             console.log('joinGame did not work', response);
             
@@ -65,13 +68,15 @@ myApp.service('GameService', function ($http, $location) {
         });//end of post/catch
     };//end of unjoinGame
 
-    self.getGameInfo = function (gameID) {
+    self.getGameInfo = function (game) {
+
+        let gameID = game.id;
       console.log(gameID);
-      
         $http.get('/info/getGameById/'+ gameID).then(function (response) {
             console.log(response);
-            self.gameByIDInfo.gameInfo = response.data;
-            
+            self.gameByIDInfo = response.data;
+            console.log(response.data);
+            $location.path('/games');
         }).catch(function (response) {
             console.log('getGameInfo failed: ', response);
         });

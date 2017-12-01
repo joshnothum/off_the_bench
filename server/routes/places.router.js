@@ -58,7 +58,7 @@ places.post('/', function (req, res) {
             res.sendStatus(500);
         }
         let saveGame = {
-            creator_id: req.body.creator_id,
+            creator_id: req.user.id,
             time: req.body.time,
             date: req.body.date,
             max_number: req.body.maxNumber,
@@ -66,6 +66,7 @@ places.post('/', function (req, res) {
             place_id: req.body.place_id,
             name: req.body.name
         };// end of saveGame
+console.log(saveGame);
 
         client.query("INSERT INTO games (creator_id, time, date, max_number, formatted_address, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
             [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.formatted_address, saveGame.place_id, saveGame.name],

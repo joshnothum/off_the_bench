@@ -1,6 +1,11 @@
-myApp.controller('DialogController', function (UserService, GameService, $http, $location, $mdPanel) {
+myApp.controller('DialogController', function (GameService, $http, $location) {
+
+console.log('dialog is logged');
+
     let dialog = this;
-    
+    dialog.goHome= function(){
+        $location.path('/user');
+    };
     dialog.hide = function () {
         $mdDialog.hide();
     };

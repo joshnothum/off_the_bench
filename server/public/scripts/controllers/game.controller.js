@@ -6,7 +6,6 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     
     gc.joinGame = function (gameInfo) {
         console.log(gameInfo);
-
         let playerJoin = {
             gameid: gameInfo
         };// end of playerJoin object

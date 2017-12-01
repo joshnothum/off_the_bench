@@ -10,7 +10,7 @@ myApp.controller('InfoController', function (UserService, GameService, $http, $l
 
   info.editUserGames = function(games){
     console.log('edit user games');
-    
+    $location.path('/path');
   };
 });
 // // browse.getInfo = function (ev, place_id) {

@@ -3,7 +3,9 @@
     <p>
         Game Browse
     </p>
-    <md-content layout="row" layout-padding layout-align="space-around center" flex="75" layout-wrap>       
+
+     <div class="gridListdemoBasicUsage">
+    <!-- <md-content layout="row" layout-padding layout-align="space-around center" flex="75" layout-wrap>       
             <md-card ng-repeat='games in browser.gamesObject.data' layout-padding>
                     <md-card-title>
                         <md-card-title-text>
@@ -14,11 +16,28 @@
                         </md-card-title-text>
                     </md-card-title>
                     <md-card-content>
-                        <span class="md-subhead"> Spots Available: {{games.max_number-games.count}}</span>
                     <md-card-actions layout="row" layout-align="start center">
                         <md-button class="md-raised md-primary" ng-click="browser.getMoreGameInfo(games.id)">More Info</md-button>
                         <md-button class="md-raised md-primary" ng-click="browser.joinGame(games)">Join</md-button>
                     </md-card-actions>
                 </md-card-content>
             </md-card>
-    </md-content>
+    </md-content> -->
+<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
+    md-gutter="12px" md-gutter-gt-sm="8px">
+    <md-grid-tile class="green"  ng-repeat='games in browser.gamesObject.data'>
+        <md-card>
+        <span class="md-subhead"> Spots Available: {{games.max_number-games.count}}</span>
+        <ng-map center="{{place.locationDetail.detail.geometry.location.lng}}]">
+                    <h1 class="md-headline">{{games.name}}</h1>
+                    <h2 class="md-subhead">{{games.formatted_address}}</h2>
+                    <h2 class="md-subhead">{{games.time}}</h2>
+                    <h2 class="md-subhead">{{games.date}}</h2>
+                    </md-card>
+        <md-grid-tile-footer>
+            <md-button class="md-raised md-primary" ng-click="browser.getMoreGameInfo(games)">More Info</md-button>
+            <md-button class="md-raised md-primary" ng-click="browser.joinGame(games)">Join</md-button>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+    </md-grid-list>
+    </div>

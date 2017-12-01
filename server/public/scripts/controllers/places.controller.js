@@ -28,8 +28,6 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         
     };//end of getInfo
 
-
-
     place.createNewLocation = function (locationToSend, courtInfoToSend) {
 
 

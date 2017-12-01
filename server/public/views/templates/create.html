@@ -1,113 +1,44 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div ng-cloak="" id="container" class="clearCard">
 
-    <p>
-        Game Create
-    </p>
-    <div layout="column" layout-align="center center">
-        <div layout="column" layout-align="center center" style="padding:40px" class="selectdemoOptionsWithAsyncSearch">
-            <md-select placeholder="Locations" ng-model="create.location" md-on-close="create.getCourtInfo()" style="min-width: 400px;">
-                <md-option ng-value="location" ng-repeat="location in create.allLocations.data">{{location.name}}</md-option>
-            </md-select>
-        </div>
+<p>
+    Game Create
+</p>
+<div layout="column" layout-align="center center">
+    <div layout="column" layout-align="center center" style="padding:40px" class="selectdemoOptionsWithAsyncSearch">
+        <md-select placeholder="Locations" ng-model="create.location" md-on-close="create.pushLocation(location)" style="min-width: 400px;">
+            <md-option ng-value="location" ng-repeat="location in create.allLocations.data">{{location.name}}</md-option>
+        </md-select>
     </div>
-    <md-card>
-        <md-card-title>
-            <md-card-title-text>
-
-
-                <span class="md-headline">Create a game</span>
-
-                <span class="md-subhead">Let's get it organized!</span>
-            </md-card-title-text>
-            <md-button ng-click="place.createNewLocation(place.locationDetail, place.courtInformation)">
-                <md-icon md-font-class="material-design">add_circle</md-icon>
-            </md-button>
-        </md-card-title>
-
-    </md-card>
-    <md-card>
-        <md-card-content>
-            <div layout="row" layout-align="center center">
-                <md-input-container>
-
-                    <label for="clock">What Time?</label>
-                    <input time="true" date="false" mdc-datetime-picker="" type="text" id="date-2" placeholder="Date" ng-model="date" min-date="minDate"
-                        max-date="maxDate" disable-dates="dates" class=" md-input" readonly="readonly" name="clock">
-                </md-input-container>
-            </div>
-
-        <div layout="row" layout-align="center center">
-                <md-input-container>
-                    <label for="calendar">What Day?</label>
-                    <input time="false" date="true" mdc-datetime-picker="" type="date" id="date-2" placeholder="Date" ng-model="create.gameDate"
-                        min-date="minDate" max-date="maxDate" disable-dates="dates" name="calendar" />
-                </md-input-container>
-            </div>
-
-        <div layout="row" layout-align="center center">
-                <md-input-container>
-                    <label for="maxNumber">Max Number of Players</label>
-                    <input type="number" name="maxNumber" ng-model="place.maxNumber" [name="string" ] [min="string" ] [max="string" ] [ng-min=""
-                        ] [ng-max="" ] [required="string" ] [ng-required="string" ] [ng-change="string" ] aria-label="maxNumber"
-                        required="">
-                </md-input-container>
-            </div>
-        <div layout="row" layout-align="center center">
-                <span>Invite anyone?</span>
-                <md-select ng-model="place.courtInformation.courtSurface" placeholder="Indoor?" class="md-no-underline">
-                </md-select>
-            </div>
-        <div layout="row" layout-align="center center">
-                <md-button class="md-raised md-primary" ng-click="create.sendGame(create.gameInfo)">Submit</md-button>
-            </div>
-
-        </md-card-content>
-    </md-card>
 </div>
-<!-- <md-content class="md-padding clearCard" layout="row" layout-align="center">
-            <div>
-                <md-card ng-repeat='game in creator.newGame' ng-click="game.locationInfo(game.place_id)">
-                    <md-card-content class="clearCard">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">{{game.name}}</span>
-                                <span class="md-subhead">{{game.formatted_address}}</span>
-                                <span class="md-subhead">{{game.place_id}}</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <div>
-                            <form name="Create">
-                                <md-input-container>
-                                    <label for="time"></label>
-                                    <input type="time" name="time" ng-model="create.GameInfotime" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max=""
-                                        ] [ng-change="string" ] aria-label="time" required="">
-                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
-                                        <div ng-message="required" class="my-message">Please enter time.</div>
-                                    </div>
-                                </md-input-container>
-                                <md-input-container>
-                                    <label for="date"></label>
-                                    <input type="date" ng-model="place.date" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max="" ] [required="string"
-                                        ] [ng-change="string" ] aria-label="date" ng-required="">
-                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
-                                        <div ng-message="required" class="my-message">Please enter date.</div>
-                                    </div>
-                                </md-input-container>
-                                <md-input-container>
-                                    <label for="maxNumber">Max Number of Players</label>
-                                    <input type="number" name="maxNumber" ng-model="place.maxNumber" [name="string" ] [min="string" ] [max="string" ] [ng-min=""
-                                        ] [ng-max="" ] [required="string" ] [ng-required="string" ] [ng-change="string" ] aria-label="date"
-                                        required="">
-                                    <div ng-messages="Create.time.$error" role="alert" multiple="">
-                                        <div ng-message="required" class="my-message">Please enter Max Number of Players.</div>
-                                    </div>
-                                </md-input-container>
-                                <md-button ng-disabled="!Create.$valid" ng-click="place.sendGame(game)">&nbsp Create Game &nbsp</md-button>
-                            </form>
-                        </div>
-                    </md-card-content>
-                </md-card>
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+
+
+            <span class="md-headline">Create a game</span>
+
+            <span class="md-subhead">Let's get it organized!</span>
+        </md-card-title-text>
+    </md-card-title>
+
+</md-card>
+
+<md-card flex=50>
+<form>
+<div layout="column" layout-align="center center">
+
+<div layout-align="space-between center">
+
+           <div layout-align="center center" uib-timepicker ng-model="create.gameTime" ng-change="create.changed()" hour-step="hstep" minute-step="mstep"></div>
+</div>
+<div layout-align="space-between none">
+        <div layout-align="center center" > <md-datepicker ng-model="create.gameDate" md-placeholder="Enter date"></md-datepicker>
             </div>
-        </md-content>
-    </div> -->
+
+        <md-card  layout-align="center center" >     <input ng-model="create.gameMaxNumber" type="number" placeholder="20?"></md-card>
+</div>
+            <md-button class="mdc-button" ng-click="create.sendGame(create.location)">&nbsp Create Game &nbsp</md-button>
+
+</div>
+</form>
+</md-card>

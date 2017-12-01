@@ -8,9 +8,10 @@
     <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
   </div>
 </div> -->
+<div ng-controller="DialogController as dc">
 <md-toolbar class="md-hue-2">
   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Settings" ng-click="nav.getBackToHome()">
+    <md-button class="md-icon-button" aria-label="Settings" ng-click="dc.goHome()">
       <md-icon md-font-class="material-icons">list</md-icon>
     </md-button>
 
@@ -21,3 +22,4 @@
     </md-button>
   </div>
 </md-toolbar>
+</div>

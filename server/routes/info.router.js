@@ -14,7 +14,7 @@ info.get('/user', function (req, res, next) {
             res.sendStatus(500);
         }
         
-        let queryText = 'SELECT "games"."id", "games"."name", "games"."time", "games"."date", "games"."formatted_address", "games"."place_id","games".location_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."creator_id" = $1 OR "player_joins"."player_id" = $1 GROUP BY "games"."id";';
+        let queryText = 'SELECT "games"."id", "games"."name", "games"."time", "games"."date", "games"."formatted_address", "games"."place_id","games"."location_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."creator_id" = $1 OR "player_joins"."player_id" = $1 GROUP BY "games"."id";';
         client.query(queryText,[user.id],
 
             function (err, result) {
@@ -39,12 +39,13 @@ info.get('/', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
+        let queryText = 'SELECT * from "games"';
+        // let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","player_joins"."player_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" GROUP BY "games"."id", "player_joins"."player_id";';
 
-        let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","player_joins"."player_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" GROUP BY "games"."id", "player_joins"."player_id";';
         client.query(queryText,
 
             function (err, result) {
-                client.end();
+                done();
 
                 if (err) {
                     console.log("Error getting data: ", err);
@@ -70,7 +71,7 @@ info.get('/location', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        client.query('SELECT * FROM "locations"',
+        client.query('SELECT * FROM locations; ',
 
             function (err, result) {
                 client.end();
@@ -92,9 +93,10 @@ info.post('/', function (req, res) {
             res.sendStatus(500);
         }
         let joinGame = {
-            game_id: req.body.gameid,
+            game_id: req.body.gameid.id,
             player_id: req.user.id
         };// end of joinGame
+    console.log(joinGame);
     
         client.query("INSERT INTO player_joins (game_id, player_id) VALUES ($1, $2)",
             [joinGame.game_id, joinGame.player_id],
@@ -115,6 +117,8 @@ info.post('/', function (req, res) {
         
         let getGame = req.params.gid;
         let user = req.user.id;
+        console.log(getGame);
+        
         pool.connect(function (err, client, done) {
             if (err) {
                 console.log("Error connecting: ", err);
