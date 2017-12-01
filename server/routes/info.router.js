@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var info = express.Router();
 var passport = require('passport');
@@ -134,12 +136,13 @@ info.post('/', function (req, res) {
                         console.log("Error getting data: ", err);
                         res.sendStatus(500);
                     } else {
+                        console.log(result.rows);
+                        
                         res.send(result.rows);
                     }//end of else
                 });// end of if function
         });//end of pool
     });//end of get gameInfo
-
     
 info.delete('/:pid', function (req, res, next) {
     console.log(req.params.pid);

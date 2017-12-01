@@ -32,7 +32,6 @@ let creator = this;
         };//end of gameInfo object
         GameService.sendGame(gameInfo);
         console.log(gameInfo);
-        $location.path('/user');
     };//end of sendGame
     creator.mytime = new Date();
 
@@ -58,9 +57,6 @@ let creator = this;
 
     creator.clear = function () {
         creator.mytime = null;
-    };
-
-    creator.pushLocation = function(location){
     };
 creator.loadPlaces();
 

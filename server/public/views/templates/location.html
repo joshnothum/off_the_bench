@@ -5,7 +5,7 @@
     </ng-map>
 </md-card>
 <div layout="row" layout-align="space-around start">
-    <md-content flex="25">
+    <md-content flex="40">
         <md-card>
             <uib-accordion>
                 <div uib-accordion-group class="panel-default">
@@ -54,7 +54,6 @@
             </uib-accordion>
         </md-card>
     </md-content>
-    {{place.courtInformation.lights}}
     <md-card>
         <md-card>
             <md-card-title>
@@ -111,6 +110,13 @@
                         </md-select>
                     </div>
                     <div layout="row" layout-align="space-between center">
+                        <div layout="row" layout-align="space-between center">
+                            <span>Price?</span>
+                            <md-select ng-model=place.price placeholder="Full?" class="md-no-underline">
+                                <md-option value=100>Free!</md-option>
+                                <md-option value=50>Not Free!</md-option>
+                            </md-select>
+                        </div>
         
                 <h4>Default</h4>
                 <span uib-rating ng-model="rate" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"

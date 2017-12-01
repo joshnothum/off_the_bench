@@ -42,10 +42,9 @@ myApp.service('GameService', function ($http, $location) {
     self.joinGame= function(playerJoin){
         $http.post('/info', playerJoin).then(function(response){
             console.log(response);
-            $location.path('/user');
         }).catch(function (response) {
             console.log('joinGame did not work', response);
-            
+            $location.path('/browse');
         });//end of post/catch
     };//end of joinGame
 
@@ -74,8 +73,10 @@ myApp.service('GameService', function ($http, $location) {
       console.log(gameID);
         $http.get('/info/getGameById/'+ gameID).then(function (response) {
             console.log(response);
-            self.gameByIDInfo = response.data;
+            self.gameByIDInfo.data = response.data;
             console.log(response.data);
+            console.log(self.gameByIDInfo);
+            
             $location.path('/games');
         }).catch(function (response) {
             console.log('getGameInfo failed: ', response);
