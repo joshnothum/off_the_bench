@@ -49,6 +49,12 @@ myApp.controller('UserController', function (UserService, GameService, $location
     GameService.getGameLocate(getLocationInfo);
     $location.path('/user');
   };
+
+vm.goToTable = function(){
+  
+  $location.path('/create');
+};
+
   vm.getUserGames();
 });
 // $mdDialog.show({
