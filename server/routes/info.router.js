@@ -120,8 +120,8 @@ info.post('/', function (req, res) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","users"."username" , "player_joins"."player_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" JOIN "player_joins"."player_id" ON "users"."username"  WHERE "games"."id" =$1 GROUP BY "games"."id", "player_joins"."player_id";';
-            client.query( queryText,[getGame, user],
+            let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","users"."username" , "player_joins"."player_id", COUNT("player_joins"."game_id") FROM "users" JOIN "player_joins" ON "users"."id" = "player_joins"."player_id" JOIN "games" ON "games"."id" = "player_joins"."game_id" WHERE "games"."id" = $1 GROUP BY "games"."id", "player_joins"."player_id", "users"."username";';
+            client.query( queryText,[getGame],
 
                 function (err, result) {
                    done();
