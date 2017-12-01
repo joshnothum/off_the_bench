@@ -4,7 +4,7 @@ myApp.service('GameService', function ($http, $location) {
     self.result = {};
     // for getPlaces
     self.browseGamesObject = {};
-    self.info = {};
+    self.gameLocationInfo = {};
     //getMorGameInfo
     self.gameByIDInfo ={};
     self.newGame = [];
@@ -21,14 +21,10 @@ myApp.service('GameService', function ($http, $location) {
     };// end of getPlaces
 
     //below may be moved to gameService
-    self.getMoreGameInfo = function (place_id) {
-        let gameInfoSearch = {
-            params: {
-                placeid: place_id,
-            }//end of params
-        };   //
-        $http.get('/info/gameMoreGameInfo', gameInfoSearch).then(function (response) {
-            self.info = response.data.result;
+    self.getGameLocate = function (location) {
+        
+        $http.get('/info/getMoreGameInfo/' + location).then(function (response) {
+            self.gameLocationInfo = response.data.result;
             console.log(self.info);
         }).catch(function (response) {
             console.log('my info failed: ', response);
@@ -74,6 +70,8 @@ myApp.service('GameService', function ($http, $location) {
       
         $http.get('/info/getGameById/'+ gameID).then(function (response) {
             console.log(response);
+            self.gameByIDInfo.gameInfo = response.data;
+            
         }).catch(function (response) {
             console.log('getGameInfo failed: ', response);
         });

@@ -9,7 +9,11 @@ myApp.service('MapService', function ($http, $location) {
     self.mapSearch={};
     self.allLocations ={};
 
-    self.getMoreLocationInfo=function(place_id){
+   
+
+
+
+self.getMoreLocationInfo=function(place_id){
             let locationDetailSearch = {
                 params: {
                     placeid: place_id,
@@ -20,7 +24,7 @@ myApp.service('MapService', function ($http, $location) {
                 console.log(self.getMoreLocationDetail);
 
             }).catch(function (response) {
-                console.log('my info failed: ', response);
+                console.log('my moreLocateinfo failed: ', response);
             });
             $location.path('/location');
 

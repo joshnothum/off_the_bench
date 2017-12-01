@@ -42,8 +42,11 @@ myApp.controller('UserController', function (UserService, GameService, $location
   };
   vm.goToGame = function(game) {
     let getGame = game.id;
+    let getLocationInfo = game.place_id;
+    console.log(getLocationInfo);
     
     GameService.getGameInfo(getGame);
+    MapService.locationInfo(getLocationInfo);
     $location.path('/games');
   };
   vm.getUserGames();

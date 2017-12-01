@@ -3,7 +3,7 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     var gc = this;
     us = UserService;
     gc.gameInformation = MapService.gameInfo;
-
+    
     gc.joinGame = function (gameInfo) {
         console.log(gameInfo);
 
@@ -12,12 +12,6 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
         };// end of playerJoin object
 
         GameService.joinGame(playerJoin);
-
-    };
-
-    gc.getGameInfoNumber = function (gameInfo) {
-        console.log(gc.GameInfo);
-
 
     };
 });

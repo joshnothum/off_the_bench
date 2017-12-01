@@ -7,6 +7,7 @@ myApp.service('UserService', function ($http, $location) {
   self.allLocations = {};
   self.browseGamesObject={};
   self.editGame = {};
+
   
   
 

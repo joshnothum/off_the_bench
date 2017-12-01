@@ -5,11 +5,11 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
 
     browse.gamesObject = GameService.browseGamesObject;
 
-    browse.getMoreGameInfo = function (game) {
+    browse.getGameInfo = function (game) {
 
         //game =place_id that can be used to join games table and locations table
         
-        GameService.getMoreGameInfo(game);
+        GameService.getGameInfo(game.id);
         $location.path('/games');
     };//end of getInfo
 
