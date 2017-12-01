@@ -28,7 +28,7 @@ router.post('/', function (req, res, next) {
     client.query("INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id",
       [saveUser.username, saveUser.password, saveUser.email],
       function (err, result) {
-        client.end();
+        done();
 
         if (err) {
           console.log("Error inserting data: ", err);

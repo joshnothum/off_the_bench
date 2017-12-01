@@ -20,7 +20,9 @@
                     <uib-accordion-heading>
                         <div>Phone Number</div>
                     </uib-accordion-heading>
-                   <md-button class="fab"> <md-icon md-font-class="material-icons">settings_phone</md-icon></md-button>
+                    <md-button class="fab">
+                        <md-icon md-font-class="material-icons">settings_phone</md-icon>
+                    </md-button>
                     {{place.locationDetail.detail.formatted_phone_number}}
                 </div>
                 <div uib-accordion-group class="panel-default">
@@ -52,71 +54,71 @@
             </uib-accordion>
         </md-card>
     </md-content>
-     {{place.courtInformation.lights}}
+    {{place.courtInformation.lights}}
     <md-card>
         <md-card>
             <md-card-title>
                 <md-card-title-text>
-                         
-                               
-                                <span class="md-headline">Location Details</span>
-                              
+
+
+                    <span class="md-headline">Location Details</span>
+
                     <span class="md-subhead">What do you know about this court?</span>
                 </md-card-title-text>
                 <md-button ng-click="place.createNewLocation(place.locationDetail, place.courtInformation)">
                     <md-icon md-font-class="material-design">add_circle</md-icon>
                 </md-button>
             </md-card-title>
-            
+
         </md-card>
         <md-card>
             <form>
-            <md-card-content>
-                <div layout="row" layout-align="space-between center">
-                    <span>Indoors or Outdoors?</span>
-                    <md-select ng-model="place.courtInformation.indoor" placeholder="Indoor" class="md-no-underline">
-                        <md-option value=true>Indoor</md-option>
-                        <md-option value=false>Outdoor</md-option>
-                    </md-select>
-                </div>
+                <md-card-content>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Indoors or Outdoors?</span>
+                        <md-select ng-model="place.courtInformation.indoor" placeholder="Indoor" class="md-no-underline">
+                            <md-option value=true>Indoor</md-option>
+                            <md-option value=false>Outdoor</md-option>
+                        </md-select>
+                    </div>
 
-                <div layout="row" layout-align="space-between center">
-                    <span>Lights?</span>
-                    <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=1; ng-false-value=0; class="md-warn">
-                    </md-switch>
-                </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Lights?</span>
+                        <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=1; ng-false-value=0; class="md-warn">
+                        </md-switch>
+                    </div>
 
-                <div layout="row" layout-align="space-between center">
-                    <span>Air Conditioning?</span>
-                    <md-switch ng-model="place.courtInformation.courtAirCon" aria-label="Switch 2" ng-true-value=1 ng-false-value=0 class="md-warn">
-                    </md-switch>
-                </div>
-                <div layout="row" layout-align="space-between center">
-                    <span>Surface?</span>
-                    <md-select ng-model="place.courtInformation.courtSurface" placeholder="Indoor?" class="md-no-underline">
-                        <md-option value=4>Asphalt</md-option>
-                        <md-option value=3>Rubber</md-option>
-                        <md-option value=2>Carpet</md-option>
-                        <md-option value=1>Hardwood</md-option>
-                    </md-select>
-                </div>
-                <div layout="row" layout-align="space-between center">
-                    <span>Court Size?</span>
-                    <md-select ng-model=place.courtSize placeholder="Full?" class="md-no-underline">
-                        <md-option value=100>Full</md-option>
-                        <md-option value=50>Half</md-option>
-                        <md-option value=25>3/4</md-option>
-                    </md-select>
-                </div>
-                <div layout="row" layout-align="space-between center">
-                    <span>Rating</span>
-                    <span uib-rating ng-model="place.courtRating" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
-                        titles="['one','two','three']" aria-labelledby="default-rating"></span>
-                    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
-                        ng-show="overStar && !isReadonly"></span>
-                        </form>
-                </div>
-            </md-card-content>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Air Conditioning?</span>
+                        <md-switch ng-model="place.courtInformation.courtAirCon" aria-label="Switch 2" ng-true-value=1 ng-false-value=0 class="md-warn">
+                        </md-switch>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Surface?</span>
+                        <md-select ng-model="place.courtInformation.courtSurface" placeholder="Indoor?" class="md-no-underline">
+                            <md-option value=4>Asphalt</md-option>
+                            <md-option value=3>Rubber</md-option>
+                            <md-option value=2>Carpet</md-option>
+                            <md-option value=1>Hardwood</md-option>
+                        </md-select>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Court Size?</span>
+                        <md-select ng-model=place.courtSize placeholder="Full?" class="md-no-underline">
+                            <md-option value=100>Full</md-option>
+                            <md-option value=50>Half</md-option>
+                            <md-option value=25>3/4</md-option>
+                        </md-select>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+        
+                <h4>Default</h4>
+                <span uib-rating ng-model="rate" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+                    titles="['one','two','three']" aria-labelledby="default-rating"></span>
+                <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                    ng-show="overStar && !isReadonly">{{percent}}%</span>
+                </md-card-content>
+            </form>
+
         </md-card>
-    </md-card>
-</div>
+        </div>

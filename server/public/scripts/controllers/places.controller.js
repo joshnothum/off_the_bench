@@ -8,7 +8,6 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.newGame = GameService.newGame;
     place.locationDetail = MapService.getMoreLocationDetail;
     place.searchBar = '';
-    place.courtInformation={};
 
     place.getPlaces = function () {
         let apiSearch = {
@@ -36,6 +35,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
         let sendLocation = locationToSend.detail;
         
+        console.log(courtInfoToSend);
         
         MapService.createLocation(courtInfoToSend, sendLocation);
         
@@ -71,7 +71,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         GameService.pushLocation(place);
     };
    
-    place.max = 5;
+    place.max = 7;
+    place.rate = 10;
     place.isReadonly = false;
 
     place.hoveringOver = function (value) {
@@ -79,12 +80,11 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         place.percent = 100 * (value / $scope.max);
     };
 
-    place.ratingStates = [
+    place.ratingStates = [{ stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle' },
         { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' },
-    ];
-
-
-
+        { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
+        { stateOn: 'glyphicon-heart' },
+        { stateOff: 'glyphicon-off' }];
     // place.getPanelInfo = function (ev, place_id) {
     //     // let dialogBox = MapService.getMoreLocationInfo(place_id);
     //     // dialogBox.then
