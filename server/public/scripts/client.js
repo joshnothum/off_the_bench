@@ -83,10 +83,13 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
     .when('/dialog', {
       templateUrl: '/views/templates/dialog.html',
       controller: 'DialogController as dc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
 
     })
-
-
     
     .otherwise({
       redirectTo: 'home'

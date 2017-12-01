@@ -63,7 +63,7 @@
                               
                     <span class="md-subhead">What do you know about this court?</span>
                 </md-card-title-text>
-                <md-button ng-click="place.createLocation(place, place.courtInformation)">
+                <md-button ng-click="place.createNewLocation(place.locationDetail, place.courtInformation)">
                     <md-icon md-font-class="material-design">add_circle</md-icon>
                 </md-button>
             </md-card-title>
@@ -75,8 +75,8 @@
                 <div layout="row" layout-align="space-between center">
                     <span>Indoors or Outdoors?</span>
                     <md-select ng-model="place.courtInformation.indoor" placeholder="Indoor" class="md-no-underline">
-                        <md-option value="axe">Indoor</md-option>
-                        <md-option value="sword">Outdoor</md-option>
+                        <md-option value=true>Indoor</md-option>
+                        <md-option value=false>Outdoor</md-option>
                     </md-select>
                 </div>
 

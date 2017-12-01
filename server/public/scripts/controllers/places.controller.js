@@ -31,18 +31,14 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
 
-    place.createLocation = function (place) {
+    place.createNewLocation = function (locationToSend, courtInfoToSend) {
 
-        console.log(place.locationDetail);
 
-        let createLocation = place.locationDetail;
-        console.log(place.courtInformation);
+        let sendLocation = locationToSend.detail;
         
         
-        MapService.createLocation(place.courtInformation, createLocation);
+        MapService.createLocation(courtInfoToSend, sendLocation);
         
-        
-        $location.path('/create');
     };//end of createGame
     place.sendGame = function (game) {
         let gameTime = moment(place.time).format('HH:mm:ss');
@@ -89,24 +85,24 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
 
 
-    place.getPanelInfo = function (ev, place_id) {
-        // let dialogBox = MapService.getMoreLocationInfo(place_id);
-        // dialogBox.then
+    // place.getPanelInfo = function (ev, place_id) {
+    //     // let dialogBox = MapService.getMoreLocationInfo(place_id);
+    //     // dialogBox.then
         
         
-      function dialogBox(response) {
-            $mdDialog.show({
-                controller: 'DialogController as dc',
-                templateUrl: 'views/templates/dialog.tmpl.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose: true
-            })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
-                });
-        }
-    };
+    //   function dialogBox(response) {
+    //         $mdDialog.show({
+    //             controller: 'DialogController as dc',
+    //             templateUrl: 'views/templates/dialog.tmpl.html',
+    //             parent: angular.element(document.body),
+    //             targetEvent: ev,
+    //             clickOutsideToClose: true
+    //         })
+    //             .then(function (answer) {
+    //                 $scope.status = 'You said the information was "' + answer + '".';
+    //             }, function () {
+    //                 $scope.status = 'You cancelled the dialog.';
+    //             });
+    //     }
+    // };
 });// end of Places Controller

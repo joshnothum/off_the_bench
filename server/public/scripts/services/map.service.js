@@ -41,16 +41,16 @@ myApp.service('MapService', function ($http, $location) {
 
     };//end of getMoreLocationInfo
 
-self.loadDataBasePlaces = function () {
-            $http.get('info/location').then(function (success) {
-                console.log('loadPlaces is probably working');
-                self.allLocations.data = success.data;
-                console.log(success.data);
-
-            }).catch(function (error) {
-                console.log('we gots an error in loadDataBasePlaces:', error);
-            });
-        };//end of loadDatabasePlaces
+// self.loadDataBasePlaces = function () {
+//             $http.get('info/location').then(function (success) {
+//                 console.log('loadPlaces is probably working');
+//                 self.allLocations.data = success.data;
+//                 console.log(success.data);
+              
+//             }).catch(function (error) {
+//                 console.log('we gots an error in loadDataBasePlaces:', error);
+//             });
+//         };//end of loadDatabasePlaces
 
     self.getMorePhotoInfo = function (photoreference) {
         let photoReferenceSearch = {
@@ -70,20 +70,32 @@ self.loadDataBasePlaces = function () {
     self.pushLocation = function (places) {
         self.newGame.push(places);
     };
-    self.createLocation = function (locationInfo, courtInfo) {
+    self.createLocation = function (courtInfo, locationInfo) {
 
         console.log(locationInfo);
         console.log(courtInfo);
 
-        let newLocation = { location: locationInfo,
-            court: courtInfo,
+        //had some dataBinding issues and found this to work
+
+        let locationAndCourt = {
+            name: locationInfo.name,
+            formatted_address: locationInfo.formatted_address,
+            lat: locationInfo.geometry.location.lat,
+            lng: locationInfo.geometry.location.lng,
+            url: locationInfo.url,
+            phone: locationInfo.formatted_phone_number,
+            place_id: locationInfo.place_id,
+            indoor: courtInfo.lights,
+            size: courtInfo.size,
+            surface: courtInfo.surface,
         };
 
-        $http.post('/places/locations', newLocation).then(function (response) {
+        $http.post('/places/locations', locationAndCourt).then(function (response) {
             console.log(response);
         }).catch(function (response) {
             console.log('create location did not work:', response);
         });
-
-    };//end of createGame
+      console.log(response);
+      
+    };//end of createLocation
 });
