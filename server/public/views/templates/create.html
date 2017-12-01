@@ -6,15 +6,88 @@
     </p>
     <div layout="column" layout-align="center center">
         <div layout="column" layout-align="center center" style="padding:40px" class="selectdemoOptionsWithAsyncSearch">
-            <md-select placeholder="Locations" ng-model="place.locations" md-on-close="place.pushLocation(place.locations)" style="min-width: 400px;">
+            <md-select placeholder="Locations" ng-model="create.locations" md-on-close="create.pushLocation(place.locations)" style="min-width: 400px;">
                 <md-option ng-value="location" ng-repeat="location in create.allLocations.data">{{location.name}}</md-option>
             </md-select>
         </div>
     </div>
-    <div ng-cloak="" id="createGameCard">
-        <md-content class="md-padding clearCard" layout="row" layout-align="center">
-            <div class= "clearCard">
-                <md-card ng-repeat='game in place.newGame' ng-click="game.locationInfo(game.place_id)">
+    <div>
+
+
+
+
+    <md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+    
+    
+                    <span class="md-headline">Location Details</span>
+    
+                    <span class="md-subhead">What do you know about this court?</span>
+                </md-card-title-text>
+                <md-button ng-click="place.createNewLocation(place.locationDetail, place.courtInformation)">
+                    <md-icon md-font-class="material-design">add_circle</md-icon>
+                </md-button>
+            </md-card-title>
+    
+        </md-card>
+        <md-card>
+            <form>
+                <md-card-content>
+                    <div layout="row" layout-align="space-between center">
+                        <span>What day?</span>
+                        <md-select ng-model="create.gameTime" placeholder="HH:MM" class="md-no-underline">
+                            <md-option value=true>Indoor</md-option>
+                            <md-option value=false>Outdoor</md-option>
+                        </md-select>
+                    </div>
+    
+                    <div layout="row" layout-align="space-between center">
+                        <span>Lights?</span>
+                        <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=1; ng-false-value=0; class="md-warn">
+                        </md-switch>
+                    </div>
+    
+                    <div layout="row" layout-align="space-between center">
+                        <span>Air Conditioning?</span>
+                        <md-switch ng-model="place.courtInformation.courtAirCon" aria-label="Switch 2" ng-true-value=1 ng-false-value=0 class="md-warn">
+                        </md-switch>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Surface?</span>
+                        <md-select ng-model="place.courtInformation.courtSurface" placeholder="Indoor?" class="md-no-underline">
+                            <md-option value=4>Asphalt</md-option>
+                            <md-option value=3>Rubber</md-option>
+                            <md-option value=2>Carpet</md-option>
+                            <md-option value=1>Hardwood</md-option>
+                        </md-select>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+                        <span>Court Size?</span>
+                        <md-select ng-model=place.courtSize placeholder="Full?" class="md-no-underline">
+                            <md-option value=100>Full</md-option>
+                            <md-option value=50>Half</md-option>
+                            <md-option value=25>3/4</md-option>
+                        </md-select>
+                    </div>
+                    <div layout="row" layout-align="space-between center">
+    
+                        <h4>Default</h4>
+                        <span uib-rating ng-model="rate" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+                            titles="['one','two','three']" aria-labelledby="default-rating"></span>
+                        <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                            ng-show="overStar && !isReadonly">{{percent}}%</span>
+                </md-card-content>
+            </form>
+    
+        </md-card>
+
+
+
+        <!-- <md-content class="md-padding clearCard" layout="row" layout-align="center">
+            <div>
+                <md-card ng-repeat='game in creator.newGame' ng-click="game.locationInfo(game.place_id)">
                     <md-card-content class="clearCard">
                         <md-card-title>
                             <md-card-title-text>
@@ -27,7 +100,7 @@
                             <form name="Create">
                                 <md-input-container>
                                     <label for="time"></label>
-                                    <input type="time" name="time" ng-model="place.time" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max=""
+                                    <input type="time" name="time" ng-model="create.GameInfotime" [name="string" ] [min="string" ] [max="string" ] [ng-min="" ] [ng-max=""
                                         ] [ng-change="string" ] aria-label="time" required="">
                                     <div ng-messages="Create.time.$error" role="alert" multiple="">
                                         <div ng-message="required" class="my-message">Please enter time.</div>
@@ -57,6 +130,6 @@
                 </md-card>
             </div>
         </md-content>
-    </div>
+    </div> -->
 
 </div>

@@ -12,6 +12,7 @@
   "dependencies": {
     "@material/button": "^0.26.0",
     "@material/card": "^0.25.0",
+    "@material/form-field": "^0.26.0",
     "@material/textfield": "^0.26.0",
     "@material/typography": "^0.3.0",
     "angular": "^1.6.6",
