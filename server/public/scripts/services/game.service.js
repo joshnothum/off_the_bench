@@ -6,6 +6,7 @@ myApp.service('GameService', function ($http, $location) {
     self.browseGamesObject = {};
     self.info = {};
     //getMorGameInfo
+    self.gameByIDInfo ={};
     self.newGame = [];
     self.newLocation = {};
     self.photo ={};

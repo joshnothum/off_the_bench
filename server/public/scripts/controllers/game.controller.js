@@ -1,8 +1,7 @@
 myApp.controller('GameController', function (UserService, GameService, $http, $location, MapService) {
     console.log('GameController created');
     var gc = this;
-    gc.userService = UserService;
-    gc.getMap = MapService.mapSearch.map;
+    us = UserService;
     gc.gameInformation = MapService.gameInfo;
 
     gc.joinGame = function (gameInfo) {
