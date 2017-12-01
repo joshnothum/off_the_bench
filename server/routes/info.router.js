@@ -7,7 +7,7 @@ var path = require('path');
 info.get('/user', function (req, res, next) {
     let user = req.user;
     console.log('9', user);
-    
+    //for userGames
     pool.connect(function (err, client, done) {
         if (err) {
             console.log("Error connecting: ", err);
@@ -33,7 +33,7 @@ info.get('/user', function (req, res, next) {
 });//end of get
 
 info.get('/', function (req, res, next) {
-
+    //for browse Games
     pool.connect(function (err, client, done) {
         if (err) {
             console.log("Error connecting: ", err);
@@ -110,22 +110,20 @@ info.post('/', function (req, res) {
     });
 });//end of places.post(/)
 
-    info.get('/gameInfo', function (req, res, next) {
-        let place_id = req.body.place_id;
-        console.log('logged gameMaps',place_id);
+    info.get('/getGameByID/:gid', function (req, res, next) {
+        //for games.html
         
-
+        let getGame = req.params.gid;
         pool.connect(function (err, client, done) {
-            
             if (err) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            let queryText = 'SELECT * FROM "locations" WHERE "locations"."place_id" = $1;';
-            client.query( queryText,[place_id],
+            let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","player_joins"."player_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" WHERE "games"."id" =$1 GROUP BY "games"."id", "player_joins"."player_id";';
+            client.query( queryText,[getGame],
 
                 function (err, result) {
-                    client.end();
+                   done();
 
                     if (err) {
                         console.log("Error getting data: ", err);

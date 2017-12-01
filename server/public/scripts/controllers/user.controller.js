@@ -17,7 +17,6 @@ myApp.controller('UserController', function (UserService, GameService, $location
   vm.createScreen = function () {
     $location.path('/create');
   };
-
   vm.searchScreen = function(){
     $location.path('/places');
   };
@@ -40,17 +39,15 @@ myApp.controller('UserController', function (UserService, GameService, $location
     //       swal("Ok, great!");
     //     }
     GameService.unJoinGames(unJoinGame);
- 
   };
-
   vm.goToGame = function(game) {
-    GameService.getGameInfo(game);
+    let getGame = game.id;
     
+    GameService.getGameInfo(getGame);
+    $location.path('/games');
   };
   vm.getUserGames();
 });
-
-
 // $mdDialog.show({
 //   controller: 'DialogController as dc',
 //   templateUrl: 'views/templates/dialog.template.html',
