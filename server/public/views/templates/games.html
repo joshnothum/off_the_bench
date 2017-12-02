@@ -14,7 +14,7 @@
             <h2>{{gameInfo.gameForDisplay.formatted_address}}</h2>
             <p>{{gameInfo.gameForDisplay.date}}</p>
             <p>{{gameInfo.gameInformation.time}}</p>
-            <p>Spaces Available : {{gameInfo.gameForDisplay.max_number - gameInfo.gameInformation.count}}</p>
+            <p>Spaces Available : {{gameInfo.gameForDisplay.max_number - gameInfo.gameByIDInfocount}}</p>
         </md-card-content>
         <md-card-actions>
             <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
