@@ -32,7 +32,11 @@ myApp.service('GameService', function ($http, $location) {
         });
     };//end of getMoreGameInfo
     self.sendGame = function (gameInfo) {
+        console.log(gameInfo);
+        
         $http.post('/places', gameInfo).then(function (response) {
+            
+            
             console.log(response);
             
         }).catch(function (response) {

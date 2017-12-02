@@ -9,10 +9,6 @@ myApp.service('MapService', function ($http, $location) {
     self.mapSearch={};
     self.allLocations ={};
 
-   
-
-
-
 self.getMoreLocationInfo=function(place_id){
             let locationDetailSearch = {
                 params: {

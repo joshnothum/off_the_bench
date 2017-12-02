@@ -51,6 +51,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
             formatted_address: game.formatted_address,
             place_id: game.place_id,
             creator_id: UserService.userObject.userID,
+            location_id: game.location_id,
         };//end of gameInfo object
         GameService.sendGame(gameInfo);
         $location.path('/user');

@@ -45,9 +45,9 @@ myApp.controller('UserController', function (UserService, GameService, $location
     let getLocationInfo = game.location_id;
     console.log(getLocationInfo);
     
-    GameService.getGameInfo(getGame);
+    GameService.getGameInfo(game, game.id);
     GameService.getGameLocate(getLocationInfo);
-    $location.path('/user');
+    $location.path('/games');
   };
 
 

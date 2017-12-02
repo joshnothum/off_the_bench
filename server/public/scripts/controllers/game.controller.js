@@ -3,7 +3,7 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
     var gc = this;
     us = UserService;
 
-    gc.gameInformation = MapService.gameInfo;
+    gc.gameInformation = MapService.gameByIDInfo;
     gc.gameForDisplay = GameService.gameFromBrowse;
     console.log(gc.gameInformation);
     
