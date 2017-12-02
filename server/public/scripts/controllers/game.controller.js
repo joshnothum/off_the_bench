@@ -14,6 +14,7 @@ myApp.controller('GameController', function (UserService, GameService, $http, $l
         };// end of playerJoin object
 
         GameService.joinGame(playerJoin);
+        $location.path('/users');
 
     };
 });

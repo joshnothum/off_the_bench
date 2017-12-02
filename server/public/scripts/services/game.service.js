@@ -38,6 +38,7 @@ myApp.service('GameService', function ($http, $location) {
             
             
             console.log(response);
+            $location.path('/user');
             
         }).catch(function (response) {
             console.log('send game did not work: ', response);
@@ -47,9 +48,9 @@ myApp.service('GameService', function ($http, $location) {
     self.joinGame= function(playerJoin){
         $http.post('/info', playerJoin).then(function(response){
             console.log(response);
+            $location.path('/user');
         }).catch(function (response) {
             console.log('joinGame did not work', response);
-            $location.path('/browse');
         });//end of post/catch
     };//end of joinGame
 

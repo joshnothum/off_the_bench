@@ -39,6 +39,7 @@ myApp.controller('UserController', function (UserService, GameService, $location
     //       swal("Ok, great!");
     //     }
     GameService.unJoinGames(unJoinGame);
+    vm.getUserGames();
   };
   vm.goToGame = function(game) {
     let getGame = game.id;
@@ -56,7 +57,6 @@ myApp.controller('UserController', function (UserService, GameService, $location
     MapService.loadDataBasePlaces();
     $location.path('/locationtable');
   };
-
 
   vm.getUserGames();
 });
