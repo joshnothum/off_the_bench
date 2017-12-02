@@ -13,13 +13,26 @@
         <md-card-content>
             <h2>{{gameInfo.gameForDisplay.formatted_address}}</h2>
             <p>{{gameInfo.gameForDisplay.date}}</p>
-            <p>{{gameInfo.gameInformation.time}}</p>
-            <p>Spaces Available : {{gameInfo.gameForDisplay.max_number - gameInfo.gameByIDInfocount}}</p>
+            <p>{{gameInfo.gameForDisplay.time}}</p>
+            <p>Spaces Available : {{gameInfo.gameForDisplay.max_number - gameInfo.gameForDisplay.count}}</p>
         </md-card-content>
         <md-card-actions>
             <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
             <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
 
+        </md-card-actions>
+    </md-card>
+
+    <md-card flex="25">
+ 
+        <md-card-content>
+
+        </md-card-content>
+        <md-card-actions>
+            {{gameInfo.gameInformation}}
+            <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
+            <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
+    
         </md-card-actions>
     </md-card>
 
