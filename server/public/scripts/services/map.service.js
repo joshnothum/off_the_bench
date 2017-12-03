@@ -74,6 +74,7 @@ self.loadDataBasePlaces = function () {
             surface: courtInfo.courtSurface,
             price:courtInfo.price,
             air_con: courtInfo.courtAirCon,
+            lights: courtInfo.lights,
         };
 
         console.log(locationAndCourt);
