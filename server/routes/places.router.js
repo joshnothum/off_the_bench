@@ -64,12 +64,13 @@ places.post('/', function (req, res) {
             max_number: req.body.maxNumber,
             formatted_address: req.body.formatted_address,
             place_id: req.body.place_id,
-            name: req.body.name
+            name: req.body.name,
+            location_id:req.body.location_id,
         };// end of saveGame
 console.log(saveGame);
 
-        client.query("INSERT INTO games (creator_id, time, date, max_number, formatted_address, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-            [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.formatted_address, saveGame.place_id, saveGame.name],
+        client.query("INSERT INTO games (creator_id, time, date, max_number, formatted_address, place_id, name, location_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+            [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.formatted_address, saveGame.place_id, saveGame.name, saveGame.location_id],
             function (err, result) {
                 done();
                 if (err) {
@@ -118,7 +119,7 @@ places.post('/locations', function (req, res) {
         // };
         let queryText = 'INSERT INTO "locations" (creator_id, name, formatted_address, lat, lng, url, formatted_phone_number, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" ;';
         client.query(queryText,
-            [saveLocation.creator_id, saveLocation.name, saveLocation.formatted_address, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.phone, saveLocation.place_id],
+            [saveLocation.creator_id, saveLocation.name, saveLocation.formatted_address, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.formatted_phone_number, saveLocation.place_id],
             function (err, result) {
                 done();
 
@@ -130,10 +131,15 @@ places.post('/locations', function (req, res) {
                     let courtQueryText = 'INSERT INTO "courts" (indoor, lights, surface, size, price, air_con, location_id) VALUES ($1, $2, $3, $4, $5, $6, $7);';
                     
                     console.log(result.rows[0].id);
+                    saveLocation.location_id = result.rows[0].id;
+                    console.log(saveLocation);
+                    
+
+
                     console.log(courtQueryText);
                     
                     client.query(courtQueryText,
-                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, saveCourt.price, saveCourt.air_con, result.rows[0].id],
+                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, saveCourt.price, saveCourt.air_con, saveLocation.location_id],
                         function (err, result) {
                        done();
 
