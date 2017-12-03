@@ -75,8 +75,8 @@
                     <div layout="row" layout-align="space-between center">
                         <span>Indoors or Outdoors?</span>
                         <md-select ng-model="place.courtInformation.indoor" placeholder="Indoor" class="md-no-underline">
-                            <md-option value=true>Indoor</md-option>
-                            <md-option value=false>Outdoor</md-option>
+                            <md-option ng-value=true>Indoor</md-option>
+                            <md-option ng-value=false>Outdoor</md-option>
                         </md-select>
                     </div>
 
@@ -94,25 +94,25 @@
                     <div layout="row" layout-align="space-between center">
                         <span>Surface?</span>
                         <md-select ng-model="place.courtInformation.courtSurface" placeholder="Surface?" class="md-no-underline">
-                            <md-option value=4>Asphalt</md-option>
-                            <md-option value=3>Rubber</md-option>
-                            <md-option value=2>Carpet</md-option>
-                            <md-option value=1>Hardwood</md-option>
+                            <md-option ng-value=4>Asphalt</md-option>
+                            <md-option ng-value=3>Rubber</md-option>
+                            <md-option ng-value=2>Carpet</md-option>
+                            <md-option ng-value=1>Hardwood</md-option>
                         </md-select>
                     </div>
                     <div layout="row" layout-align="space-between center">
                         <span>Court Size?</span>
                         <md-select ng-model=place.courtInformation.courtSize placeholder="Full?" class="md-no-underline">
-                            <md-option value=100>Full</md-option>
-                            <md-option value=50>Half</md-option>
-                            <md-option value=75>3/4</md-option>
+                            <md-option ng-value=100>Full</md-option>
+                            <md-option ng-value=50>Half</md-option>
+                            <md-option ng-value=75>3/4</md-option>
                         </md-select>
                     </div>
                         <div layout="row" layout-align="space-between center">
                             <span>Price?</span>
                             <md-select ng-model=place.courtInformation.price placeholder="FREE?" class="md-no-underline">
-                                <md-option value=true>Free!</md-option>
-                                <md-option value=false>Not Free!</md-option>
+                                <md-option ng-value=true>Free!</md-option>
+                                <md-option ng-value=false>Not Free!</md-option>
                             </md-select>
                         </div>
         
