@@ -88,12 +88,12 @@
 
                     <div layout="row" layout-align="space-between center">
                         <span>Air Conditioning?</span>
-                        <md-switch ng-model="place.courtInformation.courtAirCon" ng-true-value=true ng-false-value=false class="md-warn">
+                        <md-switch ng-model="place.courtInformation.courtAirCon" class="md-warn">
                         </md-switch>
                     </div>
                     <div layout="row" layout-align="space-between center">
                         <span>Surface?</span>
-                        <md-select ng-model="place.courtInformation.courtSurface" placeholder="Surface?" class="md-no-underline">
+                        <md-select ng-model="place.courtInformation.courtSurface" ng-true-value=true ng-false-value=false placeholder="Surface?" class="md-no-underline">
                             <md-option ng-value=4>Asphalt</md-option>
                             <md-option ng-value=3>Rubber</md-option>
                             <md-option ng-value=2>Carpet</md-option>

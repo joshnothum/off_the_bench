@@ -99,11 +99,12 @@ places.post('/locations', function (req, res) {
             lat: req.body.lat,
             lng: req.body.lng,
             url: req.body.url,
-            phone: req.body.formatted_phone_number,
+            formatted_phone_number: req.body.formatted_phone_number,
             place_id: req.body.place_id,
         };
         // let addToCourt  = req.body.courtInfo;
-
+        console.log(saveLocation);
+        
         let saveCourt = {
             indoor: req.body.indoor,
             lights: req.body.lights,
@@ -115,7 +116,7 @@ places.post('/locations', function (req, res) {
         // let savePhotos = {
         //     photo_reference: req.body.photos.photo_reference,
         // };
-        let queryText = 'INSERT INTO "locations" (creator_id, name, formatted_address, lat, lng, url, phone, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" ;';
+        let queryText = 'INSERT INTO "locations" (creator_id, name, formatted_address, lat, lng, url, formatted_phone_number, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" ;';
         client.query(queryText,
             [saveLocation.creator_id, saveLocation.name, saveLocation.formatted_address, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.phone, saveLocation.place_id],
             function (err, result) {

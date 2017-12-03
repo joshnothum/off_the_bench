@@ -67,7 +67,7 @@ self.loadDataBasePlaces = function () {
             lat: locationInfo.geometry.location.lat,
             lng: locationInfo.geometry.location.lng,
             url: locationInfo.url,
-            phone: locationInfo.formatted_phone_number,
+            formatted_phone_number: locationInfo.formatted_phone_number,
             place_id: locationInfo.place_id,
             indoor: courtInfo.indoor,
             size: courtInfo.courtSize,
