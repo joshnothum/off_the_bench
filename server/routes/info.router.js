@@ -175,14 +175,14 @@ info.delete('/:pid', function (req, res, next) {
     });
 });//end of places.post(/)
 
-info.get('/location/table', function (req, res, next) {
+info.get('/table', function (req, res, next) {
 
     pool.connect(function (err, client, done) {
         if (err) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        client.query('SELECT  FROM locations; ',
+        client.query('SELECT "locations"."formatted_address", "locations"."lat", "locations"."lng", "locations"."lng", "locations"."name", "locations"."url", "locations"."id", "courts"."lights", "courts"."indoor", "courts"."size", "courts"."surface", "courts"."air_con", "courts"."price" FROM "locations" JOIN "courts" ON "locations"."id" = "courts"."location_id";',
 
             function (err, result) {
                 done();

@@ -8,6 +8,7 @@ myApp.service('MapService', function ($http, $location) {
     self.gameInfo={};
     self.mapSearch={};
     self.allLocations ={};
+    self.allLocationsWithCourtData={};
 
 self.getMoreLocationInfo=function(place_id){
             let locationDetailSearch = {
@@ -88,4 +89,14 @@ self.loadDataBasePlaces = function () {
         });
       
     };//end of createLocation
+    self.loadTablePlaces = function () {
+        $http.get('info/table').then(function (success) {
+            console.log('loadTablePlaces is probably working');
+            self.allLocationsWithCourtData.data = success.data;
+            console.log(success.data);
+
+        }).catch(function (error) {
+            console.log('we gots an error in loadDataBasePlaces:', error);
+        });
+    };//end of loadDatabasePlaces
 });

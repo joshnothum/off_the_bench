@@ -1,21 +1,27 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<md-card flex="60">
+<md-card flex="100">
     <md-toolbar>
         <div class="md-toolbar-tools" layout="row">
-            <div flex="30" layout-padding>Name</div>
-            <div flex="25" layout-padding>Date</div>
-            <div flex="20" layout-padding>Time</div>
-            <div flex="25" layout-padding>Edit</div>
+            <div flex="10" layout-padding>Name</div>
+            <div flex="20" layout-padding>Date</div>
+            <div flex="5" layout-padding>Lights</div>
+            <div flex="5" layout-padding>Size</div>
+            <div flex="10" layout-padding>Indoor/Outdoor</div>
+            <div flex="5" layout-padding>Price</div>
+            <div flex="5" layout-padding>Surface</div>
+            <div flex="5" layout-padding>Air Conditioning</div>
         </div>
     </md-toolbar>
     <md-list>
-        <md-list-item layout="row" ng-repeat="game in uc.userGames.data" ng-click="uc.goToGame(game)">
-            <div flex="30" layout-padding>{{game.name}}</div>
-            <div flex="25" layout-padding>{{game.date}}</div>
-            <div flex="20" layout-padding>{{game.time}}</div>
-            <div flex="25" layout-padding>
-                <md-button class="md-warn" ng-click="uc.unJoinGames(game)">UnJoin</md-button>
-            </div>
+        <md-list-item layout="row" ng-repeat="info in tc.locationInfoForTable.data" ng-click="uc.goToGame(game)">
+            <div flex="10" layout-padding>{{info.name}}</div>
+            <div flex="20" layout-padding>{{info.formatted_address}}</div>
+            <div flex="5" layout-padding>{{info.lights}}</div>
+            <div flex="5" layout-padding>{{info.size}}</div>
+            <div flex="10" layout-padding>{{info.indoor}}</div>
+            <div flex="5" layout-padding>{{info.price}}</div>
+            <div flex="5" layout-padding>{{info.surface}}</div>
+            <div flex="5" layout-padding>{{info.air_con}}</div>
         </md-list-item>
     </md-list>
 
