@@ -42,10 +42,10 @@
                     <uib-accordion-heading>
                         <div>Street</div>
                     </uib-accordion-heading>
-                    <ng-map zoom="16" center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]"
+                    <ng-map zoom="5" center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]"
                         default-style="false" map-type-id="MapTypeId.SATELLITE" tilt="45">
                         <street-view-panorama container="streetview">
-                        </street-view-panorama>
+                            </street-view-panorama>
                     </ng-map>
                     <div id="streetview"></div>
 
@@ -82,18 +82,18 @@
 
                     <div layout="row" layout-align="space-between center">
                         <span>Lights?</span>
-                        <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=1; ng-false-value=0; class="md-warn">
+                        <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=true ng-false-value=false class="md-warn">
                         </md-switch>
                     </div>
 
                     <div layout="row" layout-align="space-between center">
                         <span>Air Conditioning?</span>
-                        <md-switch ng-model="place.courtInformation.courtAirCon" aria-label="Switch 2" ng-true-value=1 ng-false-value=0 class="md-warn">
+                        <md-switch ng-model="place.courtInformation.courtAirCon" aria-label="Switch 2" ng-true-value=true ng-false-value=false class="md-warn">
                         </md-switch>
                     </div>
                     <div layout="row" layout-align="space-between center">
                         <span>Surface?</span>
-                        <md-select ng-model="place.courtInformation.courtSurface" placeholder="Indoor?" class="md-no-underline">
+                        <md-select ng-model="place.courtInformation.courtSurface" placeholder="Surface?" class="md-no-underline">
                             <md-option value=4>Asphalt</md-option>
                             <md-option value=3>Rubber</md-option>
                             <md-option value=2>Carpet</md-option>
@@ -102,7 +102,7 @@
                     </div>
                     <div layout="row" layout-align="space-between center">
                         <span>Court Size?</span>
-                        <md-select ng-model=place.courtSize placeholder="Full?" class="md-no-underline">
+                        <md-select ng-model=place.courtInformation.courtSize placeholder="Full?" class="md-no-underline">
                             <md-option value=100>Full</md-option>
                             <md-option value=50>Half</md-option>
                             <md-option value=25>3/4</md-option>
@@ -111,9 +111,9 @@
                     <div layout="row" layout-align="space-between center">
                         <div layout="row" layout-align="space-between center">
                             <span>Price?</span>
-                            <md-select ng-model=place.price placeholder="Full?" class="md-no-underline">
-                                <md-option value=100>Free!</md-option>
-                                <md-option value=50>Not Free!</md-option>
+                            <md-select ng-model=place.price placeholder="FREE?" class="md-no-underline">
+                                <md-option value=true>Free!</md-option>
+                                <md-option value=false>Not Free!</md-option>
                             </md-select>
                         </div>
         
