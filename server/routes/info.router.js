@@ -20,7 +20,7 @@ info.get('/user', function (req, res, next) {
         client.query(queryText,[user.id],
 
             function (err, result) {
-                client.end();
+               done();
 
                 if (err) {
                     console.log("Error getting data: ", err);
@@ -76,7 +76,7 @@ info.get('/location', function (req, res, next) {
         client.query('SELECT * FROM locations; ',
 
             function (err, result) {
-                client.end();
+         done();
 
                 if (err) {
                     console.log("Error getting data: ", err);
@@ -164,7 +164,7 @@ info.delete('/:pid', function (req, res, next) {
         client.query( queryText,
             [unJoinGame.game_id, unJoinGame.player_id],
             function (err, result) {
-                client.end();
+               done();
                 if (err) {
                     console.log("Error inserting data: ", err);
                     res.sendStatus(500);

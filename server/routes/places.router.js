@@ -71,7 +71,7 @@ console.log(saveGame);
         client.query("INSERT INTO games (creator_id, time, date, max_number, formatted_address, place_id, name) VALUES ($1, $2, $3, $4, $5, $6, $7)",
             [saveGame.creator_id, saveGame.time, saveGame.date, saveGame.max_number, saveGame.formatted_address, saveGame.place_id, saveGame.name],
             function (err, result) {
-                client.end();
+                done();
                 if (err) {
                     console.log("Error inserting data: ", err);
                     res.sendStatus(500);

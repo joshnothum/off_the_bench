@@ -1,41 +1,40 @@
- 
-
- <md-content layout-align="space-between start" layout="row">
-        <md-card flex="20" layout="column" layout-align="space-between start" >
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-            <md-card-title-text>
-                <span class="md-headline" layout="column" layout-align="space-between start">User Actions</span>
-            </md-card-title-text>
+<md-content layout-align="space-between start" layout="row">
+    <md-card flex="20" layout="column" layout-align="space-between start">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-card-title-text>
+                    <span class="md-headline" layout="column" layout-align="space-between start">User Actions</span>
+                </md-card-title-text>
             </div>
         </md-toolbar>
         <md-button class="md-accent" aria-label="Data" ng-click="uc.tableScreen()">Data</md-button>
-            <md-button class="md-accent" aria-label="Create" ng-click="uc.createScreen()">Create</md-button>
-            <md-button class="md-accent" aria-label="Browse" ng-click="uc.browseGames()">Browse</md-button>
-            <md-button class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location</md-button>
-        </md-card>
-        <md-card flex="60">
-            <md-toolbar>
-                <div class="md-toolbar-tools" layout="row">
-                    <div flex="30" layout-padding>Name</div>
-                    <div flex="25" layout-padding>Date</div>
-                    <div flex="20" layout-padding>Time</div>
-                    <div flex="25" layout-padding>Edit</div>
+        <md-button class="md-accent" aria-label="Create" ng-click="uc.createScreen()">Create</md-button>
+        <md-button class="md-accent" aria-label="Browse" ng-click="uc.browseGames()">Browse</md-button>
+        <md-button class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location</md-button>
+    </md-card>
+    <md-card flex="60">
+        <md-toolbar>
+            <div class="md-toolbar-tools" layout="row">
+                <div flex="30" layout-padding>Name</div>
+                <div flex="25" layout-padding>Date</div>
+                <div flex="20" layout-padding>Time</div>
+                <div flex="25" layout-padding>Edit</div>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item layout="row" ng-repeat="game in uc.userGames.data" ng-click="uc.goToGame(game)">
+                <div flex="30" layout-padding>{{game.name}}</div>
+                <div flex="25" layout-padding>{{game.date}}</div>
+                <div flex="20" layout-padding>{{game.time}}</div>
+                <div flex="25" layout-padding>
+                    <md-button class="md-warn" ng-click="uc.unJoinGames(game)">UnJoin</md-button>
                 </div>
-            </md-toolbar>
-            <md-list>
-                <md-list-item layout="row" ng-repeat="game in uc.userGames.data" ng-click="uc.goToGame(game)">
-                    <div flex="30" layout-padding>{{game.name}}</div>
-                    <div flex="25" layout-padding>{{game.date}}</div>
-                    <div flex="20" layout-padding>{{game.time}}</div>
-                    <div flex="25" layout-padding><md-button class="md-warn" ng-click="uc.unJoinGames(game)">UnJoin</md-button>
-                    </div>
-                </md-list-item>
-            </md-list>
+            </md-list-item>
+        </md-list>
 
 
-        </md-card>
-    </md-content>
+    </md-card>
+</md-content>
 
 <!-- <div class="demo-md-panel md-padding paneldemoBasicUsage" ng-app="MyApp">
     <p>
@@ -78,4 +77,4 @@
   </div>
 </div>
 </script> -->
-</div>
+<!-- </div> -->

@@ -89,9 +89,9 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
         }
       }
 
-    }).when('/locationtable', {
-      templateUrl: '/views/templates/locationtable.html',
-      controller: 'TableDataController as tc',
+    }).when('/table', {
+      templateUrl: '/views/templates/table.html',
+      controller: 'TableController as tc',
       resolve: {
         getuser: function (UserService) {
           return UserService.getuser();

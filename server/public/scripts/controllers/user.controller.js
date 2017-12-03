@@ -55,7 +55,7 @@ myApp.controller('UserController', function (UserService, GameService, $location
 
   vm.tableScreen = function (params) {
     MapService.loadDataBasePlaces();
-    $location.path('/locationtable');
+    $location.path('/table');
   };
 
   vm.getUserGames();

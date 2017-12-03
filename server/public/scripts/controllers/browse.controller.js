@@ -12,7 +12,7 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
         let gameID = games.id;
         GameService.getGameInfo(games, gameID);
 
-    };//end of getInfo
+    };//end of getMoreGameInfo
     browse.joinGame = function (game_id) {
         console.log(game_id);
         
