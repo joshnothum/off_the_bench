@@ -69,10 +69,15 @@ self.loadDataBasePlaces = function () {
             url: locationInfo.url,
             phone: locationInfo.formatted_phone_number,
             place_id: locationInfo.place_id,
-            indoor: courtInfo.lights,
-            size: courtInfo.size,
-            surface: courtInfo.surface,
+            indoor: courtInfo.indoor,
+            size: courtInfo.courtSize,
+            surface: courtInfo.courtSurface,
+            price:courtInfo.price,
+            air_con: courtInfo.courtAirCon,
         };
+
+        console.log(locationAndCourt);
+        
 
         $http.post('/places/locations', locationAndCourt).then(function (response) {
         }).catch(function (response) {

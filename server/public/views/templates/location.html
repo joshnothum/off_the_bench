@@ -105,13 +105,12 @@
                         <md-select ng-model=place.courtInformation.courtSize placeholder="Full?" class="md-no-underline">
                             <md-option value=100>Full</md-option>
                             <md-option value=50>Half</md-option>
-                            <md-option value=25>3/4</md-option>
+                            <md-option value=75>3/4</md-option>
                         </md-select>
                     </div>
-                    <div layout="row" layout-align="space-between center">
                         <div layout="row" layout-align="space-between center">
                             <span>Price?</span>
-                            <md-select ng-model=place.price placeholder="FREE?" class="md-no-underline">
+                            <md-select ng-model=place.courtInformation.price placeholder="FREE?" class="md-no-underline">
                                 <md-option value=true>Free!</md-option>
                                 <md-option value=false>Not Free!</md-option>
                             </md-select>

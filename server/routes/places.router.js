@@ -109,6 +109,8 @@ places.post('/locations', function (req, res) {
             lights: req.body.lights,
             surface: req.body.surface,
             size: req.body.size,
+            price: req.body.price,
+            air_con:req.body.air_con,
         };
         // let savePhotos = {
         //     photo_reference: req.body.photos.photo_reference,
@@ -124,13 +126,13 @@ places.post('/locations', function (req, res) {
                     res.sendStatus(500);
                     
                 } else {
-                    let courtQueryText = 'INSERT INTO "courts" (indoor, lights, surface, size, location_id) VALUES ($1, $2, $3, $4, $5);';
+                    let courtQueryText = 'INSERT INTO "courts" (indoor, lights, surface, size, price, air_con, location_id) VALUES ($1, $2, $3, $4, $5, $6, $7);';
                     
                     console.log(result.rows[0].id);
                     console.log(courtQueryText);
                     
                     client.query(courtQueryText,
-                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, result.rows[0].id],
+                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, saveCourt.price, saveCourt.air_con, result.rows[0].id],
                         function (err, result) {
                        done();
 
