@@ -1,4 +1,4 @@
-myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope) {
+myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope, SweetAlert) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -21,24 +21,27 @@ myApp.controller('UserController', function (UserService, GameService, $location
     $location.path('/places');
   };
   vm.unJoinGames = function(game){
-
     let unJoinGame = game.id;
-    
-    // let willUnjoin = GameService.unJoinGames(game);
-    // swal({
+    // let willUnjoin = GameService.unJoinGames(game.id);
+    // SweetAlert.swal({
     //   title: "Are you sure?",
-    //   icon: "warning",
-    //   buttons: true,
-    //   dangerMode: true,
-    // })
-    //   .then((willUnjoin) => {
-    //     if (willUnjoin) {
-    //       swal("Too bad! Maybe next time!", {
-    //       });
+    //   text: "Your will not be able to recover this imaginary file!",
+    //   type: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#DD6B55", confirmButtonText: "Yes, delete it!",
+    //   cancelButtonText: "No, cancel plx!",
+    //   closeOnConfirm: false,
+    //   closeOnCancel: false
+    // },
+    //   function (isConfirm) {
+    //     if (isConfirm) {
+    //       willUnjoin.then(vm.getUserGames().then(SweetAlert.swal("Deleted!", "Your imaginary file has been deleted.", "success")));
     //     } else {
-    //       swal("Ok, great!");
+    //       SweetAlert.swal("Cancelled", "Your imaginary file is safe :)", "error");
     //     }
+    //   });
     GameService.unJoinGames(unJoinGame);
+
     vm.getUserGames();
   };
   vm.goToGame = function(game) {

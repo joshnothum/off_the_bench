@@ -65,7 +65,7 @@ myApp.service('GameService', function ($http, $location) {
     self.unJoinGames = function (playerUnJoin) {
         console.log(playerUnJoin);
         
-        $http.delete('/info/' + playerUnJoin).then(function (response) {
+       $http.delete('/info/' + playerUnJoin).then(function (response) {
             console.log(response);
             $location.path('/user');
         }).catch(function (response) {
