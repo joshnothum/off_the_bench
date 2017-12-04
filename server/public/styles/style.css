@@ -103,6 +103,19 @@ li a:hover {
    transition: all 400ms ease-out 50ms;
  }
 
- .bigClass{
-   font-size: 30px
- }
+@keyframes myChange {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100;
+  }
+}
+
+.mapSearch {
+  height: 100px;
+  background-color: lightblue;
+}
+.ng-hide {
+  animation: 0.5s myChange;
+}

@@ -4,4 +4,20 @@ myApp.controller('TableController', function ($http, $location, UserService, Gam
     MapService.loadTablePlaces();
     table.locationInfoForTable = MapService.allLocationsWithCourtData;
     //from MapService
+
+table.dataChanger = function(data){
+
+     let result = '';
+
+    if(data == 1){
+  result = "";
+    }else if(data = 2){
+        result = "half";
+    }
+    else{
+        result = "3/4";
+    }
+    return result;
+};
+
 });

@@ -11,8 +11,8 @@
         <md-icon md-font-icon="material-design" ng-click="place.getPlaces()">search</md-icon>
     </md-card-icon-actions>
 </div>
-<div layout="row" layout-align="space-around center">
-    <div layout="column" flex="40" layout-fill ng-cloak>
+<div layout="row" layout-align="space-around none">
+    <div layout="column" flex="40" layout-fill>
 
         <md-toolbar md-scroll-shrink>
             <div class="md-toolbar-tools">Locations</div>
@@ -20,7 +20,7 @@
 
 
 
-        <section>
+        <section ng-show="place.data.data[0]" class="mapSearch">
             <md-content style="height: 600px;">
                 <md-list layout-padding>
                     <md-list-item class="md-3-line" ng-repeat="places in place.data.data" ng-click="place.getInfo(places)">
@@ -34,7 +34,7 @@
             </md-content>
         </section>
     </div>
-    <md-card flex>
+    <md-card flex= "50">
 
         <ng-map default-style="false" zoom="11" style="height:670px" center="[44.9778,-93.2650]">
 

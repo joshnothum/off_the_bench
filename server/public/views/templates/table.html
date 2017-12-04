@@ -27,12 +27,12 @@
                 <tr md-row md-select="info" md-select-id="name" md-auto-select ng-repeat="info in tc.locationInfoForTable.data">
                     <td md-cell>{{info.name}}</td>
                     <td md-cell>{{info.formatted_address}}</td>
-                    <td md-cell>{{info.lights}}</td>
+                    <td md-cell> {{info.lights?'yes':'no'}}</td>
                     <td md-cell>{{info.size}}</td>
-                    <td md-cell>{{info.indoor}}</td>
-                    <td md-cell>{{info.price}}</td>
-                    <td md-cell>{{info.surface}}</td>
-                    <td md-cell>{{info.air_con}}</td>
+                    <td md-cell>{{info.indoor?'yes':'no'}}</td>
+                    <td md-cell>{{info.price?'Free!':'Not Free'}}</td>
+                    <td md-cell>{{tc.dataChanger(info.surface)}}</td>
+                    <td md-cell>{{info.air_con?'Yes!':'Now'}}</td>
                 </tr>
             </tbody>
         </table>
