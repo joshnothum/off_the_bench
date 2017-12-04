@@ -1,4 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
+<div class= "container" layout-padding>
 <md-card>
     <ng-map center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">
         <marker position="{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}"></marker>
@@ -125,4 +126,5 @@
             </form>
 
         </md-card>
+</div>
 </div>

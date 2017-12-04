@@ -19,9 +19,9 @@ myApp.controller('CreateController', function ($scope, $mdDialog, GameService, U
     };//end of of loadDataBasePlaces
     creator.sendGame = function (location) {
         console.log(location);
-        let gameTime = moment(creator.gameTime).format('HH:mm');
+        let gameTime = moment(creator.gameTime).format('hh:mm');
         console.log(gameTime);
-        let gameDate = moment(creator.gameDate).format('MM-DD-YYYY');
+        let gameDate = moment(creator.gameDate).format('MM-DD-YYYY-ddd');
         console.log(gameDate);
         let gameInfo = {
             name: location.name,

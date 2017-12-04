@@ -1,44 +1,38 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-    <p>
-        Game Browse
-    </p>
+<p>
+    Game Browse
+</p>
+<div class="conatianer">
+    <md-content layout="row" layout-padding layout-align="center center">
+        <md-card ng-repeat='games in browser.gamesObject.data' style="max-height: 300px">
+            <md-card-header>
+                <md-card-avatar>
+                    <img ng-src="/photos/basketball-ball-icon-icon-cartoon-vector-13600929.jpg" />
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">OTB</span>
 
-     <div class="gridListdemoBasicUsage">
-    <!-- <md-content layout="row" layout-padding layout-align="space-around center" flex="75" layout-wrap>       
-            <md-card ng-repeat='games in browser.gamesObject.data' layout-padding>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">{{games.name}}</span>
-                            <span class="md-subhead">{{games.formatted_address}}</span>
-                            <span class="md-subhead">{{games.time}}</span>
-                            <span class="md-subhead">{{games.date}}</span>
-                        </md-card-title-text>
-                    </md-card-title>
-                    <md-ca
-                    rd-content>
-                    <md-card-actions layout="row" layout-align="start center">
-                        <md-button class="md-raised md-primary" ng-click="browser.getMoreGameInfo(games.id)">More Info</md-button>
-                        <md-button class="md-raised md-primary" ng-click="browser.joinGame(games)">Join</md-button>
-                    </md-card-actions>
-                </md-card-content>
-            </md-card>
-    </md-content> -->
-<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2"
-    md-gutter="12px" md-gutter-gt-sm="8px">
-    <md-grid-tile class="green"  ng-repeat='games in browser.gamesObject.data'>
-        <md-card>
-        <span class="md-subhead"> Spots Available: {{games.max_number-games.count}}</span>
-       <img ng-src="/photos/basketball-hoop-2819605_1920.jpg"/>
-                    <h1 class="md-headline">{{games.name}}</h1>
-                    <h2 class="md-subhead">{{games.formatted_address}}</h2>
-                    <h2 class="md-subhead">{{games.time}}</h2>
-                    <h2 class="md-subhead">{{games.date}}</h2>
-                    </md-card>
-        <md-grid-tile-footer>
-            <md-button class="md-raised md-primary" ng-click="browser.getMoreGameInfo(games)">More Info</md-button>
-            <md-button class="md-raised md-primary" ng-click="browser.joinGame(games)">Join</md-button>
-        </md-grid-tile-footer>
-    </md-grid-tile>
-    </md-grid-list>
-    </div>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{games.name}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <h4>{{games.formatted_address}}</h4>
+                <h4 class="md-subhead">{{games.date}}</h4>
+                <h4 class="md-subhead">{{games.time}}</h4>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" ng-click="browser.getMoreGameInfo(games)" aria-label="MoreInfo">
+                    <md-icon class="material-design"> menu</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Join Game" ng-click="browser.joinGame(games)">
+                    <md-icon class="material-design">add_circle<md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+</div>

@@ -21,4 +21,12 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
         };// end of playerJoin object
         GameService.joinGame(playerJoin);
     };
+
+
+    browse.sendToMoment= function (time){
+        moment(time).format('HH:MM');
+
+        return time;
+        
+    };
 });
