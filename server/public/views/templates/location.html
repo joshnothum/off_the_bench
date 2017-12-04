@@ -34,7 +34,7 @@
                         <uib-accordion-heading>
                             <div>Photos</div>
                         </uib-accordion-heading>
-                        <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{place.locationDetail.detail.photos[0].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8" ng-click="place.getPhotos(ev)"/>
+                        <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{place.locationDetail.detail.photos[0].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8" ng-click="place.getPhotos(ev,place.locationDetail.detail.photos[0].photo_reference )"/>
 
                     </div>
                     <div uib-accordion-group class="panel-primary">

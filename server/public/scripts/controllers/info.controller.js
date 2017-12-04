@@ -21,12 +21,8 @@ info.photoReference = MapService.getMoreLocationDetail;
   var slides = $scope.slides = [];
   var currIndex = 0;
 
-  $scope.addSlide = function () {
-    var newWidth = 2200 + slides.length + 1;
-    slides.push({
-      image: ' <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{place.locationDetail.detail.photos[0].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8"/>',
-      id: currIndex++
-    });
+  info.addSlide = function () {
+    
   };
 
   $scope.randomize = function () {
