@@ -36,12 +36,14 @@ info.get('/user', function (req, res, next) {
 
 info.get('/', function (req, res, next) {
     //for browse Games
+
+    let user = req.user;
     pool.connect(function (err, client, done) {
         if (err) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        let queryText = 'SELECT * from "games"';
+        let queryText = 'SELECT * from "games" WHERE';
         // let queryText = 'SELECT "games"."id", "games"."name", "games"."time","games"."date","games"."formatted_address", "games"."place_id", "games"."max_number","player_joins"."player_id", COUNT("player_joins"."game_id") FROM "games" JOIN "player_joins" ON "games"."id" = "player_joins"."game_id" GROUP BY "games"."id", "player_joins"."player_id";';
 
         client.query(queryText,
