@@ -35,4 +35,10 @@ table.surfaceChanger = function(surface){
     return result;
 };
 
+    table.query = {
+        order: 'Free',
+        limit: 5,
+        page: 1
+    };
+
 });

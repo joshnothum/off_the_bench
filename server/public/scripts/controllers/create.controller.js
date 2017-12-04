@@ -36,6 +36,10 @@ myApp.controller('CreateController', function ($scope, $mdDialog, GameService, U
         console.log(gameInfo);
     };//end of sendGame
 
+    creator.goToTable= function(){
+        $location.path('/table');
+    };
+
     creator.loadPlaces();
 
 

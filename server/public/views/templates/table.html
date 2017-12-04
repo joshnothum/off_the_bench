@@ -6,8 +6,8 @@
 </md-toolbar>
 <div id="container" layout="row" layout-align="center center" layout-padding>
     <md-table-container>
-        <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-            <thead md-head md-order="query.order" md-on-reorder="">
+        <table md-table md-row-select multiple ng-model="info.location_id" md-progress="promise">
+            <thead md-head  md-order="tc.query.order">
                 <tr md-row>
                     <th>
                         <span>Name</span>
@@ -15,10 +15,10 @@
                     <th md-column>
                         <span>Address</span>
                     </th>
-                    <th md-column md-order-by="lights">Lights</th>
-                    <th md-column md-numeric md-order-by="size">Size</th>
+                    <th md-column >Lights</th>
+                    <th md-column md-numeric ="size">Size</th>
                     <th md-column md-numeric>Indoor/Outdoor</th>
-                    <th md-column md-numeric>Price</th>
+                    <th md-column md-numeric md-order-by="info.price"><span>Price</span></th>
                     <th md-column md-numeric>Surface</th>
                     <th md-column md-numeric>Air Conditioning</th>
 
