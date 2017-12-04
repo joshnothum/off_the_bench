@@ -1,133 +1,123 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="md-toolbar-tools" layout-align="center center">
-    <h2>Add a Location</h2>
-</div>
-<div class= "container" layout-padding>
-<md-card>
-    <ng-map center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">
-        <marker position="{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}"></marker>
-    </ng-map>
-</md-card>
-<div layout="row" layout-align="space-around start">
-    <md-content flex="40">
-        <md-card>
-            <uib-accordion>
-                <div uib-accordion-group class="panel-primary">
-                    <uib-accordion-heading>
-                        <div>
-                            <md-icon md-font-icon="material-design">room</md-icon>Address</div>
-                    </uib-accordion-heading>
-                    {{place.locationDetail.detail.formatted_address}}
-                </div>
-                <div uib-accordion-group class="panel-default">
-                    <uib-accordion-heading>
-                        <div>Phone Number</div>
-                    </uib-accordion-heading>
-                    <md-button class="fab">
-                        <md-icon md-font-class="material-icons">settings_phone</md-icon>
-                    </md-button>
-                    {{place.locationDetail.detail.formatted_phone_number}}
-                </div>
-                <div uib-accordion-group class="panel-default">
-                    <uib-accordion-heading>
-                        <div>Photos</div>
-                    </uib-accordion-heading>
-                    <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{place.locationDetail.detail.photos[0].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8"
-                    />
-
-                </div>
-                <div uib-accordion-group class="panel-default">
-                    <uib-accordion-heading>
-                        <div>Reviews</div>
-                    </uib-accordion-heading>
-
-                </div>
-                <div uib-accordion-group class="panel-default">
-                    <uib-accordion-heading>
-                        <div>Street</div>
-                    </uib-accordion-heading>
-                    <ng-map zoom="5" center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]"
-                        default-style="false" map-type-id="MapTypeId.SATELLITE" tilt="45">
-                        <street-view-panorama container="streetview">
-                        </street-view-panorama>
-                    </ng-map>
-                    <div id="streetview"></div>
-
-                </div>
-            </uib-accordion>
-        </md-card>
-    </md-content>
+<md-toolbar>
+    <div class="md-toolbar-tools" layout-align="center center">
+        <h2>Search for Location</h2>
+    </div>
+</md-toolbar>
+<div class="container" layout-padding>
     <md-card>
+        <ng-map center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">
+            <marker position="{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}"></marker>
+        </ng-map>
+    </md-card>
+    <div layout="row" layout-align="space-around start">
+        <md-content flex="40">
+            <md-card>
+                <uib-accordion>
+                    <div uib-accordion-group class="panel-primary">
+                        <uib-accordion-heading>
+                            <div>
+                                <md-icon md-font-icon="material-design">room</md-icon>Address</div>
+                        </uib-accordion-heading>
+                        {{place.locationDetail.detail.formatted_address}}
+                    </div>
+                    <div uib-accordion-group class="panel-primary">
+                        <uib-accordion-heading>
+                            <div>Phone Number</div>
+                        </uib-accordion-heading>
+                        <md-button class="fab">
+                            <md-icon md-font-class="material-icons">settings_phone</md-icon>
+                        </md-button>
+                        {{place.locationDetail.detail.formatted_phone_number}}
+                    </div>
+                    <div uib-accordion-group class="panel-primary">
+                        <uib-accordion-heading>
+                            <div>Photos</div>
+                        </uib-accordion-heading>
+                        <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{place.locationDetail.detail.photos[0].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8" ng-click="place.getPhotos(ev)"/>
+
+                    </div>
+                    <div uib-accordion-group class="panel-primary">
+                        <uib-accordion-heading>
+                            <div>Reviews</div>
+                        </uib-accordion-heading>
+
+                    </div>
+                </uib-accordion>
+            </md-card>
+        </md-content>
         <md-card>
-            <md-card-title>
-                <md-card-title-text>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
 
 
-                    <span class="md-headline">Location Details</span>
+                        <span class="md-headline">Location Details</span>
 
-                    <span class="md-subhead">What do you know about this court?</span>
-                </md-card-title-text>
-                <md-button ng-click="place.createNewLocation(place.locationDetail, place.courtInformation)">
-                    <md-icon md-font-class="material-design">add_circle</md-icon>
-                </md-button>
-            </md-card-title>
+                        <span class="md-subhead">What do you know about this court?</span>
+                    </md-card-title-text>
+                    <md-button ng-click="place.createNewLocation(place.locationDetail, place.courtInformation)">
+                        <md-icon md-font-class="material-design">add_circle</md-icon>
+                    </md-button>
+                </md-card-title>
 
-        </md-card>
-        <md-card>
-            <form>
-                <md-card-content>
-                    <div layout="row" layout-align="space-between center">
-                        <span>Indoors or Outdoors?</span>
-                        <md-select ng-model="place.courtInformation.indoor" placeholder="Indoor" class="md-no-underline">
-                            <md-option ng-value=true>Indoor</md-option>
-                            <md-option ng-value=false>Outdoor</md-option>
-                        </md-select>
-                    </div>
+            </md-card>
+            <md-card>
+                <form>
+                    <md-card-content>
+                        <div layout="row" layout-align="space-between center">
+                            <span>Indoors or Outdoors?</span>
+                            <md-select ng-model="place.courtInformation.indoor" placeholder="Indoor" class="md-no-underline">
+                                <md-option ng-value=true>Indoor</md-option>
+                                <md-option ng-value=false>Outdoor</md-option>
+                            </md-select>
+                        </div>
 
-                    <div layout="row" layout-align="space-between center">
-                        <span>Lights?</span>
-                        <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=true ng-false-value=false class="md-warn">
-                        </md-switch>
-                    </div>
+                        <div layout="row" layout-align="space-between center">
+                            <span>Lights?</span>
+                            <md-switch ng-model="place.courtInformation.lights" aria-label="Switch 1" ng-true-value=true ng-false-value=false class="md-warn">
+                            </md-switch>
+                        </div>
 
-                    <div layout="row" layout-align="space-between center">
-                        <span>Air Conditioning?</span>
-                        <md-switch ng-model="place.courtInformation.courtAirCon" ng-true-value=true ng-false-value=false class="md-warn">
-                        </md-switch>
-                    </div>
-                    <div layout="row" layout-align="space-between center">
-                        <span>Surface?</span>
-                        <md-select ng-model="place.courtInformation.courtSurface" ng-true-value=true ng-false-value=false placeholder="Surface?" class="md-no-underline">
-                            <md-option ng-value=4>Asphalt</md-option>
-                            <md-option ng-value=3>Rubber</md-option>
-                            <md-option ng-value=2>Carpet</md-option>
-                            <md-option ng-value=1>Hardwood</md-option>
-                        </md-select>
-                    </div>
-                    <div layout="row" layout-align="space-between center">
-                        <span>Court Size?</span>
-                        <md-select ng-model=place.courtInformation.courtSize placeholder="Full?" class="md-no-underline">
-                            <md-option ng-value=100>Full</md-option>
-                            <md-option ng-value=50>Half</md-option>
-                            <md-option ng-value=75>3/4</md-option>
-                        </md-select>
-                    </div>
-                    <div layout="row" layout-align="space-between center">
-                        <span>Price?</span>
-                        <md-select ng-model=place.courtInformation.price placeholder="FREE?" class="md-no-underline">
-                            <md-option ng-value=true>Free!</md-option>
-                            <md-option ng-value=false>Not Free!</md-option>
-                        </md-select>
-                    </div>
+                        <div layout="row" layout-align="space-between center">
+                            <span>Air Conditioning?</span>
+                            <md-switch ng-model="place.courtInformation.courtAirCon" ng-true-value=true ng-false-value=false class="md-warn">
+                            </md-switch>
+                        </div>
+                        <div layout="row" layout-align="space-between center">
+                            <span>Surface?</span>
+                            <md-select ng-model="place.courtInformation.courtSurface" ng-true-value=true ng-false-value=false placeholder="Surface?"
+                                class="md-no-underline">
+                                <md-option ng-value=4>Asphalt</md-option>
+                                <md-option ng-value=3>Rubber</md-option>
+                                <md-option ng-value=2>Carpet</md-option>
+                                <md-option ng-value=1>Hardwood</md-option>
+                            </md-select>
+                        </div>
+                        <div layout="row" layout-align="space-between center">
+                            <span>Court Size?</span>
+                            <md-select ng-model=place.courtInformation.courtSize placeholder="Full?" class="md-no-underline">
+                                <md-option ng-value=100>Full</md-option>
+                                <md-option ng-value=50>Half</md-option>
+                                <md-option ng-value=75>3/4</md-option>
+                            </md-select>
+                        </div>
+                        <div layout="row" layout-align="space-between center">
+                            <span>Price?</span>
+                            <md-select ng-model=place.courtInformation.price placeholder="FREE?" class="md-no-underline">
+                                <md-option ng-value=true>Free!</md-option>
+                                <md-option ng-value=false>Not Free!</md-option>
+                            </md-select>
+                        </div>
 
-                    <h4>Default</h4>
-                    <span uib-rating ng-model="rate" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
-                        titles="['one','two','three']" aria-labelledby="default-rating"></span>
-                    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
-                        ng-show="overStar && !isReadonly">{{percent}}%</span>
-                </md-card-content>
-            </form>
+                        <h4>Default</h4>
+                        <span uib-rating ng-model="rate" max="5" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+                            titles="['one','two','three']" aria-labelledby="default-rating"></span>
+                        <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                            ng-show="overStar && !isReadonly">{{percent}}%</span>
+                    </md-card-content>
+                </form>
 
-        </md-card>
-</div>
+            </md-card>
+    </div>
 </div>

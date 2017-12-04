@@ -100,4 +100,24 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     //             });
     //     }
     // };
-});// end of Places Controller
+    place.getPhotos = function (ev) {
+
+        //game =place_id that can be used to join games table and locations table
+            $mdDialog.show({
+                controller: 'InfoController as ic',
+                templateUrl: 'views/templates/photo.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+            })
+                .then(function (answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+          
+            };
+        
+    
+
+});

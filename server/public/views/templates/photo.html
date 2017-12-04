@@ -1,0 +1,14 @@
+<div id="carosel" layout-align="center none">
+    <div style="height: 305px">
+        <h1>Hello World</h1>
+        <div uib-carousel active="active" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="photo in ic.photoReference.detail.photos">
+                <img ng-src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{photo.photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8" style="margin:auto;">
+        </div>
+               
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+    
+</div>
