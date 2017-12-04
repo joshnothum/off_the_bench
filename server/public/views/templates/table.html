@@ -1,10 +1,48 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div id="container" layout="row" layout-align="center center" layout-padding>
-<md-card flex="100">
+
+
+
+
+    <md-table-container>
+        <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+            <thead md-head md-order="query.order" md-on-reorder="">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower">
+                        <span>Name</span>
+                    </th>
+                    <th md-column>
+                        <span>Address</span>
+                    </th>
+                    <th md-column md-numeric>Lights</th>
+                    <th md-column md-numeric>Size</th>
+                    <th md-column md-numeric>Indoor/Outdoor</th>
+                    <th md-column md-numeric>Price</th>
+                    <th md-column md-numeric>Surface</th>
+                    <th md-column md-numeric>Air Conditioning</th>
+
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row md-select="info" md-select-id="name" md-auto-select ng-repeat="info in tc.locationInfoForTable.data">
+                    <td md-cell>{{info.name}}</td>
+                    <td md-cell>{{info.formatted_address}}</td>
+                    <td md-cell>{{info.lights}}</td>
+                    <td md-cell>{{info.size}}</td>
+                    <td md-cell>{{info.indoor}}</td>
+                    <td md-cell>{{info.price}}</td>
+                    <td md-cell>{{info.surface}}</td>
+                    <td md-cell>{{info.air_con}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+
+    <!-- <md-card flex="100">
     <md-toolbar>
         <div class="md-toolbar-tools" layout="row">
             <div flex="10" layout-padding>Name</div>
-            <div flex="20" layout-padding>Date</div>
+            <div flex="20" layout-padding>Address</div>
             <div flex="5" layout-padding>Lights</div>
             <div flex="5" layout-padding>Size</div>
             <div flex="10" layout-padding>Indoor/Outdoor</div>
@@ -27,5 +65,5 @@
     </md-list>
 
 
-</md-card>
+</md-card> -->
 </div>
