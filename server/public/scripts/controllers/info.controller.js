@@ -1,4 +1,4 @@
-myApp.controller('InfoController', function (UserService, GameService, $http, $location) {
+myApp.controller('InfoController', function (UserService, GameService, $http, $location, $uibModalInstance ) {
   console.log('InfoController created');
   var info = this;
   info.userService = UserService;
