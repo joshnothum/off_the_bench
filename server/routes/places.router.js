@@ -30,22 +30,6 @@ console.log(response);
     });
 });//end of places.get(/info)
 
-// places.get('/photo', function (req, res) {
-
-//     req.query.key = API_KEY;
-//     console.log(req.query);
-
-
-//     request('https://maps.googleapis.com/maps/api/place/photo?', { qs: req.query }, function (error, response, body) {
-//         //res.send('photos/' + req.query.photoreference + '.png');
-//         console.log(error);
-//         res.sendFile(path.join(__dirname, '../public/photos/' + req.query.photoreference + '.png'));
-//         //console.log(response);
-
-//     }).pipe(fs.createWriteStream('server/public/photos/' + req.query.photoreference + '.png'));
-
-// });
-
 
 
 

@@ -56,7 +56,9 @@ myApp.service('GameService', function ($http, $location) {
 
     self.browseGames = function () {
         $http.get('/info').then(function (success) {
+            console.log(success.data);
             self.browseGamesObject.data = success.data;
+            
 
         }).catch(function (error) {
             console.log('error in browseGames:', error);

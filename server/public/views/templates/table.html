@@ -31,69 +31,69 @@
     </tbody>
 </table>
 </md-card>
-<!-- <div id="container" layout="row" layout-align="center center" layout-padding>
-    <md-card>
-    <md-table-container>
-        <table md-table md-row-select multiple ng-model="info.location_id" md-progress="promise">
-            <thead md-head  md-order="tc.query.order">
-                <tr md-row>
-                    <th>
-                        <span>Name</span>
-                    </th>
-                    <th md-column>
-                        <span>Address</span>
-                    </th>
-                    <th md-column >Lights</th>
-                    <th md-column md-numeric ="size">Size</th>
-                    <th md-column md-numeric>Indoor/Outdoor</th>
-                    <th md-column md-numeric md-order-by="info.price"><span>Price</span></th>
-                    <th md-column md-numeric>Surface</th>
-                    <th md-column md-numeric>Air Conditioning</th>
 
-                </tr>
-            </thead>
-            <tbody md-body>
-                <tr md-row md-select="info" md-select-id="name" md-auto-select ng-repeat="info in tc.locationInfoForTable.data" ng-click="tc.goToCreate(info)">
-                    <td style="font-size: 20px" md-cell>{{info.name}}</td>
-                    <td style="font-size: 20px" md-cell>{{info.formatted_address}}</td>
-                    <td style="font-size: 20px" md-cell> {{info.lights?'Yes':'No'}}</td>
-                    <td style="font-size: 20px" md-cell>{{tc.dataChanger(info.size)}}</td>
-                    <td style="font-size: 20px" md-cell>{{info.indoor?'Yes':'No'}}</td>
-                    <td style="font-size: 20px" md-cell>{{info.price?'Free!':'Not Free'}}</td>
-                    <td style="font-size: 20px" md-cell>{{tc.surfaceChanger(info.surface)}}</td>
-                    <td style="font-size: 20px" md-cell>{{info.air_con?'Yes':'No'}}</td>
-                </tr>
-            </tbody>
+<div>
+    <md-button class="md-raised md-primary" ng-click="tc.openWindow()">
+        <md-icon class="material-design">add</md-icon> Add transaction</md-button>
+</div>
+<div flex layout="row" layout-align="center center">
+</div>
+<h2 class="md-title">RECORDS FOR TRANSACTIONS</h2>
+<br>
+<div class="searchBar">
+    <md-icon md-svg-icon="images/search.svg"></md-icon>
+    <input type="text" placeholder="Search..." ng-model="searchText" />
+</div>
+<br>
+<br>
+<md-table-container>
+    <table md-table class="transactionTbl">
+        <thead md-head>
+            <tr md-row>
+                <th ng-click="tc.sortData('id')">Transaction ID
+                    <div ng-class="tc.getSortClass('id')"></div>
+                </th>
+                <th ng-click="tc.sortData('date')">Date
+                    <div ng-class="tc.getSortClass('date')"></div>
+                </th>
+                <th ng-click="tc.sortData('description')">Description
+                    <div ng-class="tc.getSortClass('description')"></div>
+                </th>
+                <th ng-click="tc.sortData('category_id')">Category ID
+                    <div ng-class="tc.getSortClass('category_id')"></div>
+                </th>
+                <th ng-click="tc.sortData('category_name')">Category Name
+                    <div ng-class="tc.getSortClass('category_name')"></div>
+                </th>
+                <th ng-click="tc.sortData('amount')">Amount
+                    <div ng-class="tc.getSortClass('amount')"></div>
+                </th>
+                <th ng-click="tc.sortData('user_id')">User ID
+                    <div ng-class="tc.getSortClass('user_id')"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr md-row ng-repeat=“transaction in tc.transactionList.data | orderBy:tc.sortColumn:tc.reverseSort | filter:searchText”>
+                <td md-cell>{{transaction.id}}</td>
+                <td md-cell>{{transaction.date | date: “MM/dd/yyyy”}}</td>
+                <td md-cell>{{transaction.description | uppercase}}</td>
+                <td md-cell>{{transaction.category_id}}</td>
+                <td md-cell>{{transaction.category_name | uppercase}}</td>
+                <td md-cell>{{transaction.amount | currency: “$”}}</td>
+                <td md-cell>{{transaction.user_id}}</td>
+                <td>
+                    <button md-button class=“sm-raised sm-secondary” type=“submit” ng-click=“tc.editClicked(transaction);“>
+                        <md-icon md-svg-icon=“images/edit.svg”></md-icon>
+                    </button>
+                </td>
+                <td>
+                    <button md-button class=“sm-raised sm-secondary” type=“submit” ng-click=“tc.deleteTransaction(transaction.id)“>
+                        <md-icon md-svg-icon=“images/trash.svg”></md-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
         </table>
-    </md-table-container>
-    </md-card> -->
-
-    <!-- <md-card flex="100">
-    <md-toolbar>
-        <div class="md-toolbar-tools" layout="row">
-            <div flex="10" layout-padding>Name</div>
-            <div flex="20" layout-padding>Address</div>
-            <div flex="5" layout-padding>Lights</div>
-            <div flex="5" layout-padding>Size</div>
-            <div flex="10" layout-padding>Indoor/Outdoor</div>
-            <div flex="5" layout-padding>Price</div>
-            <div flex="5" layout-padding>Surface</div>
-            <div flex="5" layout-padding>Air Conditioning</div>
-        </div>
-    </md-toolbar>
-    <md-list>
-        <md-list-item layout="row" ng-repeat="info in tc.locationInfoForTable.data" ng-click="uc.goToGame(game)">
-            <div flex="10" layout-padding>{{info.name}}</div>
-            <div flex="20" layout-padding>{{info.formatted_address}}</div>
-            <div flex="5" layout-padding>{{info.lights}}</div>
-            <div flex="5" layout-padding>{{info.size}}</div>
-            <div flex="10" layout-padding>{{info.indoor}}</div>
-            <div flex="5" layout-padding>{{info.price}}</div>
-            <div flex="5" layout-padding>{{info.surface}}</div>
-            <div flex="5" layout-padding>{{info.air_con}}</div>
-        </md-list-item>
-    </md-list>
-
-
-</md-card> -->
+        </md-table-container>
 </div>

@@ -86,22 +86,24 @@ li a:hover {
 
 #carosel{
   height: 100%;
-};
- .gridListdemoBasicUsage md-grid-list {
-   margin: 8px;
- }
+}
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid black;
+  display: inline-block;
+}
 
- .gridListdemoBasicUsage .gray {
-   background: #f5f5f5;
- }
-
- .gridListdemoBasicUsage .green {
-   background: #b9f6ca
-  }
-
- .gridListdemoBasicUsage md-grid-tile {
-   transition: all 400ms ease-out 50ms;
- }
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid black;
+  display: inline-block;
+}
 
 @keyframes myChange {
   from {
