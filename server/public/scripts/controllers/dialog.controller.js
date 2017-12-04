@@ -6,6 +6,10 @@ console.log('dialog is logged');
     dialog.goHome= function(){
         $location.path('/user');
     };
+dialog.goAbout=function(){
+$location.path('/about');
+};
+
     dialog.hide = function () {
         $mdDialog.hide();
     };

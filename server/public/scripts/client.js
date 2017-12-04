@@ -98,6 +98,15 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
         }
       }
     })
+    .when('/about', {
+      templateUrl: '/views/templates/about.html',
+      controller: 'TableController as tc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });

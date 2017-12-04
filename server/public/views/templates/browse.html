@@ -25,6 +25,7 @@
                 <p class="md-subhead">{{games.formatted_address}}</p>
                 <p class="md-subhead">{{games.date}}</p>
                 <p class="md-subhead">{{games.time}}</p>
+                <p class="md-subhead">Spots Available{{games.count}}</p>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button class="md-icon-button md-accent" ng-click="browser.getMoreGameInfo(ev,games)" aria-label="MoreInfo">

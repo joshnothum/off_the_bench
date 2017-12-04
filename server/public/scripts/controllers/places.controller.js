@@ -37,7 +37,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         console.log(courtInfoToSend);
         
         MapService.createLocation(courtInfoToSend, sendLocation);
-        $location.path('/create');
+        $location.path('/user');
     };//end of createLocation
     place.sendGame = function (game) {
         let gameTime = moment(place.time).format('HH:mm:ss');
