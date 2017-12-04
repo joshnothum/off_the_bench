@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate', 'ngMap', 'ui.bootstrap','oitozero.ngSweetAlert']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngAria', 'ngAnimate', 'ngMap', 'ui.bootstrap', 'oitozero.ngSweetAlert', 'md.data.table']);
 
 /// Routes ///
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
