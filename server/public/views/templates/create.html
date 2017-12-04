@@ -3,42 +3,49 @@
 <p>
     Game Create
 </p>
-<div layout="column" layout-align="center center">
-    <div layout="column" layout-align="center center" style="padding:40px" class="selectdemoOptionsWithAsyncSearch">
-        <md-select placeholder="Locations" ng-model="create.location" md-on-close="create.pushLocation(location)" style="min-width: 400px;">
-            <md-option ng-value="location" ng-repeat="location in create.allLocations.data">{{location.name}}</md-option>
-        </md-select>
+<div id="container" layout="row" layout-align="space-around none">
+    <div layout="column" layout-align="center center" flex="50">
+        <h3>Select your location</h3>
+        <div layout="column" layout-align="center center" style="padding:40px" class="selectdemoOptionsWithAsyncSearch">
+            <md-select placeholder="Locations" ng-model="create.location" md-on-close="create.pushLocation(location)" style="min-width: 500px;">
+                <md-option ng-value="location" ng-repeat="location in create.allLocations.data">{{location.name}}</md-option>
+            </md-select>
+        </div>
+        <h4>Don't know the name? Try our data table!</h4>
+        <span>
+            <md-button class="md-raised md-primary" ng-click="create.goToTable()">Data Table</md-button>
+        </span>
+    </div>
+    <div flex="50" style="padding:40px">
+
+        <md-card flex="100">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>Game Information</span>
+                    </h2>
+                </div>
+            </md-toolbar>
+            <md-card-content>
+                <form name="Form">
+                    <h3>Time?</h3>
+                    <md-input-container class="md-block">
+                        <input type="time" style="font-size: 30px" data-ng-model="create.gameTime">
+                    </md-input-container>
+                    <h3>Date?</h3>
+                    <md-input-container class="md-block">
+                        <input type="date" style="font-size: 30px" ng-model="create.gameDate">
+                    </md-input-container>
+                    <h3>Max Number of Players?</h3>
+                    <md-input-container class="md-block">
+                        <input ng-model="create.gameMaxNumber" >
+                    </md-input-container>
+                    <md-card-actions layout="row" style="font-size: 30px" layout-align="space-between none">
+                        <md-button class="md-raised md-accent" type="submit" ng-click="create.sendGame(create.location)">Create</md-button>
+                    </md-card-actions>
+                </form>
+            </md-card-content>
+        </md-card>
+
     </div>
 </div>
-<md-card>
-    <md-card-title>
-        <md-card-title-text>
-
-
-            <span class="md-headline">Create a game</span>
-
-            <span class="md-subhead">Let's get it organized!</span>
-        </md-card-title-text>
-    </md-card-title>
-
-</md-card>
-
-<md-card flex=50>
-<form>
-<div layout="column" layout-align="center center">
-
-<div layout-align="space-between center">
-
-           <div layout-align="center center" uib-timepicker ng-model="create.gameTime" ng-change="create.changed()" hour-step="hstep" minute-step="mstep"></div>
-</div>
-<div layout-align="space-between none">
-        <div layout-align="center center" > <md-datepicker ng-model="create.gameDate" md-placeholder="Enter date"></md-datepicker>
-            </div>
-
-        <md-card  layout-align="center center" >     <input ng-model="create.gameMaxNumber" type="number" placeholder="20?"></md-card>
-</div>
-            <md-button class="mdc-button" ng-click="create.sendGame(create.location)">&nbsp Create Game &nbsp</md-button>
-
-</div>
-</form>
-</md-card>
