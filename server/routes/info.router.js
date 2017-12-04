@@ -126,7 +126,7 @@ info.post('/', function (req, res) {
                 console.log("Error connecting: ", err);
                 res.sendStatus(500);
             }
-            let queryText = 'SELECT "users"."username" FROM "users" JOIN "player_joins" ON "users"."id" = "player_joins"."player_id" JOIN "games" ON "player_joins"."game_id" = "games"."id" WHERE "games"."id" = $1';
+            let queryText = 'SELECT "users"."username", "users"."photo" FROM "users" JOIN "player_joins" ON "users"."id" = "player_joins"."player_id" JOIN "games" ON "player_joins"."game_id" = "games"."id" WHERE "games"."id" = $1';
             client.query( queryText,[getGame],
 
                 function (err, result) {
