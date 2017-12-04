@@ -24,6 +24,7 @@ places.get('/locationDetail', function (req, res) {
 
 
 
+console.log(response);
 
         res.send(body);
     });

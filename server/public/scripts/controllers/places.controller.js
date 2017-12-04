@@ -100,8 +100,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     //             });
     //     }
     // };
-    place.getPhotos = function (ev, photoArry) {
-        console.log(photoArray);
+    place.getPhotos = function (ev) {
+      
         
         //game =place_id that can be used to join games table and locations table
             $mdDialog.show({
