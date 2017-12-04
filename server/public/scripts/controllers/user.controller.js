@@ -52,6 +52,8 @@ myApp.controller('UserController', function (UserService, GameService, $location
     GameService.getGameInfo(game, game.id);
 
     $location.path('/games');
+
+    
   };
 
 

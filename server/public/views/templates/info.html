@@ -32,7 +32,7 @@
             <md-subheader class="md-no-sticky">Players</md-subheader>
             <md-list-item ng-repeat="user in ic.gameUserInformation.data" ng-click="goToPerson(person.name, $event)" class="noright">
               <p>{{ user.username }}</p>
-              <img ng-src="https://nba-players.herokuapp.com/players/gasol/pau" class="md-avatar">
+              <img ng-src="{{user.photo}}" class="md-avatar">
                 <md-icon ng-click="doSecondaryAction($event)" aria-label="Send Email" class="md-secondary md-hue-3"></md-icon>
                 <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat"></md-icon>
             </md-list-item>
