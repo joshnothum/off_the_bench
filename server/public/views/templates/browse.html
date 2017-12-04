@@ -26,7 +26,7 @@
                 <h4 class="md-subhead">{{games.time}}</h4>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-icon-button" ng-click="browser.getMoreGameInfo(games)" aria-label="MoreInfo">
+                <md-button class="md-icon-button" ng-click="browser.getMoreGameInfo(ev,games)" aria-label="MoreInfo">
                     <md-icon class="material-design"> menu</md-icon>
                 </md-button>
                 <md-button class="md-icon-button" aria-label="Join Game" ng-click="browser.joinGame(games)">

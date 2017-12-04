@@ -1,28 +1,44 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-  <p>
-    In Info
-  </p>
-  <div ng-cloak="" class="userCards">
-    <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
-      <div flex-xs="" flex-gt-xs="50" layout="row">
-        <md-card ng-repeat=''>
-          <md-card-content>
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">{{userCard.name}}</span>
-                <span class="md-subhead">{{userCard.formatted_address}}</span>
-                <span class="md-subhead">{{userCard.place_id}}</span>
-              </md-card-title-text>
-              <md-card-title-media>
-                <div class="md-media-sm card-media">
-                  <img ng-src="{{game.icon}}" class="md-card-image" alt="Static google Map" />
-                </div>
-              </md-card-title-media>
-            </md-card-title>
-          </md-card-content>
-        </md-card>
-      </div>
-    </md-content>
+<!-- <div ng-include="'views/partials/nav.html'"></div> -->
+
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>Games</h2>
+    <span flex></span>
+    <md-button ng-click="ic.cancel()">
+      <md-icon class="material-icons"> close</md-icon>
+    </md-button>
   </div>
+</md-toolbar>
+<md-content>
+<div class="container" layout="rows" layout-align="center center">
+  
+
+    <div flex="50">
+      <md-card-title >
+        <md-card-title-text>
+          <span class="md-headline">{{ic.gameForDisplay.name}}</span>
+          <p>{{ic.gameForDisplay.formatted_address}}</p>
+          <p>{{ic.gameForDisplay.date}}</p>
+          <p>{{ic.gameForDisplay.time}}</p>
+        </md-card-title-text>
+      </md-card-title>
+      </div>
+
+
+      
+     <div layout="column" flex="50">
+       <md-card>
+          <md-list>
+            <md-subheader class="md-no-sticky">Players</md-subheader>
+            <md-list-item ng-repeat="user in ic.gameUserInformation.data" ng-click="goToPerson(person.name, $event)" class="noright">
+              <p>{{ user.username }}</p>
+              <img ng-src="https://nba-players.herokuapp.com/players/gasol/pau" class="md-avatar">
+                <md-icon ng-click="doSecondaryAction($event)" aria-label="Send Email" class="md-secondary md-hue-3"></md-icon>
+                <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat"></md-icon>
+            </md-list-item>
+          </md-list>
+          </md-card>
+          </div>
+       
 </div>
+</md-content>

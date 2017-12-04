@@ -1,8 +1,9 @@
-myApp.controller('InfoController', function (UserService, GameService, $http, $location, $uibModalInstance ) {
+myApp.controller('InfoController', function (UserService, GameService, $http, $location) {
   console.log('InfoController created');
   var info = this;
-  info.userService = UserService;
-  info.editGame = UserService.editGame;
+
+ info.gameForDisplay = GameService.gameFromBrowse;
+ info.gameUserInformation = GameService.gameByIDInfo;
 
   info.getInfo = function () {
     GameService.getInfo(infoSearch);

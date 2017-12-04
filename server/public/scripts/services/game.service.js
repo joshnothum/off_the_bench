@@ -76,12 +76,11 @@ myApp.service('GameService', function ($http, $location) {
     self.getGameInfo = function (games,gameID) {
         self.gameFromBrowse=games;
       console.log(gameID);
-        $http.get('/info/getGameById/'+ gameID).then(function (response) {
+        return $http.get('/info/getGameById/'+ gameID).then(function (response) {
             console.log(response);
             self.gameByIDInfo.data = response.data;
             console.log(response.data);
             console.log(self.gameByIDInfo);
-            $location.path('/games');
         }).catch(function (response) {
             console.log('getGameInfo failed: ', response);
         });
