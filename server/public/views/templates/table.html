@@ -8,14 +8,14 @@
         <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
             <thead md-head md-order="query.order" md-on-reorder="">
                 <tr md-row>
-                    <th md-column md-order-by="nameToLower">
+                    <th>
                         <span>Name</span>
                     </th>
                     <th md-column>
                         <span>Address</span>
                     </th>
-                    <th md-column md-numeric>Lights</th>
-                    <th md-column md-numeric>Size</th>
+                    <th md-column md-order-by="lights">Lights</th>
+                    <th md-column md-numeric md-order-by="size">Size</th>
                     <th md-column md-numeric>Indoor/Outdoor</th>
                     <th md-column md-numeric>Price</th>
                     <th md-column md-numeric>Surface</th>
