@@ -19,14 +19,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="info in tc.locationInfoForTable.data">
-            <td>{{info.name}}</td>
-            <td>{{info.formatted_address}}</td>
-            <td> {{info.lights?'Yes':'No'}}</td>
-            <td>{{tc.dataChanger(info.size)}}</th>
-            <td> {{info.price?'Free!':'Not Free'}}</td>
-            <td> {{tc.surfaceChanger(info.surface)}}</td>
-            <td>{{info.air_con?'Yes':'No'}}</td>
+        <tr ng-repeat="info in tc.locationInfoForTable.data| orderBy:'-price'" >
+            <td style="font-size: 18px">{{info.name}}</td>
+            <td style="font-size: 18px">{{info.formatted_address}}</td>
+            <td style="font-size: 18px"> {{info.lights?'Yes':'No'}}</td>
+            <td style="font-size: 18px">{{tc.dataChanger(info.size)}}</th>
+            <td style="font-size: 18px"> {{info.price?'Free!':'Not Free'}}</td>
+            <td style="font-size: 18px"> {{tc.surfaceChanger(info.surface)}}</td>
+            <td style="font-size: 18px">{{info.air_con?'Yes':'No'}}</td>
         </tr>
     </tbody>
 </table>
