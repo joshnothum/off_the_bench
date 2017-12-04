@@ -38,7 +38,7 @@ myApp.service('GameService', function ($http, $location) {
             
             
             console.log(response);
-            $location.path('/user');
+            $location.path('/browse');
             
         }).catch(function (response) {
             console.log('send game did not work: ', response);
