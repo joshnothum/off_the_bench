@@ -1,9 +1,10 @@
 <div ng-include="'views/partials/nav.html'"></div>
+<md-toolbar>
+    <div class="md-toolbar-tools" layout-align="center center">
+        <h2>Location Data</h2>
+    </div>
+</md-toolbar>
 <div id="container" layout="row" layout-align="center center" layout-padding>
-
-
-
-
     <md-table-container>
         <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
             <thead md-head md-order="query.order" md-on-reorder="">
@@ -24,15 +25,15 @@
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="info" md-select-id="name" md-auto-select ng-repeat="info in tc.locationInfoForTable.data">
-                    <td md-cell>{{info.name}}</td>
-                    <td md-cell>{{info.formatted_address}}</td>
-                    <td md-cell> {{info.lights?'yes':'no'}}</td>
-                    <td md-cell>{{info.size}}</td>
-                    <td md-cell>{{info.indoor?'yes':'no'}}</td>
-                    <td md-cell>{{info.price?'Free!':'Not Free'}}</td>
-                    <td md-cell>{{tc.dataChanger(info.surface)}}</td>
-                    <td md-cell>{{info.air_con?'Yes!':'Now'}}</td>
+                <tr md-row md-select="info" md-select-id="name" md-auto-select ng-repeat="info in tc.locationInfoForTable.data" ng-click="tc.goToCreate(info)">
+                    <td style="font-size: 20px" md-cell>{{info.name}}</td>
+                    <td style="font-size: 20px" md-cell>{{info.formatted_address}}</td>
+                    <td style="font-size: 20px" md-cell> {{info.lights?'Yes':'No'}}</td>
+                    <td style="font-size: 20px" md-cell>{{tc.dataChanger(info.size)}}</td>
+                    <td style="font-size: 20px" md-cell>{{info.indoor?'Yes':'No'}}</td>
+                    <td style="font-size: 20px" md-cell>{{info.price?'Free!':'Not Free'}}</td>
+                    <td style="font-size: 20px" md-cell>{{tc.surfaceChanger(info.surface)}}</td>
+                    <td style="font-size: 20px" md-cell>{{info.air_con?'Yes':'No'}}</td>
                 </tr>
             </tbody>
         </table>

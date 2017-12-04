@@ -1,5 +1,11 @@
 
 <div ng-include="'views/partials/nav.html'"></div>
+
+<md-toolbar>
+    <div class="md-toolbar-tools" layout-align="center center">
+        <h2>User Dashboard</h2>
+    </div>
+</md-toolbar>
 <div id="container" layout="row" layout-align = "center center">
 
     <md-card flex="20" layout="column" layout-align="space-between start">
@@ -21,7 +27,7 @@
                 <div flex="30" layout-padding>Name</div>
                 <div flex="25" layout-padding>Date</div>
                 <div flex="20" layout-padding>Time</div>
-                <div flex="25" layout-padding>Edit</div>
+                <div flex="25" layout-padding>Leave Game</div>
             </div>
         </md-toolbar>
         <md-list>
@@ -39,6 +45,7 @@
     </md-card>
 
 </div>
+
 <!-- <div class="demo-md-panel md-padding paneldemoBasicUsage" ng-app="MyApp">
     <p>
         A panel can be used to create dialogs, menus, and other overlays.

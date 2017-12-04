@@ -9,13 +9,28 @@ table.dataChanger = function(data){
 
      let result = '';
 
-    if(data == 1){
-  result = "";
-    }else if(data = 2){
-        result = "half";
+    if(data == 100){
+  result = "Full";
+    }else if(data == 50){ 
+        result = "Half";
     }
     else{
         result = "3/4";
+    }
+    return result;
+};
+
+table.surfaceChanger = function(surface){
+    if (surface == 1) {
+        result = "Hardwood";
+    } else if (surface == 2) {
+        result = "Carpet";
+    }
+    else if (surface ==4){
+        result ="Asphalt";
+    }
+    else {
+        result = "Rubber";
     }
     return result;
 };

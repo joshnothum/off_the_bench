@@ -101,4 +101,16 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
     .otherwise({
       redirectTo: 'home'
     });
+
+
+
+
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue-grey',{
+
+      })
+      .accentPalette('orange');
+
+
 });
