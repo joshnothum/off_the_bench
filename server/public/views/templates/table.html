@@ -4,7 +4,34 @@
         <h2>Location Data</h2>
     </div>
 </md-toolbar>
-<div id="container" layout="row" layout-align="center center" layout-padding>
+
+<md-card>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Lights</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Surface</th>
+            <th>Air Conditioning</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="info in tc.locationInfoForTable.data">
+            <td>{{info.name}}</td>
+            <td>{{info.formatted_address}}</td>
+            <td> {{info.lights?'Yes':'No'}}</td>
+            <td>{{tc.dataChanger(info.size)}}</th>
+            <td> {{info.price?'Free!':'Not Free'}}</td>
+            <td> {{tc.surfaceChanger(info.surface)}}</td>
+            <td>{{info.air_con?'Yes':'No'}}</td>
+        </tr>
+    </tbody>
+</table>
+</md-card>
+<!-- <div id="container" layout="row" layout-align="center center" layout-padding>
     <md-card>
     <md-table-container>
         <table md-table md-row-select multiple ng-model="info.location_id" md-progress="promise">
@@ -39,7 +66,7 @@
             </tbody>
         </table>
     </md-table-container>
-    </md-card>
+    </md-card> -->
 
     <!-- <md-card flex="100">
     <md-toolbar>
