@@ -5,35 +5,35 @@ myApp.controller('TableController', function ($http, $location, UserService, Gam
     table.locationInfoForTable = MapService.allLocationsWithCourtData;
     //from MapService
 
-table.dataChanger = function(data){
+    table.dataChanger = function (data) {
 
-     let result = '';
+        let result = '';
 
-    if(data == 100){
-  result = "Full";
-    }else if(data == 50){ 
-        result = "Half";
-    }
-    else{
-        result = "3/4";
-    }
-    return result;
-};
+        if (data == 100) {
+            result = "Full";
+        } else if (data == 50) {
+            result = "Half";
+        }
+        else {
+            result = "3/4";
+        }
+        return result;
+    };
 
-table.surfaceChanger = function(surface){
-    if (surface == 1) {
-        result = "Hardwood";
-    } else if (surface == 2) {
-        result = "Carpet";
-    }
-    else if (surface ==4){
-        result ="Asphalt";
-    }
-    else {
-        result = "Rubber";
-    }
-    return result;
-};
+    table.surfaceChanger = function (surface) {
+        if (surface == 1) {
+            result = "Hardwood";
+        } else if (surface == 2) {
+            result = "Carpet";
+        }
+        else if (surface == 4) {
+            result = "Asphalt";
+        }
+        else {
+            result = "Rubber";
+        }
+        return result;
+    };
     table.sortColumn = "size";
     table.reverseSort = false;
 

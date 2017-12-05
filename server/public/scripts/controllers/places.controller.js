@@ -25,7 +25,7 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
         let place_id = places.place_id;
         console.log('getInfo is working here', place_id);
         MapService.getMoreLocationInfo(place_id);
-        
+
     };//end of getInfo
 
     place.createNewLocation = function (locationToSend, courtInfoToSend) {
@@ -33,9 +33,9 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
         let sendLocation = locationToSend.detail;
         console.log(sendLocation);
-        
+
         console.log(courtInfoToSend);
-        
+
         MapService.createLocation(courtInfoToSend, sendLocation);
         $location.path('/user');
     };//end of createLocation
@@ -79,46 +79,25 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
     place.ratingStates = [
         { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' }];
 
-
-    // place.getPanelInfo = function (ev, place_id) {
-    //     // let dialogBox = MapService.getMoreLocationInfo(place_id);
-    //     // dialogBox.then
-        
-        
-    //   function dialogBox(response) {
-    //         $mdDialog.show({
-    //             controller: 'DialogController as dc',
-    //             templateUrl: 'views/templates/dialog.tmpl.html',
-    //             parent: angular.element(document.body),
-    //             targetEvent: ev,
-    //             clickOutsideToClose: true
-    //         })
-    //             .then(function (answer) {
-    //                 $scope.status = 'You said the information was "' + answer + '".';
-    //             }, function () {
-    //                 $scope.status = 'You cancelled the dialog.';
-    //             });
-    //     }
-    // };
     place.getPhotos = function (ev) {
-      
-        
+
+
         //game =place_id that can be used to join games table and locations table
-            $mdDialog.show({
-                controller: 'InfoController as ic',
-                templateUrl: 'views/templates/photo.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose: true,
-            })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
-                });
-          
-            };
-        
-    
+        $mdDialog.show({
+            controller: 'InfoController as ic',
+            templateUrl: 'views/templates/photo.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+        })
+            .then(function (answer) {
+                $scope.status = 'You said the information was "' + answer + '".';
+            }, function () {
+                $scope.status = 'You cancelled the dialog.';
+            });
+
+    };
+
+
 
 });

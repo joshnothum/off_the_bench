@@ -11,34 +11,34 @@
 </md-toolbar>
 
 <div class="container" layout="rows" layout-align="space-around start">
-  
-
-    <div flex="50">
-      <md-card-title >
-        <md-card-title-text>
-          <span class="md-headline">{{ic.gameForDisplay.name}}</span>
-          <p>{{ic.gameForDisplay.formatted_address}}</p>
-          <p>{{ic.gameForDisplay.date}}</p>
-          <p>{{ic.gameForDisplay.time}}</p>
-        </md-card-title-text>
-      </md-card-title>
-      </div>
 
 
-      
-     <div flex="50">
-      <md-content>
-        <md-toolbar md-scroll-shrink>
-          <div class="md-toolbar-tools">Players</div>
-        </md-toolbar>
-          <md-list>
-           
-            <div ng-repeat="user in ic.gameUserInformation.data" ng-click="goToPerson(person.name, $event)">
-              <p>{{ user.username }}</p>
-              <img ng-src="{{user.photo}}" class="md-avatar">
-            </div>
-          </md-list>
-          </md-content>
+  <div flex="50">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{ic.gameForDisplay.name}}</span>
+        <p>{{ic.gameForDisplay.formatted_address}}</p>
+        <p>{{ic.gameForDisplay.date}}</p>
+        <p>{{ic.gameForDisplay.time}}</p>
+      </md-card-title-text>
+    </md-card-title>
+  </div>
+
+
+
+  <div flex="50">
+    <md-content>
+      <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">Players</div>
+      </md-toolbar>
+      <md-list>
+
+        <div ng-repeat="user in ic.gameUserInformation.data" ng-click="goToPerson(person.name, $event)">
+          <p>{{ user.username }}</p>
+          <img ng-src="{{user.photo}}" class="md-avatar">
         </div>
-       
+      </md-list>
+    </md-content>
+  </div>
+
 </div>

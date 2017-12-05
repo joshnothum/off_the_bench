@@ -5,8 +5,7 @@
     </md-card>
     <md-card ng-click="gameInfo.goToMap()" flex="30" layout="column" layout-align="center center" layout-padding>
         <img ng-cloak="" ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{gameInfo.getMap.center}}&zoom={{gameInfo.getMap.zoom}}&size={{gameInfo.getMap.size}}&scale={{gameInfo.getMap.scale}}&key={{gameInfo.getMap.key}}"
-        />
-        {{gameInfo.gameForDisplay}}
+        /> {{gameInfo.gameForDisplay}}
     </md-card>
     <md-card flex="50">
         {{gameInfo.gameForDisplay.name}}
@@ -24,7 +23,7 @@
     </md-card>
 
     <md-card flex="25">
- 
+
         <md-card-content>
 
         </md-card-content>
@@ -32,7 +31,7 @@
             {{gameInfo.gameInformation}}
             <md-button class="md-primary" ng-click="gameInfo.joinGame(gameInfo.gameInformation.game_id)">Join</md-button>
             <md-button ng-disabled='' class="md-warn">Un-Join</md-button>
-    
+
         </md-card-actions>
     </md-card>
 

@@ -1,67 +1,67 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-<div>
-    <md-button class="md-raised md-primary" ng-click="tc.openWindow()">
-        <md-icon class="material-design">add</md-icon> Add transaction</md-button>
-</div>
-<div flex layout="row" layout-align="center center">
-</div>
-<h2 class="md-title">Locations</h2>
-<br>
-<div class="searchBar">
-    <md-icon calss="material-design">search</md-icon>
-    <input type="text" placeholder="Search..." ng-model="searchText" />
-</div>
-<br>
-<br>
-<md-table-container>
-    <table md-table class="table table-hover">
-        <thead md-head>
-            <tr md-row>
-                <th ng-click="tc.sortData('name')">Name
-                    <div ng-class="tc.getSortClass('name')"></div>
-                </th>
-                <th ng-click="tc.sortData('formatted_address')">Address
-                    <div ng-class="tc.getSortClass('formatted_address')"></div>
-                </th>
-                <th ng-click="tc.sortData('lights')">Lights
-                    <div ng-class="tc.getSortClass('lights')"></div>
-                </th>
-                <th ng-click="tc.sortData('size')">Size
-                    <div ng-class="tc.getSortClass('size')"></div>
-                </th>
-                <th ng-click="tc.sortData('price')">Price
-                    <div ng-class="tc.getSortClass('price')"></div>
-                </th>
-                <th ng-click="tc.sortData('surface')">Surface
-                    <div ng-class="tc.getSortClass('surface')"></div>
-                </th>
-                <th ng-click="tc.sortData('air_con')">Air Conditioning
-                    <div ng-class="tc.getSortClass('air_con')"></div>
-                </th>
-            </tr>
-        </thead>
-        <tbody md-body>
-            <tr md-row ng-repeat='info in tc.locationInfoForTable.data |orderBy:tc.sortColumn:tc.reverseSort | filter:searchText'>
-                <td md-cell >{{info.name}}</td>
-                <td md-cell >{{info.formatted_address}}</td>
-                <td md-cell> {{info.lights?'Yes':'No'}}</td>
-                <td md-cell >{{tc.dataChanger(info.size)}}</td>
-                <td md-cell > {{info.price?'Free!':'Not Free'}}</td>
-                <td md-cell > {{tc.surfaceChanger(info.surface)}}</td>
-                <td md-cell >{{info.air_con?'Yes':'No'}}</td>
-                <td>
-                    <md-button>
-                        <md-icon class="material-design">edit</md-icon>
-                    </md-button>
-                </td>
-                <td>
-                    <md-button type=“delete”>
-                        <md-icon class="material-design">trash</md-icon>
-                    </md-button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</md-table-container>
+    <div>
+        <md-button class="md-raised md-primary" ng-click="tc.openWindow()">
+            <md-icon class="material-design">add</md-icon> Add transaction</md-button>
+    </div>
+    <div flex layout="row" layout-align="center center">
+    </div>
+    <h2 class="md-title">Locations</h2>
+    <br>
+    <div class="searchBar">
+        <md-icon calss="material-design">search</md-icon>
+        <input type="text" placeholder="Search..." ng-model="searchText" />
+    </div>
+    <br>
+    <br>
+    <md-table-container>
+        <table md-table class="table table-hover">
+            <thead md-head>
+                <tr md-row>
+                    <th ng-click="tc.sortData('name')">Name
+                        <div ng-class="tc.getSortClass('name')"></div>
+                    </th>
+                    <th ng-click="tc.sortData('formatted_address')">Address
+                        <div ng-class="tc.getSortClass('formatted_address')"></div>
+                    </th>
+                    <th ng-click="tc.sortData('lights')">Lights
+                        <div ng-class="tc.getSortClass('lights')"></div>
+                    </th>
+                    <th ng-click="tc.sortData('size')">Size
+                        <div ng-class="tc.getSortClass('size')"></div>
+                    </th>
+                    <th ng-click="tc.sortData('price')">Price
+                        <div ng-class="tc.getSortClass('price')"></div>
+                    </th>
+                    <th ng-click="tc.sortData('surface')">Surface
+                        <div ng-class="tc.getSortClass('surface')"></div>
+                    </th>
+                    <th ng-click="tc.sortData('air_con')">Air Conditioning
+                        <div ng-class="tc.getSortClass('air_con')"></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row ng-repeat='info in tc.locationInfoForTable.data |orderBy:tc.sortColumn:tc.reverseSort | filter:searchText'>
+                    <td md-cell>{{info.name}}</td>
+                    <td md-cell>{{info.formatted_address}}</td>
+                    <td md-cell> {{info.lights?'Yes':'No'}}</td>
+                    <td md-cell>{{tc.dataChanger(info.size)}}</td>
+                    <td md-cell> {{info.price?'Free!':'Not Free'}}</td>
+                    <td md-cell> {{tc.surfaceChanger(info.surface)}}</td>
+                    <td md-cell>{{info.air_con?'Yes':'No'}}</td>
+                    <td>
+                        <md-button>
+                            <md-icon class="material-design">edit</md-icon>
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button type=“delete”>
+                            <md-icon class="material-design">trash</md-icon>
+                        </md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
 </div>

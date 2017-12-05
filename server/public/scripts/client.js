@@ -115,11 +115,11 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
 
 
 
-    $mdThemingProvider.theme('default')
-      .primaryPalette('blue-grey',{
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue-grey', {
 
-      })
-      .accentPalette('orange');
+    })
+    .accentPalette('orange');
 
 
 });

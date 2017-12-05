@@ -5,11 +5,11 @@ myApp.service('UserService', function ($http, $location) {
   self.userObject = {};
   self.gameObject = {};
   self.allLocations = {};
-  self.browseGamesObject={};
+  self.browseGamesObject = {};
   self.editGame = {};
 
-  
-  
+
+
 
   self.getuser = function () {
     console.log('UserService -- getuser');
@@ -30,18 +30,18 @@ myApp.service('UserService', function ($http, $location) {
       $location.path("/home");
     });
   };//end of getUser
-    self.logout = function () {
-      console.log('UserService -- logout');
-      $http.get('/user/logout').then(function (success) {
-        console.log('UserService -- logout -- logged out');
-        $location.path("/home");
-      });
-    };//end of logout
-    self.getUserGames = function () {
-      $http.get('/info/user').then(function (success) {
-        self.gameObject.data = success.data;
-      }).catch(function (error) {
-        console.log('error in getUserGames:', error);
-      });// end of get request for getUserGames
-    };// end of getUserGames
+  self.logout = function () {
+    console.log('UserService -- logout');
+    $http.get('/user/logout').then(function (success) {
+      console.log('UserService -- logout -- logged out');
+      $location.path("/home");
+    });
+  };//end of logout
+  self.getUserGames = function () {
+    $http.get('/info/user').then(function (success) {
+      self.gameObject.data = success.data;
+    }).catch(function (error) {
+      console.log('error in getUserGames:', error);
+    });// end of get request for getUserGames
+  };// end of getUserGames
 });

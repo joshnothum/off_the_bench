@@ -1,16 +1,16 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div layout="rows" layout-align="center center">
-   <div style="min-width:300px;">
-    <md-input-container style="min-width:300px;">
-        <label for="places">search</label>
-        <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
-    </md-input-container>
-    <md-card-icon-actions>
-        <md-icon md-font-icon="material-design" class="md-accent" ng-click="place.getPlaces()">search</md-icon>
-    </md-card-icon-actions>
+    <div style="min-width:300px;">
+        <md-input-container style="min-width:300px;">
+            <label for="places">search</label>
+            <input type="text" md-no-asterisk="true" name="places" ng-model="place.searchBar" />
+        </md-input-container>
+        <md-card-icon-actions>
+            <md-icon md-font-icon="material-design" class="md-accent" ng-click="place.getPlaces()">search</md-icon>
+        </md-card-icon-actions>
     </div>
-  
+
 </div>
 <div layout="row" layout-align="space-around none">
     <div layout="column" flex="40" layout-fill>

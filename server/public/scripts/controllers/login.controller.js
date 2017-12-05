@@ -52,5 +52,5 @@ myApp.controller('LoginController', function ($http, $location, UserService, $sc
     $location.path('/register');
 
   };
-  
+
 });

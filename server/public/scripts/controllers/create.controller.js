@@ -8,7 +8,7 @@ myApp.controller('CreateController', function ($scope, $mdDialog, GameService, U
     creator.location = '';
     creator.gameDate = '';
     creator.gameMaxNumber = '';
-    creator.marker={};
+    creator.marker = {};
 
 
 
@@ -36,7 +36,7 @@ myApp.controller('CreateController', function ($scope, $mdDialog, GameService, U
         console.log(gameInfo);
     };//end of sendGame
 
-    creator.goToTable= function(){
+    creator.goToTable = function () {
         $location.path('/table');
     };
 
