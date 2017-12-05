@@ -34,19 +34,19 @@ table.surfaceChanger = function(surface){
     }
     return result;
 };
-    vm.sortColumn = "date";
-    vm.reverseSort = false;
+    table.sortColumn = "size";
+    table.reverseSort = false;
 
-    vm.sortData = function (column) {
-        vm.reverseSort = (vm.sortColumn == column) ? !vm.reverseSort : false;
-        vm.sortColumn = column;
-    }
+    table.sortData = function (column) {
+        table.reverseSort = (table.sortColumn == column) ? !table.reverseSort : false;
+        table.sortColumn = column;
+    };
 
-    vm.getSortClass = function (column) {
-        if (vm.sortColumn == column) {
-            return vm.reverseSort ? 'arrow-down' : 'arrow-up';
+    table.getSortClass = function (column) {
+        if (table.sortColumn == column) {
+            return table.reverseSort ? 'arrow-down' : 'arrow-up';
         }
         return '';
-    }
+    };
 
 });

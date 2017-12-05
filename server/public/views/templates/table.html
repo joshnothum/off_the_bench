@@ -1,99 +1,99 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<md-toolbar>
+<!-- <md-toolbar>
     <div class="md-toolbar-tools" layout-align="center center">
         <h2>Location Data</h2>
     </div>
 </md-toolbar>
 
 <md-card>
-<table class="table table-hover table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Lights</th>
-            <th>Size</th>
-            <th>Price</th>
-            <th>Surface</th>
-            <th>Air Conditioning</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="info in tc.locationInfoForTable.data| orderBy:'-price'" >
-            <td style="font-size: 18px">{{info.name}}</td>
-            <td style="font-size: 18px">{{info.formatted_address}}</td>
-            <td style="font-size: 18px"> {{info.lights?'Yes':'No'}}</td>
-            <td style="font-size: 18px">{{tc.dataChanger(info.size)}}</th>
-            <td style="font-size: 18px"> {{info.price?'Free!':'Not Free'}}</td>
-            <td style="font-size: 18px"> {{tc.surfaceChanger(info.surface)}}</td>
-            <td style="font-size: 18px">{{info.air_con?'Yes':'No'}}</td>
-        </tr>
-    </tbody>
-</table>
-</md-card>
-
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Lights</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Surface</th>
+                <th>Air Conditioning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="info in tc.locationInfoForTable.data| orderBy:'-price'">
+                <td style="font-size: 18px">{{info.name}}</td>
+                <td style="font-size: 18px">{{info.formatted_address}}</td>
+                <td style="font-size: 18px"> {{info.lights?'Yes':'No'}}</td>
+                <td style="font-size: 18px">{{tc.dataChanger(info.size)}}</th>
+                    <td style="font-size: 18px"> {{info.price?'Free!':'Not Free'}}</td>
+                    <td style="font-size: 18px"> {{tc.surfaceChanger(info.surface)}}</td>
+                    <td style="font-size: 18px">{{info.air_con?'Yes':'No'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</md-card> -->
+<div class="container">
 <div>
     <md-button class="md-raised md-primary" ng-click="tc.openWindow()">
         <md-icon class="material-design">add</md-icon> Add transaction</md-button>
 </div>
 <div flex layout="row" layout-align="center center">
 </div>
-<h2 class="md-title">RECORDS FOR TRANSACTIONS</h2>
+<h2 class="md-title">Locations</h2>
 <br>
 <div class="searchBar">
-    <md-icon md-svg-icon="images/search.svg"></md-icon>
+    <md-icon calss="material-design">search</md-icon>
     <input type="text" placeholder="Search..." ng-model="searchText" />
 </div>
 <br>
 <br>
 <md-table-container>
-    <table md-table class="transactionTbl">
+    <table md-table class="table">
         <thead md-head>
             <tr md-row>
-                <th ng-click="tc.sortData('id')">Transaction ID
-                    <div ng-class="tc.getSortClass('id')"></div>
+                <th ng-click="tc.sortData('name')">Name
+                    <div ng-class="tc.getSortClass('name')"></div>
                 </th>
-                <th ng-click="tc.sortData('date')">Date
-                    <div ng-class="tc.getSortClass('date')"></div>
+                <th ng-click="tc.sortData('formatted_address')">Address
+                    <div ng-class="tc.getSortClass('formatted_address')"></div>
                 </th>
-                <th ng-click="tc.sortData('description')">Description
-                    <div ng-class="tc.getSortClass('description')"></div>
+                <th ng-click="tc.sortData('lights')">Lights
+                    <div ng-class="tc.getSortClass('lights')"></div>
                 </th>
-                <th ng-click="tc.sortData('category_id')">Category ID
-                    <div ng-class="tc.getSortClass('category_id')"></div>
+                <th ng-click="tc.sortData('size')">Size
+                    <div ng-class="tc.getSortClass('size')"></div>
                 </th>
-                <th ng-click="tc.sortData('category_name')">Category Name
-                    <div ng-class="tc.getSortClass('category_name')"></div>
+                <th ng-click="tc.sortData('price')">Price
+                    <div ng-class="tc.getSortClass('price')"></div>
                 </th>
-                <th ng-click="tc.sortData('amount')">Amount
-                    <div ng-class="tc.getSortClass('amount')"></div>
+                <th ng-click="tc.sortData('surface')">Surface
+                    <div ng-class="tc.getSortClass('surface')"></div>
                 </th>
-                <th ng-click="tc.sortData('user_id')">User ID
-                    <div ng-class="tc.getSortClass('user_id')"></div>
+                <th ng-click="tc.sortData('air_con')">Air Conditioning
+                    <div ng-class="tc.getSortClass('air_con')"></div>
                 </th>
             </tr>
         </thead>
         <tbody md-body>
-            <tr md-row ng-repeat=“transaction in tc.transactionList.data | orderBy:tc.sortColumn:tc.reverseSort | filter:searchText”>
-                <td md-cell>{{transaction.id}}</td>
-                <td md-cell>{{transaction.date | date: “MM/dd/yyyy”}}</td>
-                <td md-cell>{{transaction.description | uppercase}}</td>
-                <td md-cell>{{transaction.category_id}}</td>
-                <td md-cell>{{transaction.category_name | uppercase}}</td>
-                <td md-cell>{{transaction.amount | currency: “$”}}</td>
-                <td md-cell>{{transaction.user_id}}</td>
+            <tr md-row ng-repeat='info in tc.locationInfoForTable.data |orderBy:tc.sortColumn:tc.reverseSort | filter:searchText'>
+                <td md-cell >{{info.name}}</td>
+                <td md-cell >{{info.formatted_address}}</td>
+                <td md-cell> {{info.lights?'Yes':'No'}}</td>
+                <td md-cell >{{tc.dataChanger(info.size)}}</td>
+                <td md-cell > {{info.price?'Free!':'Not Free'}}</td>
+                <td md-cell > {{tc.surfaceChanger(info.surface)}}</td>
+                <td md-cell >{{info.air_con?'Yes':'No'}}</td>
                 <td>
-                    <button md-button class=“sm-raised sm-secondary” type=“submit” ng-click=“tc.editClicked(transaction);“>
-                        <md-icon md-svg-icon=“images/edit.svg”></md-icon>
-                    </button>
+                    <md-button>
+                        <md-icon class="material-design">edit</md-icon>
+                    </md-button>
                 </td>
                 <td>
-                    <button md-button class=“sm-raised sm-secondary” type=“submit” ng-click=“tc.deleteTransaction(transaction.id)“>
-                        <md-icon md-svg-icon=“images/trash.svg”></md-icon>
-                    </button>
+                    <md-button type=“delete”>
+                        <md-icon class="material-design">trash</md-icon>
+                    </md-button>
                 </td>
             </tr>
         </tbody>
-        </table>
-        </md-table-container>
+    </table>
+</md-table-container>
 </div>
