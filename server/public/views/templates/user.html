@@ -1,27 +1,25 @@
-<div ng-include="'views/partials/nav.html'">
-</div>
 
-<md-toolbar>
-    <div class="md-toolbar-tools" layout-align="center center">
-        <h2>User Dashboard</h2>
-    </div>
-</md-toolbar>
-<div id="container" layout="row" layout-align="space-around start" layout-padding>
+<div id="container" layout="column" layout-align="center start" layout-padding>
 
-    <md-card flex="20" layout="column" layout-align="space-between start">
-        <md-toolbar>
-            <div class="md-toolbar-tools">
+
+    <!-- <md-card flex="35" layout="column" layout-align="center center">
+        <md-toolbar class="md-toolbar-tools">
                 <md-card-title-text>
                     <span class="md-headline" layout="column" layout-align="space-between start">User Actions</span>
                 </md-card-title-text>
-            </div>
-        </md-toolbar>
-        <md-button style="font-size: 18px" class="md-accent" aria-label="Data" ng-click="uc.tableScreen()">Data</md-button>
-        <md-button style="font-size: 18px" class="md-accent" aria-label="Create" ng-click="uc.createScreen()">Create</md-button>
-        <md-button style="font-size: 18px" class="md-accent" aria-label="Browse" ng-click="uc.browseGames()">Browse</md-button>
-        <md-button style="font-size: 18px" class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location</md-button>
-    </md-card>
-    <md-card flex="70">
+            </md-toolbar>
+            
+        <md-button style="font-size: 18px" class="md-accent" aria-label="Data">Search Database</md-button>
+        <md-button style="font-size: 18px" class="md-accent" aria-label="Create"></md-button>
+        <md-button style="font-size: 18px" class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location to Database</md-button>
+    </md-card> -->
+
+
+    <div id="rectangle" layout-padding layout="column" layout-align="space between center">
+            <md-button style="font-size: 18px" class="md-accent" aria-label="Data">Search Database</md-button>
+            <md-button style="font-size: 18px" class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location to Database</md-button>
+    </div>
+    <!-- <md-card flex="70">
         <md-toolbar>
             <div class="md-toolbar-tools" layout="row">
                 <div style="font-size: 18px" flex="30" layout-padding>Name</div>
@@ -42,6 +40,6 @@
         </md-list>
 
 
-    </md-card>
+    </md-card> -->
 
 </div>

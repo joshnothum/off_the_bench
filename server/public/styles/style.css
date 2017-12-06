@@ -122,3 +122,10 @@ li a:hover {
   animation: 0.5s myChange;
 }
 
+
+#rectangle {
+  width: 400px;
+  height: 300px;
+  background:lightyellow;
+  top: 50%;
+}
