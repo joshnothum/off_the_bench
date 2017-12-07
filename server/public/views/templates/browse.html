@@ -1,9 +1,4 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<md-toolbar>
-    <div class="md-toolbar-tools" layout-align="center center">
-        <h2>Browse Games</h2>
-    </div>
-</md-toolbar>
 <div class="container-fluid clearCard">
     <md-content layout="row" layout-padding layout-align="center center" layout-wrap class="clearCard">
         <md-card ng-repeat='games in browser.gamesObject.data| orderBy:"-date"' style="max-height: 300px" class="md-primary">

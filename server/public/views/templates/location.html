@@ -1,9 +1,4 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<md-toolbar>
-    <div class="md-toolbar-tools" layout-align="center center">
-        <h2>Search for Location</h2>
-    </div>
-</md-toolbar>
 <div class="container" layout-padding>
     <md-card>
         <ng-map center="[{{place.locationDetail.detail.geometry.location.lat}},{{place.locationDetail.detail.geometry.location.lng}}]">

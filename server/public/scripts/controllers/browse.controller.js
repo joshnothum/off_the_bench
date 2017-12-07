@@ -18,13 +18,7 @@ myApp.controller('BrowseController', function ($scope, $mdDialog, GameService, $
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true
-                })
-                .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
                 });
-
 
         });
 
