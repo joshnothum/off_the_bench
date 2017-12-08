@@ -1,13 +1,9 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-    <div>
-        <md-button class="md-raised md-primary" ng-click="tc.openWindow()">
-            <md-icon class="material-design">add</md-icon> Add transaction</md-button>
-    </div>
-    <div flex layout="row" layout-align="center center">
-    </div>
+    <div id="tableHolder">
     <h2 class="md-title">Locations</h2>
     <br>
+    
     <div class="searchBar">
         <md-icon calss="material-design">search</md-icon>
         <input type="text" placeholder="Search..." ng-model="searchText" />
@@ -64,4 +60,5 @@
             </tbody>
         </table>
     </md-table-container>
+    </div>
 </div>

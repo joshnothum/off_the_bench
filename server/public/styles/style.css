@@ -129,3 +129,7 @@ li a:hover {
   background:lightyellow;
   top: 50%;
 }
+
+#tableHolder{
+   background: rgba(229, 230, 224, 0.7)
+}
