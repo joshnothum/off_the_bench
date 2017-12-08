@@ -16,30 +16,9 @@
 
 
     <div id="rectangle" layout-padding layout="column" layout-align="space between center">
-            <md-button style="font-size: 18px" class="md-accent" aria-label="Data">Search Database</md-button>
+            <md-button style="font-size: 18px" class="md-accent" aria-label="Data" ng-click="uc.tableScreen()">Search Database</md-button>
             <md-button style="font-size: 18px" class="md-accent" aria-label="Add Location" ng-click="uc.searchScreen()">Add Location to Database</md-button>
     </div>
-    <!-- <md-card flex="70">
-        <md-toolbar>
-            <div class="md-toolbar-tools" layout="row">
-                <div style="font-size: 18px" flex="30" layout-padding>Name</div>
-                <div style="font-size: 18px" flex="25" layout-padding>Game Date</div>
-                <div style="font-size: 18px" flex="20" layout-padding>Game Time</div>
-                <div style="font-size: 18px" flex="25" layout-padding>Leave Game</div>
-            </div>
-        </md-toolbar>
-        <md-list>
-            <md-list-item layout="row" ng-repeat="game in uc.userGames.data| orderBy:'date'" ng-click="uc.goToGame(game)">
-                <div flex="30" layout-padding>{{game.name}}</div>
-                <div flex="25" layout-padding>{{game.date}}</div>
-                <div flex="20" layout-padding>{{game.time}}</div>
-                <div flex="25" layout-padding>
-                    <md-button class="md-raised md-warn" ng-click="uc.unJoinGames(game)">Leave Game</md-button>
-                </div>
-            </md-list-item>
-        </md-list>
 
-
-    </md-card> -->
 
 </div>
