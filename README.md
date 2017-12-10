@@ -2,7 +2,7 @@
 
 Off the Bench
 
-Off the Bench is a web application designed to promote pick-up basketball in Minneapolis.  Users will create and join pickup games with the unique, intuitive design provided by Off the Bench.  Supported by Google Places, Google Maps and Trillo APIs, Off the Bench aspires to encourage teamwork, excercise and goodwill in the Minneapolis community.
+Off the Bench is a web application designed to promote pick-up basketball in Minneapolis.  Users will locate courts around Minneapolis/St. Paul and provide additional information for each court.  Supported by Google Places, Google Maps and FileStack APIs, Off the Bench aspires to encourage teamwork, exercise and goodwill in the Minneapolis community.
 
 ## Getting Started
 
@@ -44,7 +44,6 @@ High level list of items completed.
 - [x] Design Login Screen
 - [x] Create Database
 - [x] Create locations Search view
-- [x] Create game create View
 - [x] Style
 - [x] Implement Create/Post route
 - [x] Join routes
@@ -61,9 +60,8 @@ High level list of items completed.
 
 Features that you would like to add at some point in the future.
 
-- [] Trillo implementation
-- [] Options for wheelchair accessibility
-- [] Harrasmnt reporting feature
+- [] Google Places edit function
+- [] FileStack photo upload for courts
 - [] Rating system for courts around the city
 
 ## Deployment
