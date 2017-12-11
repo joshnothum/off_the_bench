@@ -28,6 +28,7 @@
     "express-session": "^1.13.0",
     "fs": "0.0.1-security",
     "jquery": "^2.1.4",
+    "less": "^2.7.3",
     "material-design-icons": "^3.0.1",
     "moment": "^2.19.2",
     "ng-table": "^3.0.1",
