@@ -80,7 +80,15 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
       }
 
     })
-    .when('/dialog', {
+    .when('/calendar', {
+      templateUrl: '/views/templates/calendar.html',
+      controller: 'CalendarController as cc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
+    }).when('/dialog', {
       templateUrl: '/views/templates/dialog.html',
       controller: 'DialogController as dc',
       resolve: {
