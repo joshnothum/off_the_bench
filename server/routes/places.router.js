@@ -6,6 +6,8 @@ require('dotenv').config();
 var request = require('request');
 let newPlace = '';
 const fs = require('fs');
+
+var plivo = require('plivo');
 API_KEY = process.env.API_KEY;
 
 
@@ -29,6 +31,38 @@ places.get('/locationDetail', function (req, res) {
         res.send(body);
     });
 });//end of places.get(/info)
+
+places.get('/', function (req, res){
+    request('https://api.plivo.com/v1/', { qs: req.query }, function (error, response, body) {
+        res.send(body);
+    });
+
+});
+
+
+var plivo = require('plivo');
+var p = plivo.RestAPI({
+    authId: 'Your AUTH_ID',
+    authToken: 'Your AUTH_TOKEN'
+});
+
+var params = {
+    'src': '1111111111', // Sender's phone number with country code
+    'dst': '2222222222', // Receiver's phone Number with country code
+    'text': "Hi, text from Plivo", // Your SMS Text Message - English
+    //'text' : "こんにちは、元気ですか？", // Your SMS Text Message - Japanese
+    //'text' : "Ce est texte généré aléatoirement", // Your SMS Text Message - French
+    'url': "http://example.com/report/", // The URL to which with the status of the message is sent
+    'method': "GET" // The method used to call the url
+};
+
+// Prints the complete response
+p.send_message(params, function (status, response) {
+    console.log('Status: ', status);
+    console.log('API Response:\n', response);
+    console.log('Message UUID:\n', response['message_uuid']);
+    console.log('Api ID:\n', response['api_id']);
+});
 
 places.post('/', function (req, res) {
 
