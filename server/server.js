@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
+let fs = require('fs');
 require('dotenv').config();
 var passport = require('./strategies/sql.localstrategy');
 var sessionConfig = require('./modules/session.config');
@@ -12,7 +12,6 @@ var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
 let placesRouter = require('./routes/places.router');
 let infoRouter = require('./routes/info.router');
-
 var port = process.env.PORT || 5000;
 
 // Body parser middleware
