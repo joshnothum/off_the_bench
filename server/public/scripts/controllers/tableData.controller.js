@@ -49,4 +49,8 @@ myApp.controller('TableController', function ($http, $location, UserService, Gam
         return '';
     };
 
+    table.goToCourtInfo = function (court_id){
+        $location.path('/courtInfo');
+    };
+
 });

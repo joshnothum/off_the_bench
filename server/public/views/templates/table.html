@@ -35,6 +35,9 @@
                     <th ng-click="tc.sortData('air_con')">Air Conditioning
                         <div ng-class="tc.getSortClass('air_con')"></div>
                     </th>
+                    <th >More Info
+                        <div></div>
+                    </th>
                 </tr>
             </thead>
             <tbody md-body>
@@ -47,13 +50,8 @@
                     <td md-cell> {{tc.surfaceChanger(info.surface)}}</td>
                     <td md-cell>{{info.air_con?'Yes':'No'}}</td>
                     <td>
-                        <md-button>
-                            <md-icon class="material-design">edit</md-icon>
-                        </md-button>
-                    </td>
-                    <td>
-                        <md-button type=“delete”>
-                            <md-icon class="material-design">trash</md-icon>
+                        <md-button type=“info” ng-click="tc.goToCourtInfo()">
+                            <md-icon class="material-design">information-outline</md-icon>
                         </md-button>
                     </td>
                 </tr>

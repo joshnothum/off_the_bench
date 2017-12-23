@@ -114,6 +114,14 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
           return UserService.getuser();
         }
       }
+    }).when('/courtInfo', {
+      templateUrl: 'courtInfo',
+      controller: 'CourtController as cc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
     })
     .otherwise({
       redirectTo: 'home'
