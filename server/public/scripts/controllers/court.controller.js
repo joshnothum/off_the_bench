@@ -2,11 +2,20 @@ myApp.controller('CourtController', function ($scope, $mdDialog, LocationService
 console.log('created');
 
 let court = this;
-
+court.selectedIndex = 0;
 
 court.info = LocationService.courtInfo;
 console.log('courtInfo', court.info);
+court.nextImage = function () {
+        console.log('made it here');
 
+        court.selectedIndex += 1;
+        if (court.selectedIndex >= court.photo_reference.length) {
+            court.selectedIndex = 0;
+        }
+
+
+    };
 
     court.dataChanger = function (data) {
 

@@ -33,6 +33,8 @@ myApp.controller('PlacesController', function ($http, $location, UserService, Ga
 
         let sendLocation = locationToSend.detail;
         console.log(sendLocation);
+        console.log(sendLocation.photos);
+        
 
         console.log(courtInfoToSend);
 

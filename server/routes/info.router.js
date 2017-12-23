@@ -176,7 +176,10 @@ info.get('/table', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        client.query('SELECT "locations"."formatted_address", "locations"."lat","locations".place_id, "locations"."lng", "locations"."name", "locations"."url", "locations"."id", "courts"."lights", "courts"."indoor", "courts"."size", "courts"."surface", "courts"."air_con", "courts"."price" FROM "locations" JOIN "courts" ON "locations"."id" = "courts"."location_id";',
+        client.query('SELECT "locations"."formatted_address", "locations"."lat","locations".place_id, "locations"."lng", "locations"."name", "locations"."url", "locations"."id", "courts"."lights", "courts"."indoor", "courts"."size", "courts"."surface", "courts"."air_con", "courts"."price", "courts"."photos"'+
+        ' FROM "locations" '+
+        'JOIN "courts"'+
+        ' ON "locations"."id" = "courts"."location_id";',
 
             function (err, result) {
                 done();
