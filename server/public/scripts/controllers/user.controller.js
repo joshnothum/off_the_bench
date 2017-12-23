@@ -1,4 +1,4 @@
-myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope, SweetAlert) {
+myApp.controller('UserController', function (UserService, GameService, $location, MapService, $scope) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
