@@ -1,4 +1,4 @@
-myApp.controller('TableController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, NgMap, $mdPanel) {
+myApp.controller('TableController', function ($http, $location, UserService, GameService, $mdDialog, $scope, MapService, LocationService) {
     console.log('TableController created');
     let table = this;
     MapService.loadTablePlaces();
@@ -50,6 +50,10 @@ myApp.controller('TableController', function ($http, $location, UserService, Gam
     };
 
     table.goToCourtInfo = function (court_id){
+        console.log(court_id);
+        
+        LocationService.getCourtInfo(court_id);
+
         $location.path('/courtInfo');
     };
 

@@ -176,7 +176,7 @@ info.get('/table', function (req, res, next) {
             console.log("Error connecting: ", err);
             res.sendStatus(500);
         }
-        client.query('SELECT "locations"."formatted_address", "locations"."lat", "locations"."lng", "locations"."lng", "locations"."name", "locations"."url", "locations"."id", "courts"."lights", "courts"."indoor", "courts"."size", "courts"."surface", "courts"."air_con", "courts"."price" FROM "locations" JOIN "courts" ON "locations"."id" = "courts"."location_id";',
+        client.query('SELECT "locations"."formatted_address", "locations"."lat","locations".place_id, "locations"."lng", "locations"."name", "locations"."url", "locations"."id", "courts"."lights", "courts"."indoor", "courts"."size", "courts"."surface", "courts"."air_con", "courts"."price" FROM "locations" JOIN "courts" ON "locations"."id" = "courts"."location_id";',
 
             function (err, result) {
                 done();
@@ -190,5 +190,34 @@ info.get('/table', function (req, res, next) {
             });// end of if function
     });//end of pool
 });//end of get
+
+info.get('/courtInfo:id', function(req, res, next){
+
+    let courtId = req.params.id;
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Error connecting: ", err);
+            res.sendStatus(500);
+        }
+        let queryText = 'SELECT "locations"."formatted_address", "locations"."lat", "locations"."lng", "locations"."lng", "locations"."name", "locations"."url", "locations"."id", "courts"."lights", "courts"."indoor", "courts"."size", "courts"."surface", "courts"."air_con", "courts"."price"'+
+        'FROM "locations" '+
+        'JOIN "courts" ON "locations"."id" = "courts"."location_id" '+
+        'WHERE "locations"."id" = $1;';
+        client.query(queryText, courtId,
+
+            function (err, result) {
+                done();
+
+                if (err) {
+                    console.log("Error getting data: ", err);
+                    res.sendStatus(500);
+                } else {
+                    console.log(result.rows);
+                    
+                    res.send(result.rows);
+                }//end of else
+            });// end of if function
+    });//end of pool
+});
 module.exports = info;
 

@@ -115,7 +115,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
         }
       }
     }).when('/courtInfo', {
-      templateUrl: 'courtInfo',
+      templateUrl: '/views/templates/courtInfo.html',
       controller: 'CourtController as cc',
       resolve: {
         getuser: function (UserService) {
