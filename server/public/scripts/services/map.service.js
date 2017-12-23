@@ -70,6 +70,7 @@ myApp.service('MapService', function ($http, $location) {
             url: locationInfo.url,
             formatted_phone_number: locationInfo.formatted_phone_number,
             place_id: locationInfo.place_id,
+            photo:locationInfo.photos,
             indoor: courtInfo.indoor,
             size: courtInfo.courtSize,
             surface: courtInfo.courtSurface,

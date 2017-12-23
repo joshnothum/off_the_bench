@@ -13,19 +13,17 @@ console.log(info);
 
 self.courtInfo = info;
 
-$http.get(function(){
-    $http.get('/court').then(function (success) {
-        console.log('loadTablePlaces is probably working');
-        self.allLocationsWithCourtData.data = success.data;
-        console.log(success.data);
 
-    }).catch(function (error) {
-        console.log('we gots an error in loadDataBasePlaces:', error);
-    });
+    // $http.get('/court').then(function (success) {
+    //     console.log('loadTablePlaces is probably working');
+    //     self.allLocationsWithCourtData.data = success.data;
+    //     console.log(success.data);
 
-});
+    // }).catch(function (error) {
+    //     console.log('we gots an error in loadDataBasePlaces:', error);
+    // });
+
 
 
 };
-
 });

@@ -97,10 +97,14 @@ places.post('/locations', function (req, res) {
             size: req.body.size,
             price: req.body.price,
             air_con: req.body.air_con,
+            photos: req.body.photo
         };
         // let savePhotos = {
         //     photo_reference: req.body.photos.photo_reference,
         // };
+        console.log('photos', saveCourt.photos);
+        
+
         let queryText = 'INSERT INTO "locations" (creator_id, name, formatted_address, lat, lng, url, formatted_phone_number, place_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" ;';
         client.query(queryText,
             [saveLocation.creator_id, saveLocation.name, saveLocation.formatted_address, saveLocation.lat, saveLocation.lng, saveLocation.url, saveLocation.formatted_phone_number, saveLocation.place_id],
@@ -112,7 +116,7 @@ places.post('/locations', function (req, res) {
                     res.sendStatus(500);
 
                 } else {
-                    let courtQueryText = 'INSERT INTO "courts" (indoor, lights, surface, size, price, air_con, location_id) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+                    let courtQueryText = 'INSERT INTO "courts" (indoor, lights, surface, size, price, air_con, location_id, photos) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);';
 
                     console.log(result.rows[0].id);
                     saveLocation.location_id = result.rows[0].id;
@@ -123,7 +127,7 @@ places.post('/locations', function (req, res) {
                     console.log(courtQueryText);
 
                     client.query(courtQueryText,
-                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, saveCourt.price, saveCourt.air_con, saveLocation.location_id],
+                        [saveCourt.indoor, saveCourt.lights, saveCourt.surface, saveCourt.size, saveCourt.price, saveCourt.air_con, saveLocation.location_id, saveCourt.photos],
                         function (err, result) {
                             done();
 

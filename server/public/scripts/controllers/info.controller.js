@@ -21,7 +21,7 @@ myApp.controller('InfoController', function (UserService, GameService, $http, $l
     console.log('made it here');
 
     info.selectedIndex += 1;
-    if (info.selectedIndex >= info.images.length) {
+    if (info.selectedIndex >= info.photoReference.length) {
       info.selectedIndex = 0;
     }
 
