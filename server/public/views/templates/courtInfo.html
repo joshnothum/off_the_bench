@@ -27,6 +27,7 @@
                         <hr>
 
                         <p class="w3-large">
+                            
                             <b>
                                 <i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Court Info</b>
                         </p>
@@ -77,9 +78,9 @@
 
             <!-- Right Column -->
             <div class="w3-twothird">
-                    {{cc.info}}
                 <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={{cc.info.photos[cc.selectedIndex].photo_reference}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8" alt="banana">
+                <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={{cc.info.photos[cc.selectedIndex]}}&key=AIzaSyC6pTgdL2rppjCyaN6ef5ZhMvB-6OSD7t8" alt="banana">
+                <md-button ng-click="cc.nextImage()"><md-icon class="material-icons">keyboard_arrow_right<md-icons></md-button>
                 </div>
 
                 <div class="w3-container w3-card w3-white">

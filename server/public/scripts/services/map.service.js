@@ -9,6 +9,7 @@ myApp.service('MapService', function ($http, $location) {
     self.mapSearch = {};
     self.allLocations = {};
     self.allLocationsWithCourtData = {};
+    let photoArray = [];
 
     self.getMoreLocationInfo = function (place_id) {
         let locationDetailSearch = {
@@ -57,10 +58,19 @@ myApp.service('MapService', function ($http, $location) {
         self.newGame.push(places);
     };
     self.createLocation = function (courtInfo, locationInfo) {
-
-        console.log(locationInfo);
+       
+        console.log(locationInfo.photos[1].photo_reference);
         console.log(courtInfo);
         //had some dataBinding issues and found this to work
+
+
+        for (var i=0; i<locationInfo.photos.length; i++){
+            photoArray.push(locationInfo.photos[i].photo_reference);
+            console.log('photoArray', photoArray);
+            
+            
+            
+        };
 
         let locationAndCourt = {
             name: locationInfo.name,
@@ -70,7 +80,7 @@ myApp.service('MapService', function ($http, $location) {
             url: locationInfo.url,
             formatted_phone_number: locationInfo.formatted_phone_number,
             place_id: locationInfo.place_id,
-            photo:locationInfo.photos,
+            photo:photoArray,
             indoor: courtInfo.indoor,
             size: courtInfo.courtSize,
             surface: courtInfo.courtSurface,
@@ -79,12 +89,15 @@ myApp.service('MapService', function ($http, $location) {
             lights: courtInfo.lights,
         };
 
-        console.log(locationAndCourt);
+        console.log('this is location and court', locationAndCourt);
+
+      
+        
 
 
         $http.post('/places/locations', locationAndCourt).then(function (response) {
         }).catch(function (response) {
-            $location.path('/create');
+     
             console.log('create location did not work:', response);
             console.log(response);
         });

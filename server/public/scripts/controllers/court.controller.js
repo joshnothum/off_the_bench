@@ -5,7 +5,10 @@ let court = this;
 court.selectedIndex = 0;
 
 court.info = LocationService.courtInfo;
+
 console.log('courtInfo', court.info);
+
+
 court.nextImage = function () {
         console.log('made it here');
 
@@ -16,7 +19,6 @@ court.nextImage = function () {
 
 
     };
-
     court.dataChanger = function (data) {
 
         let result = '';
@@ -47,4 +49,9 @@ court.nextImage = function () {
         return result;
     };
 
+
+
+
+
 });
+
