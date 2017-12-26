@@ -41,10 +41,15 @@ myApp.controller('UserController', function (UserService, GameService, $location
 
 
 
-  vm.tableScreen = function (params) {
+  vm.tableScreen = function () {
     MapService.loadDataBasePlaces();
     $location.path('/table');
   };
+
+   vm.goToInput = function () {
+     
+     $location.path('/input');
+   };
 
   // vm.getUserGames();
 });

@@ -1,0 +1,66 @@
+<div ng-include="'views/partials/nav.html'"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+                <h3>Select your location</h3>
+                <div  class="selectdemoOptionsWithAsyncSearch">
+                    <md-select placeholder="Locations" ng-model="pc.location" md-on-close="pc.grabLocation(pc.location)" style="min-width: 500px;">
+                        <md-option ng-value="location" ng-repeat="location in pc.allLocations.data">{{location.name}}</md-option>
+                    </md-select>
+                </div>
+            
+    </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{pc.moreInfo.detail.}}
+                <small>{{pc.moreInfo.detail.formatted_address}}</small>
+            </h1>
+        </div>
+    </div>
+    
+    <!-- /.row -->
+    
+    <!-- Portfolio Item Row -->
+    <div class="row">
+    
+        <div class="col-md-8">
+         
+                
+                <!-- Indicators -->
+    
+                <!-- Wrapper for slides -->
+                <div>
+                <ng-map default-style="false" zoom="11" style="height:670px" center="[44.9778,-93.2650]">
+                
+                    <marker position="[{{pc.moreInfo.detail.geometry.location.lat}},{{pc.moreInfo.detail.geometry.location.lng}}]"></marker>
+                </ng-map>
+                </div>
+    
+                <!-- Controls -->
+        
+        </div>
+        <md-button ng-click="pc.openPicker()"></md-button>
+    
+        <div class="col-md-4">
+            <h3>{{pc.moreInfo}}</h3>
+           <ul>
+               <li>{{pc.viewLocation}}</li>
+           </ul>
+            <h3>Project Details</h3>
+            <ul>
+                <li>Lorem Ipsum</li>
+                <li>Dolor Sit Amet</li>
+                <li>Consectetur</li>
+                <li>Adipiscing Elit</li>
+            </ul>
+        </div>
+    
+    </div>
+    <!-- /.row -->

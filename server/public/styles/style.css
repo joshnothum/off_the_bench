@@ -1,10 +1,4 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+
 
 .clearCard {
   background-color: transparent;
@@ -132,18 +126,4 @@ li a:hover {
 
 #tableHolder{
    background: rgba(229, 230, 224, 0.7)
-}
-
-.wrapper{
-display: grid;
-grid-gap: 5px;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: 300px 300px 300px;
-}
-
-.box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  font-size: 150%;
 }

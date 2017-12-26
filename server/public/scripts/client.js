@@ -122,6 +122,14 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $m
           return UserService.getuser();
         }
       }
+    }).when('/input', {
+      templateUrl: '/views/templates/input.html',
+      controller: 'PhotoController as pc',
+      resolve: {
+        getuser: function (UserService) {
+          return UserService.getuser();
+        }
+      }
     })
     .otherwise({
       redirectTo: 'home'
