@@ -8,18 +8,28 @@
     <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
   </div>
 </div> -->
-<div ng-controller="DialogController as dc">
-  <md-toolbar class="md-hue-2">
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Settings" ng-click="dc.goHome()">
-        <md-icon md-font-class="material-icons">list</md-icon>
-      </md-button>
 
-      <h2 flex="" md-truncate=""></h2>
-
-      <md-button class="md-icon-button" aria-label="Favorite" ng-click="dc.goAbout()">
-        <md-icon md-font-class="material-icons" style="color: greenyellow;">more_vert</md-icon>
-      </md-button>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container" ng-controller="DialogController as dc">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ng-click="dc.goHome()">Start Bootstrap</a>
     </div>
-  </md-toolbar>
-</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a ng-click="dc.goAbout()">About</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
