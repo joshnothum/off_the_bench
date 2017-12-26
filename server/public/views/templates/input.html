@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">{{pc.moreInfo.detail.}}
+            <h1 class="page-header">{{pc.moreInfo.detail.name}}
                 <small>{{pc.moreInfo.detail.formatted_address}}</small>
             </h1>
         </div>
@@ -46,10 +46,10 @@
                 <!-- Controls -->
         
         </div>
-        <md-button ng-click="pc.openPicker()"></md-button>
+        <md-button class="md-raised md-primary" ng-click="pc.openPicker()">Add FileStack</md-button>
     
         <div class="col-md-4">
-            <h3>{{pc.moreInfo}}</h3>
+            <h3></h3>
            <ul>
                <li>{{pc.viewLocation}}</li>
            </ul>
