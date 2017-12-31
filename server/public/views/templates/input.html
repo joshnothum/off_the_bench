@@ -46,19 +46,14 @@
                 <!-- Controls -->
         
         </div>
-        <md-button class="md-raised md-primary" ng-click="pc.openPicker()">Add FileStack</md-button>
+        <md-button class="md-raised md-primary" ng-click="pc.openPicker()">Add Photo</md-button>
     
         <div class="col-md-4">
-            <h3></h3>
-           <ul>
-               <li>{{pc.viewLocation}}</li>
-           </ul>
-            <h3>Project Details</h3>
+            <h3>Court Details</h3>
             <ul>
-                <li>Lorem Ipsum</li>
-                <li>Dolor Sit Amet</li>
-                <li>Consectetur</li>
-                <li>Adipiscing Elit</li>
+                <li>{{pc.moreInfo.detail.formatted_address}}</li>
+                <li>{{pc.moreInfo.detail.website}}</li>
+                <li>{{pc.moreInfo.detail.formatted_phone_number}}</li>
             </ul>
         </div>
     

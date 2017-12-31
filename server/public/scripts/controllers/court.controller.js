@@ -49,6 +49,9 @@ court.nextImage = function () {
         return result;
     };
 
+    court.goToInput = function () {
+        $location.path('/input');
+    };
 
 
 
