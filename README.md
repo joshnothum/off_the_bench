@@ -79,3 +79,5 @@ Features that you would like to add at some point in the future.
 * Josh Nothum
 
 ## Acknowledgments
+
+* Thanks to Google for allowing developers access to their APIs for software development purposes.
