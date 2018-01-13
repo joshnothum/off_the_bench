@@ -1,24 +1,25 @@
-# Name of Project
+# Off The Bench
 
-Off the Bench
 
-Off the Bench is a web application designed to promote pick-up basketball in Minneapolis.  Users will locate courts around Minneapolis/St. Paul and provide additional information for each court.  Supported by Google Places, Google Maps and FileStack APIs, Off the Bench aspires to encourage teamwork, exercise and goodwill in the Minneapolis community.
+Off the Bench is a web application designed to promote pick-up basketball in Minneapolis.  Users will locate courts around Minneapolis/St.Paul and provide additional information for each court.  Supported by Google Places, Google Maps and Filestack APIs, Off the Bench aspires to encourage teamwork, exercise and goodwill in the Minneapolis community.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-Link to software that is required to install the app (e.g. node).
+## Built with
 
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- [AngularJS](https://angularjs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Express](https://expressjs.com/)
+- [Google Places API](https://developers.google.com/places/)
+- [Filestack API](https://www.filestack.com/docs)
 
 
 ### Installing
 
-Steps to get the development environment running.
+1. Fork and clone this repository
+2. Run NPM install
+3. Create the SQL tables in your database
+4. Run npm start to start the web server
+5. In your browser (Firefox suggested) navigate to localhost:5000
 
 ```sql
 CREATE TABLE "users" (
@@ -26,14 +27,29 @@ CREATE TABLE "users" (
   "username" varchar(80) not null UNIQUE,
   "password" varchar(240) not null
 );
+CREATE TABLE "courts" (
+  "id" serial primary key,
+  "lights" boolean,
+  "surface" integer,
+  "size" integer,
+  "location_id" integer,
+  "air_con" boolean,
+  "price" boolean,
+  "photos" varchar[] not null,
+);
+CREATE TABLE "locations" (
+  "id" serial primary key,
+  "creator_id" boolean,
+  "name" integer,
+  "formatted_address" integer,
+  "url" integer,
+  "formatted_phone_number" boolean,
+  "place_id" boolean,
+  "lat" varchar[] not null,
+  "lng" numeric,
+
+);
 ```
-
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-## Documentation
-
 
 
 ### Completed Features
@@ -41,35 +57,26 @@ Include one or two screen shots of your project here (optional). Remove if unuse
 High level list of items completed.
 
 
-- [x] Design Login Screen
-- [x] Create Database
-- [x] Create locations Search view
-- [x] Style
-- [x] Implement Create/Post route
-- [x] Join routes
-- [x] Create user dashboard view
-- [x] Implement Edit and Delete buttons/routes
-- [x] Create Maps view
-- [x] Create user dashboard view
-- [x] Implement Introduction View
-- [x] Consistent Style
-
-
+- [x] Search for locations using Google Places API
+- [x] Add location to database with additional information
+- [x] Table view for stored locations
+- [x] Add photo through Filestack API
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
 
 - [] Google Places edit function
-- [] FileStack photo upload for courts
 - [] Rating system for courts around the city
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+(https://glacial-sierra-30356.herokuapp.com/#/home)
 
 ## Authors
 
 * Josh Nothum
 
 ## Acknowledgments
+
+* Thanks to Google for allowing developers access to their APIs for software development purposes.
