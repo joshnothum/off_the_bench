@@ -13,8 +13,14 @@ API_KEY = process.env.API_KEY;
 places.get('/', function (req, res) {
 
     req.query.key = API_KEY;
+    console.log(req.query);
+    
     request('https://maps.googleapis.com/maps/api/place/textsearch/json?', { qs: req.query }, function (error, response, body) {
         res.send(body);
+        
+        console.log("body",body);
+        
+        
     });
 
 });//end of places.get

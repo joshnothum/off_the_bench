@@ -4,20 +4,17 @@
 
 <div class="container">
 
-    <!-- Page Heading/Breadcrumbs -->
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">{{cc.info.name}}
             </h1>
         </div>
     </div>
-    <!-- /.row -->
 
     <!-- Content Row -->
     <div class="row">
-        <!-- Map Column -->
+  
         <div class="col-md-8">
-            <!-- Embedded Google Map -->
         <md-card>
             <ng-map style="height:670px" center="[{{cc.info.lat}},{{cc.info.lng}}]">
                 <marker position="{{cc.info.lat}},{{cc.info.lng}}"></marker>
